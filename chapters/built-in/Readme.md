@@ -841,27 +841,27 @@ var minValue = Math.min.apply(Math, values);   // 1
 It rounds numbers up to the nearest integer value.
 
 ```js
-Math.ceil(25.9);   //26
+Math.ceil(25.9);   // 26
 Math.ceil(25.5);   //26
-Math.ceil(25.1);   //26
+Math.ceil(25.1);   // 26
 ```
 
 #### floor(num)
 It rounds rounds numbers down to the nearest integer value.
 
 ```js
-Math.round(25.9);   //26
-Math.round(25.5);   //26
-Math.round(25.1);   //25
+Math.round(25.9);   // 26
+Math.round(25.5);   // 26
+Math.round(25.1);   // 25
 ```
 
 #### round(num)
 It rounds up if the number is at least halfway to the next integer value (0.5 or higher) and rounds down if not.
 
 ```js
-Math.floor(25.9);   //25
-Math.floor(25.5);   //25
-Math.floor(25.1);   //25
+Math.floor(25.9);   // 25
+Math.floor(25.5);   // 25
+Math.floor(25.1);   // 25
 ```
 
 #### random()

@@ -52,6 +52,7 @@ var dog = {
 
 ## Accessing Object's properties
 There are two ways to access a property of an object:
+
 * Using square bracket notation, for example `hero['occupation']`
 * Using the dot notation, for example `hero.occupation`
 
@@ -243,7 +244,7 @@ It contains a reference to the constructor function used to create this object.
 ```js
 h2.constructor   // Hero(name)
 
-/* following code means:
+/* Following code means:
  * "I don't care how object h2 was created,
  * but I want another one just like it" */
 var h3 = new h2.constructor('Rafaello');
@@ -333,18 +334,18 @@ original.howmany   // 0
 ```
 
 ## Comparing Objects
-When you compare objects, you'll get `true only if you compare two references to the same object.  
+When you compare objects, you'll get `true` only if you compare two references to the same object.  
 Comparing two distinct objects that happen to have the exact same methods and properties will return `false`.
 
 ```js
-    var fido  = {breed: 'dog'};
-    var benji = {breed: 'dog'};
+var fido  = {breed: 'dog'};
+var benji = {breed: 'dog'};
 
-    /* Comparing them will return false */
-    benji === fido   // false
-    benji == fido   // false
+/* Comparing them will return false */
+benji === fido   // false
+benji == fido   // false
 
-    var mydog = benji;
-    mydog === benji   // true
-    mydog === fido    // false
+var mydog = benji;
+mydog === benji   // true
+mydog === fido    // false
 ```

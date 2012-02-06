@@ -310,6 +310,6 @@ Dog.prototype = {paws: 4, hair: true};
 Dog.prototype.constructor = Dog;
 ```
 
-> #### Best Practice
+> #### Best practice
 >
 > When you overwrite the prototype, it is a good idea to reset the constructor property.

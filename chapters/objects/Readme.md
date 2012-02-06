@@ -52,6 +52,7 @@ var dog = {
 
 ## Accessing Object's properties
 There are two ways to access a property of an object:
+
 * Using square bracket notation, for example `hero['occupation']`
 * Using the dot notation, for example `hero.occupation`
 

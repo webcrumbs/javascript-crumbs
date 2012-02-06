@@ -1,0 +1,753 @@
+# Objects
+
+* JavaScript’s fundamental datatype
+* an unordered collection of properties, each of which has a name and a value
+* something like a _dictionary_ or an _associative array_
+* plus capability to inherit the properties of another object, known as its __prototype__
+<!-- * methods of an object are typically inherited properties, and this "prototypal inheritance" is a key feature of JavaScript.  -->
+* any value in JavaScript that is not a string, a number, _true_, _false_, _null_, or _undefined_ is an object
+* even though strings, numbers, and booleans are not objects, they behave like immutable objects
+* objects are dynamic: properties can be added and deleted
+* a property has a name and a value
+* property name may be any string, including the empty string, but no object may have two properties with the same name
+* the value may be any JavaScript value
+* when the value of a property is a function, we call it a method
+* to invoke the method `m` of an object `o`, we write `o.m()`.
+
+## Types of objects
+* A _native object_ is an object defined by the ECMAScript specification. Arrays, functions, dates, and regular expressions (for example) are native objects.
+* A _host object_ is an object defined by the host environment (such as a web browser) within which the JavaScript interpreter is embedded. The HTMLElement objects that represent the structure of a web page in client-side JavaScript are host objects.
+* A _user-defined_ object is any object created by the execution of JavaScript code.
+* An _own property_ is a property defined directly on an object.
+* An _inherited property_ is a property defined by an object's prototype object.
+
+
+
+
+## Creating objects
+
+### Object literals
+* also knonw as _initilizers_
+* are expressions whose value is a newly created object
+* the easiest way to create an object
+* an object literal is a comma-separated list of colon-separated 'name: value' pairs, enclosed within curly braces
+* a property name is a JavaScript identifier or a string literal (the empty string is allowed)
+* a property value is any JavaScript expression
+* the value of the expression (a primitive value or an object value) becomes the value of the property
+
+
+        var empty = {};                           // An object with no properties
+
+
+        var point = { x:0, y:0 };                 // Two properties
+
+
+        var point2 = {                            // More complex values
+          x: point.x
+        , y: point.y+1
+        };
+
+
+        var book = {
+          "main title": "JavaScript"              // Property names include spaces,
+        , 'sub-title': "The Definitive Guide"     // and hyphens, so use string literals
+        , "for": "all audiences"                  // for is a reserved word, so quote
+        , author: {                               // The value of this property is
+            firstname: "David"                    // itself an object. Note that
+          , surname: "Flanagan"                   // these property names are unquoted
+          }
+        };
+
+
+### Creating objects with _new_
+
+* the _new_ operator creates and initializes a new object
+* the new keyword must be followed by a function invocation
+* a function used in this way is called a _constructor_ and serves to initialize a newly created object.
+* it is common to define your own constructor functions to initialize newly created objects
+* core JavaScript includes built-in constructors for native types
+
+        var o = new Object();     // Create an empty object
+        var a = new Array();      // Create an empty array
+        var d = new Date();       // Create a Date object representing the current time
+        var r = new RegExp("js"); // Create a RegExp object for pattern matching
+
+
+## Querying and setting properties
+
+### Quering
+        var author = book.author;       // Get the "author" property of the book
+        var name = author.surname       // Get the "surname" property of the author
+        var title = book["main title"]  // Get the "main title" property of the book
+
+### Setting
+        book.edition = 6;                   // Create an "edition" property of book
+        book["main title"] = "ECMAScript";  // Set the "main title" property
+
+### Square bracket operator
+
+* useful to quering and setting properties which name is stored in a variable
+
+        var propertyName = "main title"
+        book[propertyName] = 'Javascript'
+
+## Deleting properties
+
+        delete book.author;         // The book object now has no author property.
+        delete book["main title"];  // Now it doesn't have "main title", either.
+
+* the delete operator only deletes own properties, not inherited ones.
+* a delete expression evaluates to _true_ if the delete succeeded or if the delete had no effect (such as deleting a nonexistent property)
+* delete also evaluates to _true_ when used (meaninglessly) with an expression that is not a property access expression
+
+        o = {x:1};           // o has own property x and inherits property toString
+        delete o.x;          // Delete x, and return true
+        delete o.x;          // Do nothing (x doesn't exist), and return true
+        delete o.toString;   // Do nothing (toString isn't an own property), return true
+        delete 1;            // Nonsense, but evaluates to true
+
+
+## Testing properties
+
+Testing membershib of a property in object can be accomplished by:
+* `in` operator
+
+        var o = { x: 1 }
+        "x" in o;           // true: o has an own property "x"
+        "y" in o;           // false: o doesn't have a property "y"
+        "toString" in o;    // true: o inherits a toString property
+
+* `hasOwnProperty()` method
+
+        var o = { x: 1 }
+        o.hasOwnProperty("x");         // true: o has an own property x
+        o.hasOwnProperty("y");         // false: o doesn't have a property y
+        o.hasOwnProperty("toString");  // false: toString is an inherited property
+
+* simply query the property
+
+        var o = { x: 1 }
+        o.x !== undefined;         // true: o has a property x
+        o.y !== undefined;         // false: o doesn't have a property y
+        o.toString !== undefined;  // true: o inherits a toString property
+
+## Enumerating properties
+
+* made by `for\in` loop
+
+        for(p in o) {
+          if (o.hasOwnProperty(p)) {       // Skip inherited properties
+            // ...
+          }
+        }
+
+        for(p in o) {
+          if (typeof o[p] === "function") { // Skip methods
+            // ...
+          }
+        }
+
+## Serializing object
+* object serialization is the process of converting an object’s state to a string from which it can later be restored
+* this task can be accomplished through `JSON.stringify()` and `JSON.parse()` functions
+* JSON stands for "JavaScript Object Notation" and its syntax is very similar to that of JavaScript object and array literals
+* but JSON syntax is a subset of JavaScript syntax, and it cannot represent all JavaScript values
+* objects, arrays, strings, finite numbers, _true_, _false_, and _null_ are supported and can be serialized and restored
+* NaN, Infinity, and -Infinity are serialized to _null_
+* Date objects are serialized to ISO-formatted date strings, but `JSON.parse()` leaves these in string form and does not restore the original Date object.
+* Function, RegExp, and Error objects and the undefined value cannot be serialized or restored
+* `JSON.stringify()` serializes only the enumerable own properties of an object
+* If a property value cannot be serialized, that property is simply omitted from the stringified output
+
+        var strBook = JSON.stringify(book);
+        // >>> "{"main title":"JavaScript","sub-title":"The Definitive Guide","for":"all audiences","author":{"firstname":"David","surname":"Flanagan"}}"
+        var bookCopy = JSON.parse(strBook);
+
+
+
+
+# Built-in objects
+
+## Array
+
+### Array initializer
+        var empty = []                            // An empty array: no expressions inside brackets means no elements
+        var plain = [1+2,'four']                  // A 2-element array. First element is 3, second is the string 'four'
+        var matrix = [[1,2,3], [4,5,6], [7,8,9]]; // nested array
+        var sparseArray = [1,,,,5];
+
+### Array constructor
+        var empty = new Array();
+        var plain = new Array(2+1,'four');
+        var a = new Array(5);
+        empty.length;    // >>> 0
+        plain.length;    // >>> 2
+        a.length;        // >>> 5
+
+### Array is an object
+        typeof a;        // >>> "object"
+
+Arrays are objects, but of a special type because:
+* the names of their properties are automatically assigned using numbers starting from 0
+* they have a length property which contains the number of elements in the array
+* they have additional built-in methods in addition to those inherited from the parent object
+
+### Stack methods: push, pop
+* a stack is referred to as a last-in-first-out (LIFO) structure
+* the insertion (called a push) and removal (called a pop) of items in a stack occur at only one point: the top of the stack
+ECMAScript arrays provide `push()` and `pop()` specifically to allow stack-like behavior
+
+        var colors = new Array();                // create an array
+        var count = colors.push('red', 'green'); // push any number of items
+        alert(count);                            // 2
+
+        count = colors.push('black');            // push another item on
+        alert(count);                            // 3
+
+        var item = colors.pop();                 // get the last item
+        alert(item);                             // "black"
+        alert(colors.length);                    // 2
+
+### Queue methods: shift, unshift
+* queues restrict access in a first-in-first-out (FIFO) data structure
+* a queue adds items to the end of a list and retrieves items from the front of the list
+* already knonw `push()` method adds items to the end of an array
+* `shift()` method retrieve the first item in the array
+* using shift() in combination with push() allows arrays to be used as queues
+
+        var colors = new Array();                     // create an array
+        var count = colors.push('red', 'green');      // push two items
+        alert(count);                                 // 2
+
+        count = colors.push('black');                 // push another item on
+        alert(count);                                 // 3
+
+        var item = colors.shift();                    // get the first item
+        alert(item);                                  // "red"
+        alert(colors.length);                         // 2
+
+
+* ECMAScript also provides an `unshift()` method for arrays
+* `unshift()` does the opposite of `shift()`: it adds any number of items to the front of an array and returns the new array length
+* by using `unshift()` in combination with `pop()`, it’s possible to emulate a queue where new values are added to the front of the array and values are retrieved off the back
+
+        var colors = new Array();                     // create an array
+        var count = colors.unshift('red', 'green');   // push two items
+        alert(count);                                 // 2
+
+        count = colors.unshift('black');              // push another item on
+        alert(count);                                 // 3
+
+        var item = colors.pop();
+        alert(item);                                  // "green"
+        alert(colors.length);                         // 2
+
+
+### Reordering methods: reverse, sort
+        var values = [1, 2, 3, 4, 5];
+        values.reverse();
+        alert(values);                                // 5,4,3,2,1
+
+        var values = [0, 1, 5, 10, 15];
+        values.sort();
+        alert(values);                                // 0,1,10,15,5
+
+* `sort()` method default behaviour changes order based on lexicographical order
+* it can be changed by passing a comparing function
+
+        function compare(value1, value2) {
+          return value2 - value1;
+        }
+
+        var values = [0, 1, 5, 10, 15];
+        values.sort(compare);
+        alert(values);                                // 0,1,5,10,15
+
+
+### Manipulation methods: concat, slice, splice
+
+#### concat
+    var colors = ["red", "green", "blue"];
+    var colors2 = colors.concat("yellow", ["black", "brown"]);
+    alert(colors);                                // red,green,blue
+    alert(colors2);                               // red,green,blue,yellow,black,brown
+
+#### slice
+    var colors = ["red", "green", "blue", "yellow", "purple"];
+    var colors2 = colors.slice(1);
+    var colors3 = colors.slice(1,4);
+    alert(colors2);                             // green,blue,yellow,purple
+    alert(colors3);                             // green,blue,yellow
+
+* if either the start or end position of `slice()` is a negative number, then the number is subtracted from the length of the array to determine the appropriate locations
+* calling `slice(-3, -1)` on an array with five items is the same as calling `slice(2, 4)`
+* if the end position is smaller than the start, then an empty array is returned
+
+#### splice
+
+`splice()` is useful for _deletion_, _insertion_ and _replacement_ in the middle of an array
+
+    var colors = ["red", "green", "blue"];
+    var removed = colors.splice(0,1);                   // remove the first item
+    alert(colors);                                      // green,blue
+    alert(removed);                                     // red - one item array
+
+    removed = colors.splice(1, 0, "yellow", "orange");  // insert two items at position 1
+    alert(colors);                                      // green,yellow,orange,blue
+    alert(removed);                                     // empty array
+
+    removed = colors.splice(1, 1, "red", "purple");     // insert two values, remove one
+    alert(colors);                                      // green,red,purple,orange,blue
+    alert(removed);                                     // yellow - one item array
+
+
+
+
+### Location methods: indexOf, lastIndexOf
+* the `indexOf()` method starts searching from the front of the array (item 0) and continues to the back
+* the `lastIndexOf()` starts from the last item in the array and continues to the front
+* the methods each return the position of the item in the array or –1 if the item isn’t in the array
+* `===` is used in comparison
+
+    var numbers = [1,2,3,4,5,4,3,2,1];
+
+    alert(numbers.indexOf(4));                      // 3
+    alert(numbers.lastIndexOf(4));                  // 5
+
+    alert(numbers.indexOf(4, 4));                   // 5
+    alert(numbers.lastIndexOf(4, 4));               // 3
+
+    var person = { name: "Nicholas" };
+    var people = [{ name: "Nicholas" }];
+
+    var morePeople = [person];
+    alert(people.indexOf(person));                  // -1
+    alert(morePeople.indexOf(person));              // 0
+
+### Iterative methods: every, filter, forEach, map, some
+* each of the iterative methods accepts two arguments:
+  1. a function to run on each item
+  2. an optional scope object in which to run the function (affecting the value of _this_)
+* the function passed into one of these methods will receive three arguments:
+  1. the array item value
+  2. the position of the item in the array
+  3. the array object itself
+
+
+#### every
+runs the given function on every item in the array and returns true if the function returns true for every item
+
+    var numbers = [1,2,3,4,5,4,3,2,1];
+
+    var everyResult = numbers.every(function(item, index, array) {
+      return (item > 2);
+    });
+
+    alert(everyResult);                                            //false
+
+#### some
+runs the given function on every item in the array and returns true if the function returns true for any one item
+
+    var someResult = numbers.some(function(item, index, array) {
+      return (item > 2);
+    });
+
+    alert(someResult);                                             //true
+
+#### filter
+runs the given function on every item in the array and returns an array of all items for which the function returns true
+
+    var numbers = [1,2,3,4,5,4,3,2,1];
+
+    var filterResult = numbers.filter(function(item, index, array){
+      return (item > 2);
+    });
+
+    alert(filterResult);                                          //[3,4,5,4,3]
+
+#### forEach
+runs the given function on every item in the array. This method has no return value
+
+    var numbers = [1,2,3,4,5,4,3,2,1];
+
+    numbers.forEach(function(item, index, array){
+      //do something here
+    });
+
+#### map
+runs the given function on every item in the array and returns the result of each function call in an array
+
+    var numbers = [1,2,3,4,5,4,3,2,1];
+
+    var mapResult = numbers.map(function(item, index, array){
+      return item * 2;
+    });
+
+    alert(mapResult);                                     //[2,4,6,8,10,8,6,4,2]
+
+
+### Reduction methods: reduce, reduceRight
+* both methods accept two arguments:
+  1. a function to call on each item
+  2. an optional initial value upon which the reduction is based
+* the passed function accepts four arguments:
+  1. the previous value
+  2. the current value
+  3. the item's index
+  4. the array object
+* any value returned from the function is automatically passed in as the first argument for the next item * the first iteration occurs on the second item in the array
+* `reduce()` perform reduction in left-to-right order
+* `reduceRight()` perform reduction in right-to-left order
+
+    var values = [1,2,3,4,5];
+
+    var sum = values.reduce(function(prev, cur, index, array){
+      return prev + cur;
+    });
+
+    alert(sum);                                          // 15
+
+
+    var values = [1,2,3,4,5,15];
+
+    var sum = values.reduceRight(function(prev, cur, index, array){
+      return prev - cur;
+    });
+
+    alert(sum);                                         // 0
+
+
+## Date
+the Date type stores dates as the number of milliseconds that have passed since midnight on January 1, 1970 UTC (Universal Time Code)
+
+    var now = new Date();
+
+    alert(now.toDateString());
+    alert(now.toString());
+
+Date constructor accept many format:
+* month/date/year (such as 6/13/2004)
+* month_name date, year (such as January 12, 2004)
+* day_of_week month_name date year hours:minutes:seconds time_zone (such as Tue May 25 2004 00:00:00 GMT-0700)
+* ISO 8601 extended format YYYY-MM-DDTHH:mm:ss.sssZ (such as 2004-05-25T00:00:00)
+
+    var someDate = new Date("May 25, 2004");
+    var someDate = new Date("25/5/2004");
+    var someDate = new Date('Tue May 25 2004 00:00:00 GMT-0700');
+    var someDate = new Date('2004-05-25T00:00:00');
+
+### now
+`now()` method is useful for profiling functions: it returns elapsed time since January 1, 1970 UTC in milliseconds
+
+    var start = Date.now();             //get start time
+
+    //call a function doSomething();
+
+    var stop = Date.now();              //get stop time
+    var result = stop – start;
+
+
+
+## RegExp
+
+### Regex literals
+
+[regular expressions](http://www.regular-expressions.info/) are easy to create
+
+    var expression = /pattern/flags;
+
+flags can be:
+
+* `g` — global mode, meaning the pattern will be applied to all of the string instead of stopping after the first match is found
+* `i` — case-insensitive mode, meaning the case of the pattern and the string are ignored when determining matches
+* `m` — multiline mode, meaning the pattern will continue looking for matches after reaching the end of one line of text
+
+
+### some regexp examples
+
+    /* Match all instances of "at" in a string. */
+
+    var pattern1 = /at/g;
+
+    /* Match the first instance of "bat" or "cat", regardless of case. */
+
+    var pattern2 = /[bc]at/i;
+
+    /* Match all three-character combinations ending with "at", regardless of case. */
+
+    var pattern3 = /.at/gi;
+
+
+_metacharacter_ : `( [ { \ ^ $ | ) ] } ? * + .`
+
+    /* Match the first instance of "bat" or "cat", regardless of case. */
+
+    var pattern1 = /[bc]at/i;
+
+    /* Match the first instance of "[bc]at", regardless of case. */
+
+    var pattern2 = /\[bc\]at/i;
+
+    /* Match all three-character combinations ending with "at", regardless of case. */
+
+    var pattern3 = /.at/gi;
+
+    /* Match all instances of ".at", regardless of case. */
+
+    var pattern4 = /\.at/gi;
+
+    /* Match the first instance of "bat" or "cat", regardless of case. */
+
+    var pattern1 = /[bc]at/i;
+
+    /* Same as pattern1, just using the constructor. */
+
+    var pattern2 = new RegExp("[bc]at", "i");
+
+### Instance methods: exec, test
+
+### exec
+* is intended for use with capturing groups `( ... )`
+* accepts a single argument, which is the string on which to apply the pattern
+* returns an array of information about the first match or _null_ if no match was found
+* the returned array, though an instance of Array, contains two additional properties:
+  1. `index`, which is the location in the string where the pattern was matched
+  2. `input`, which is the string that the expression was run against.
+* in the array, the first item is the string that matches the entire pattern, any additional items represent captured groups inside the expression
+
+    var text = "mom and dad and baby";
+    var pattern = /mom( and dad( and baby)?)?/gi;
+    var matches = pattern.exec(text);
+￼￼￼￼alert(matches.index);                          // 0
+    alert(matches.input);                          // "mom and dad and baby"
+    alert(matches[0]);                             // "mom and dad and baby"
+    alert(matches[1]);                             // " and dad and baby"
+    alert(matches[2]);                             // " and baby"
+
+    var text = “cat, bat, sat, fat";
+    var pattern1 = /.at/;
+
+    var matches = pattern1.exec(text);
+    alert(matches.index);                           // 0
+    alert(matches[0]);                              // cat
+    alert(pattern1.lastIndex);                      // 0
+
+    matches = pattern1.exec(text);
+    alert(matches.index);                           // 0
+    alert(matches[0]);                              // cat
+    alert(pattern1.lastIndex);                      // 0
+
+    var pattern2 = /.at/g;
+
+    var matches = pattern2.exec(text);
+    alert(matches.index);                           // 0
+    alert(matches[0]);                              // cat
+    alert(pattern2.lastIndex);                      // 0
+
+    matches = pattern2.exec(text);
+    alert(matches.index);                           // 5
+    alert(matches[0]);                              // bat
+    alert(pattern2.lastIndex);                      // 8
+
+#### test
+accepts a string argument and returns _true_ if the pattern matches the argument and _false_ if it does not
+
+    var text = “000-00-0000";
+    var pattern = /\d{3}-\d{2}-\d{4}/;
+    if (pattern.test(text)) {
+      alert("The pattern was matched.");
+    }
+
+## Function
+
+## Primitive wrapper
+### Boolean
+Boolean type is the reference type corresponding to the Boolean values
+
+    var booleanObject = new Boolean(true);
+
+CAVEAT: pay attention to not use Boolean object as Boolean expression
+
+    var falseObject = new Boolean(false);
+    var result = falseObject && true;
+    alert(result);                         // true
+
+    var falseValue = false;
+    result = falseValue && true;
+    alert(result);                         // false
+
+    alert(typeof falseObject);             // object
+    alert(typeof falseValue);              // boolean
+    alert(falseObject instanceof Boolean); // true
+    alert(falseValue instanceof Boolean);  // false
+
+### Number
+Number type is the reference type for numeric values
+
+    var numberObject = new Number(10);
+
+CAVEAT: pay attention to use Number instead of primitive Number value
+
+    var numberObject = new Number(10);
+    var numberValue = 10;
+    alert(typeof numberObject);            // "object"
+    alert(typeof numberValue);             // "number"
+    alert(numberObject instanceof Number); // true
+    alert(numberValue instanceof Number);  // false
+
+* `toString()` method
+* it optionally accepts a single argument indicating the radix in which to represent the number
+    var num = 10;
+    alert(num.toString());       // "10"
+    alert(num.toString(2));      // "1010"
+    alert(num.toString(8));      // "12"
+    alert(num.toString(10));     // "10"
+    alert(num.toString(16));     // "a"
+
+* `toFixed()` method returns a string representation of a number with a specified number of decimal points
+* it accepts an arguments indicating how many decimal places should be displayed
+    var num = 10;
+    alert(num.toFixed(2));          // "10.00"
+
+    var num = 10.005;
+    alert(num.toFixed(2));          // "10.01"
+
+* `toExponential()` method, which returns a string with the number formatted in exponential notation
+* it accepts one argument, which is the number of decimal places to output
+    var num = 10;
+    alert(num.toExponential(1));    // "1.0e+1"
+
+* `toPrecision()` method returns either the fixed or the exponential representation of a number, depending on which makes the most sense.
+* it takes one argument, which is the total number of digits to use to represent the number (not including exponents)
+    var num = 99;
+    alert(num.toPrecision(1));   // "1e+2"
+    alert(num.toPrecision(2));   // "99"
+    alert(num.toPrecision(3));   // "99.0"
+
+
+
+
+
+### String
+String type is the object representation for strings
+`length` property indicates number of character
+    var stringObject = new String('I love JavaScript!');
+    console.log(stringObject.length);
+    // > 11
+
+strings allow for bracket notation access to single character
+    var stringValue = 'hello world';
+    console.log(stringValue[1]);
+    // > "e"
+
+#### Instance methods
+
+`charAt(pos)`
+returns the character in the given position as a single-character string, like bracket notation access
+accept a single argument, which is the character’s zero-based position
+    var stringValue = 'hello world';
+    console.log(stringValue.charAt(1));
+    // > "e"
+
+
+`charCodeAt(pos)`
+returns the character code in the given string position
+accepts a single argument, which is the character’s zero-based position
+    var stringValue = 'hello world';
+    console.log(stringValue.charCodeAt(1));
+    // > 101
+
+`concat(str...)`
+ concatenate one or more strings to another
+ accepts any number of strings to concatenate as arguments
+    var stringValue = 'hello, ';
+    var result = stringValue.concat('my ', 'name ', 'is ', 'Bob');
+    console.log(result);
+    // > "hello, my name is Bob"
+    console.log(stringValue);
+    // > "hello, "
+
+`indexOf(searchString, position)`
+searches for a searchString within a string
+if it is found, it returns the position of the first matched character
+otherwise, it returns –1
+the optional position parameter causes the search to begin at some specified position in the string
+    var text = 'Mississippi';
+    var p = text.indexOf('ss');
+    console.log(p);
+    // > 2
+    p = text.indexOf('ss', 3);
+    // > 5
+    p = text.indexOf('ss', 6);
+    // > -1
+
+`lastIndexOf(searchString, position)`
+like the `indexOf` method, except that it searches from the end of the string instead of the front:
+     var text = 'Mississippi';
+     var p = text.lastIndexOf('ss');
+     console.log(p);
+     // > 5
+     p = text.lastIndexOf('ss', 3);
+     console.log(p);
+     // > 2
+     p = text.lastIndexOf('ss', 6);
+     // > 5
+
+`slice()`
+returns a new string by copying a portion of another string
+accepts two arguments: _start_ and _end_ position of the string portion
+end argument is optional, its default value is _string.length_
+if _start_ or _end_ are negative then _string.length_ is added to them
+
+     var text = 'and in it he says "Any damn fool could"';
+     var a = text.slice(18);
+     console.log(a);
+     // > ""Any damn fool could"
+     var b = text.slice(0, 3);
+     console.log(b);
+     // > "and"
+     var c = text.slice(-5);
+     console.log(c);
+     // > "could"
+     var d = text.slice(19, 32);
+     console.log(d);
+     // > "Any damn fool"
+
+
+`substr()`
+
+
+
+
+
+
+
+## Singleton built-in objects
+
+
+
+
+
+
+
+
+
+### Prototype
+
+* every JavaScript object has a second JavaScript object (or null, but this is rare) associated with it
+* this second object is known as a prototype, and the first object inherits properties from the prototype
+* all objects created by object literals have the same prototype object: `Object.prototype`
+* objects created using the _new_ keyword and a _constructor_ invocation use the value of the _prototype_ property of the constructor function as their prototype.
+
+`new Object()`  inherit from `Object.prototype`
+
+`new Array()` inherit from Àrray.prototype`
+
+`new Date()` inherit from `Date.prototype`
+
+### Object.create()
+
+
+## Object attributes: prototype, class, extensible
+
+## Object methods: toString(), toLocaleString(), toJSON()

@@ -46,7 +46,7 @@ the first one is your `Working Directory` which holds the actual files.
 the second one is the `Index` which acts as a staging area and   
 finally the `HEAD` which points to the last commit you've made.
 
-![trees](/images/trees.png "trees")
+![trees](./images/trees.png "trees")
 
 
 ## add & commit
@@ -96,7 +96,7 @@ Branches are used to develop features isolated from each other.
 The master branch is the "default" branch when you create a repository.  
 Use other branches for development and merge them back to the master branch upon completion.
 
-![branches](/images/branches.png "branches")
+![branches](./images/branches.png "branches")
 
 create a new branch named "feature_x" and switch to it using
 

@@ -334,7 +334,7 @@ original.howmany   // 0
 ```
 
 ## Comparing Objects
-When you compare objects, you'll get `true only if you compare two references to the same object.  
+When you compare objects, you'll get `true` only if you compare two references to the same object.  
 Comparing two distinct objects that happen to have the exact same methods and properties will return `false`.
 
 ```js

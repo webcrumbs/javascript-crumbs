@@ -1,74 +1,86 @@
-# Variables
+# Types
 
-ECMAScript variables are loosely typed, meaning that a variable can hold any type of data.
+## Variables
 
-Every variable is simply a named placeholder for a value.
+JavaScript variables are **loosely typed**:  
+a variable is simply a named placeholder for a value of any type.
 
-To define a variable, use the `var` operator (`var` is a keyword) followed by the variable name (an identifier).
+#### definition
 
-    var message;
+To define a variable, use the `var` operator followed by the variable name.
 
-This code defines a variable named `message` that can be used to hold any value.
+```js
+var message;
+```
 
-Without initialization, a variable holds the special value `undefined`.
+#### initialization
+
+Without initialization, a variable holds the special value `undefined`.  
 It’s possible to define the variable and set its value at the same time.
 
-    var message = "hello!";
+```js
+var message = 'hello!';
+```
 
-It's still possible to not only change the value stored in the variable but also change the type of value.
+It's possible to change the value stored in the variable and also its type.
 
-    var message = 'hi';
-    message = 100;      //legal, but not recommended
+```js
+var response = 'bye!';
+response = 100;        //legal, but not recommended
+```
 
-# Data types
+## Data types
 
 There are five simple data types (or primitive types):
 
-* Undefined
-* Null
-* Boolean
-* Number
-* String
+* Undefined  
+* Null  
+* Boolean  
+* Number  
+* String  
 
 and one complex data type:
 
 * Object
 
-All values can be represented as one of these six data types.
-Having only six data types may seem like too few to fully represent data;
-however, these data types have dynamic aspects that make each single data type behave like several.
+All values can be represented as one of these six data types.  
 
-## The typeof Operator
+### The typeof Operator
 
 Because ECMAScript is loosely typed, there needs to be a way to determine the data type of a given variable.
 The typeof operator provides a way to determine the data type of a given variable.
 Using the typeof operator on a value returns one of the following strings:
 
-* "undefined" if the value is undefined
-* "boolean" if the value is a boolean
-* "string" if the value is a string
-* "number" if the value is a number
-* "object" if the value is an object or null
-* "function” if the value is a function
+* `"undefined"` if the value is undefined
+* `"boolean"` if the value is a boolean
+* `"string"` if the value is a string
+* `"number"` if the value is a number
+* `"object"` if the value is an object or null
+* `"function"` if the value is a function
 
-for example:
+```js
+typeof undefined;       // "undefined"
+typeof null;            // "object"
+typeof true;            // "boolean"
+typeof 'false';         // "string"
+typeof 'hello';         // "string"
+typeof 42;              // "number"
+typeof 1.4142135;       // "number"
+typeof {key: 'value' }; // "object"
+typeof Math.sin;        // "function"
+typeof function () {};  // "function"
+```
 
-    typeof undefined;       // "undefined"
-    typeof null;            // "object"
-    typeof true;            // "boolean"
-    typeof 'false';         // "string"
-    typeof 'hello';         // "string"
-    typeof 42;              // "number"
-    typeof 1.4142135;       // "number"
-    typeof {key: 'value' }; // "object"
-    typeof Math.sin;        // "function"
-    typeof function () {};  // "function"
-
-Note that because `typeof` is an operator and not a function, no parentheses are required (although they can be used).
-Note that `typeof null` returns `"object"`, as the special value `null` is considered to be an empty object reference.
-
-Technically, functions are considered objects in ECMAScript and don’t represent another data type.
-However, they do have some special properties, which differentiate them from other objects.
+> #### Note
+> because `typeof` is an operator and not a function  
+> no parentheses are required (although they can be used)
+> 
+> because special value `null` is considered an empty object reference  
+> `typeof null` returns `"object"`
+> 
+> although functions are considered objects and don’t represent another data type  
+> they do have some special properties, which differentiate them from other objects,
+> `typeof function () {}` returns `"function"` not `"object"`
 
 ## Numbers
 
@@ -76,38 +88,56 @@ However, they do have some special properties, which differentiate them from oth
 
 The simplest number is an integer.
 
-    var intNum1 = 1;
-    var intNum2 = 2;
-    var intNum3 = 3;
+```js
+var intNum1 = 1;
+var intNum2 = 2;
+var intNum3 = 3;
+```
 
-### Octal and Hexadecimal numbers
+Integers can also be represented as either octal (base 8) or hexadecimal (base 16) literals.  
 
-Integers can also be represented as either octal (base 8) or hexadecimal (base 16) literals.
-Numbers created using octal or hexadecimal format are treated as decimal numbers in all arithmetic operations.
+> #### Note
+> Numbers created using octal or hexadecimal format are treated as decimal numbers in all arithmetic operations.
 
-Octal literal starts with digit zero (0) followed by a sequence of octal digits (0 through 7).
-If a number out of this range is detected in the literal,
-then the leading zero is ignored and the number is treated as a decimal.
+#### Octal numbers
+starts with digit zero `0` followed by a sequence of octal digits (`0` through `7`).  
 
-    var octalNum1 = 070; //octal for 56
-    var octalNum2 = 079; //invalid octal - interpreted as 79
-    var octalNum3 = 008; //invalid octal - interpreted as 8
+```js
+var octalNum1 = 070; //octal for 56
+var octalNum2 = 079; //invalid octal - interpreted as 79
+var octalNum3 = 008; //invalid octal - interpreted as 8
+```
 
-Hexadecimal literal starts with two characters 0x (case insensitive),
-followed by any number of hexadecimal digits (0 through 9, and A through F).
-Letters may be in uppercase or lowercase.
+> #### Note
+> If a number out of this range is detected in the literal,  
+> then the leading zero is ignored and the number is treated as a decimal.
 
-    var hexNum1 = 0xA; //hexadecimal for 10
-    var hexNum2 = 0x1f; //hexedecimal for 31
+#### Hexadecimal numbers
+starts with two characters `0x` followed by a sequence of hexadecimal digits (`0` through `9`, `A` through `F`).  
+
+```js
+var hexNum1 = 0x0;  //hexadecimal for 0
+var hexNum2 = 0xA;  //hexadecimal for 10
+var hexNum3 = 0X1F; //hexedecimal for 31
+```
+
+> #### Note
+> Letters may be in uppercase or lowercase.
 
 ### Floating-Point Values
 
-Floating-point value must include a decimal point and at least one number after the decimal point.
-Although an integer is not necessary before a decimal point, it is recommended.
+Floating-point value must include a decimal point `.` and at least one number after the decimal point.
 
-    var floatNum1 = 1.1;
-    var floatNum2 = 0.1;
-    var floatNum3 = .1; //valid, but not recommended
+```js
+var floatNum1 = 1.1;
+var floatNum2 = 0.1;
+```
+
+> #### Convention
+> Although an integer is not necessary before a decimal point, it is recommended.
+> ```js
+> var floatNum3 = .1;  //valid, but not recommended
+> ```
 
 Because storing floating-point values uses twice as much memory as storing integer values,
 ECMAScript always looks for ways to convert values into integers.

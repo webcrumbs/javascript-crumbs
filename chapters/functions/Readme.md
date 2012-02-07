@@ -296,7 +296,8 @@ f1(); //a is not defined
 
 ## Closure
 
-## Variable Scope
+### Variable Scope
+
 The scope of a variable is the region of the source code in which it is defined.
 
 In some C-like programming languages, each block of code within curly braces has its own scope, 
@@ -360,7 +361,7 @@ checkscope(); //"nested"
 scope;        //"global"
 ```
 
-### Hoisting
+### Variable hoisting
 
 JavaScript’s function scope means that all variables declared within a function are visible throughout the body of the function.
 Curiously, this means that variables are even visible before they are declared.  

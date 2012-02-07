@@ -260,7 +260,7 @@ a()();
 //"B!"
 ```
 
-Because a function can return a function, you can use the new function to replace the old one.
+Because a function can return a function, you can use the new function to replace the old one.  
 The function can actually rewrite itself from the inside.
 
 ```js
@@ -278,132 +278,150 @@ a(); //"B!"
 
 ## Lexical scope
 
-In JavaScript, functions have lexical scope.
-This means that functions create their environment (scope) when they are defined, not when they are executed.
+In JavaScript, functions have **lexical scope**:
+functions create their environment (scope) when they are defined, not when they are executed.
 
-    function f1 () { var a = 1; f2(); }
-    function f2 () { return a; }
-    f1(); //a is not defined
-
-Inside the function f1() we call the function f2().
-Because the local variable a is also inside f1(), one might expect that f2() will have access to a, but that's not the case.
-At the time when f2() was defined (as opposed to executed), there was no a in sight.
-f2(), just like f1(), only has access to its own scope and the global scope.
-f1() and f2() don't share their local scopes.
+```js
+function f1 () { 
+  var a = 1; 
+  f2(); 
+}
+    
+function f2 () { 
+  return a; 
+}
+    
+f1(); //a is not defined
+```
 
 ## Closure
 
 ## Variable Scope
-
 The scope of a variable is the region of the source code in which it is defined.
-A global variable has global scope; it is defined everywhere in the code.
-On the other hand, variables declared within a function are defined only within the body of the function.
-They are local variables and have local scope.
-Function parameters also count as local variables and are defined only within the body of the function.
-Within the body of a function, a local variable takes precedence over a global variable with the same name.
-If you declare a local variable or function parameter with the same name as a global variable, you effectively hide the global variable:
 
-    var scope = 'global';
-
-    function checkscope() {
-      var scope = 'local';
-      return scope;
-    }
-
-    console.log(scope); //"global"
-    checkscope();       //"local"
-
-Although you can get away with not using the var statement when you write code in the global scope,
-you must always use var to declare local variables.
-
-    var scope = "global";
-
-    function checkscope2() {
-      scope = "local";
-      return scope;
-    }
-
-    console.log(scope); //"local"
-    checkscope2();      //"local"
-
-Function definitions can be nested.
-Each function has its own local scope, so it is possible to have several nested layers of local scope.
-For example:
-
-    var scope = "global scope";
-
-    function checkscope() {
-      var scope = "local scope";
-
-      function nested() {
-        var scope = "nested scope";
-        return scope;
-      }
-
-      return nested();
-    }
-
-    checkscope(); //"nested scoper"
-
-### Function Scope and Hoisting
-
-In some C-like programming languages, each block of code within curly braces has its own scope, and variables are not visible outside of the block in which they are declared.
+In some C-like programming languages, each block of code within curly braces has its own scope, 
+and variables are not visible outside of the block in which they are declared.
 This is called block scope, and JavaScript does not have it.
 
-Instead, JavaScript uses function scope:
-variables are visible within the function in which they are defined and within any functions that are nested within that function.
+JavaScript uses **function scope**:
+variables are visible within the function in which they are defined  
+and within any functions that are nested within that function;  
+a global variable has global scope, it is defined everywhere in the code;  
+a variable declared within a function has a local scope, it is defined only within the body of the function.
 
-In the following code, the variables i, j, and k are declared in different spots,
-but all have the same scope, all three are defined throughout the body of the function:
+Function parameters count as local variables and are defined only within the body of the function.  
+A local variable, declared within a function, takes precedence over a global variable with the same name.
 
-    function test (o) {
-      var i = 0;                      //i is defined throughout function
-      if (typeof o == 'object') {
-        var j = 0;                    //j is defined everywhere, not just block
-        for (var k=0; k < 10; k++) {  //k is defined everywhere, not just loop
-          console.log(k);             //print numbers 0 through 9
-        }
-        console.log(k);               //k is still defined: prints 10
-      }
-      console.log(j);                 //j is defined, but may not be initialized
-    }
+```js
+var scope = 'global';
+
+function checkscope () {
+  var scope = 'local';
+  return scope;
+}
+
+checkscope(); //"local"
+scope;        //"global"
+```
+
+Although you can get away with not using the var statement when you write code in the global scope,  
+you must always use var to declare local variables.
+
+```js
+var scope = 'global';
+
+function checkscope () {
+  scope = 'local';
+  return scope;
+}
+
+checkscope(); //"local"
+scope;        //"local"
+```
+
+Each function has its own local scope.  
+Since functions can be nested, it is possible to have several nested layers of local scope.
+
+```js
+var scope = 'global';
+
+function checkscope () {
+  var scope = 'local';
+
+  function nested () {
+    var scope = 'nested';
+    return scope;
+  }
+
+  return nested();
+}
+
+checkscope(); //"nested"
+scope;        //"global"
+```
+
+### Hoisting
 
 JavaScript’s function scope means that all variables declared within a function are visible throughout the body of the function.
-Curiously, this means that variables are even visible before they are declared.
-This feature of JavaScript is informally known as hoisting:
+Curiously, this means that variables are even visible before they are declared.  
+This feature of JavaScript is informally known as **hoisting**:
 JavaScript code behaves as if all variable declarations in a function (but not any associated assignments) are "hoisted" to the top of the function.
 
-    var scope = "global";
-
-    function f () {
-      console.log(scope);  //prints "undefined", not "global"
-      var scope = "local"; //variable scope initialized here, but defined everywhere in f
-      console.log(scope);  //prints "local"
+```js
+function test (o) {
+  var i = 0;                      //i is defined throughout function
+  if (typeof o == 'object') {
+    var j = 0;                    //j is defined everywhere, not just block
+    for (var k=0; k < 10; k++) {  //k is defined everywhere, not just loop
+      console.log(k);             //print numbers 0 through 9
     }
+    console.log(k);               //k is still defined: prints 10
+  }
+  console.log(j);                 //j is defined, but may not be initialized
+}
+```
 
-You might think that the first line of the function would print “global”,
-because the var statement declaring the local variable has not yet been executed.
-Because of the rules of function scope, however, this is not what happens.
-The local variable is defined throughout the body of the function,
-which means the global variable by the same name is hidden throughout the function.
-Although the local variable is defined throughout,
-it is not actually initialized until the var statement is executed.
-Thus, the function above is equivalent to the following,
-in which the variable declaration is “hoisted” to the top and the variable initialization is left where it is:
+> #### Note
+> The variables `i`, `j`, and `k` are declared in different spots,  
+> but all have the same scope, all three are defined throughout the body of the function.
 
-    function f () {
-      var scope;          // local variable is declared at the top of the function
-      console.log(scope); // local variable exists here, but still has "undefined" value
-      scope = 'local';    // local variable is initialized
-      console.log(scope); // local variable has the value we expect
-    }
+```js
+var scope = "global";
 
-In programming languages with block scope,
-it is generally good programming practice to declare variables
-as close as possible to where they are used and with the narrowest possible scope.
+function f () {
+  console.log(scope);  //prints "undefined", not "local" nor "global"
+  var scope = "local"; //variable scope initialized here, but defined everywhere in f
+  console.log(scope);  //prints "local"
+}
+```
 
-Since JavaScript does not have block scope,
-some programmers make a point of declaring all their variables at the top of the function,
-rather than trying to declare them closer to the point at which they are used.
-This technique makes their source code accurately reflect the true scope of the variables.
+> #### Note
+> You might think that the first line of the function would print “global”,  
+> because the var statement declaring the local variable has not yet been executed.  
+> Because of the rules of function scope, however, this is not what happens.  
+> The local variable is defined throughout the body of the function,  
+> which means the global variable by the same name is hidden throughout the function.  
+> Although the local variable is defined throughout,  
+> it is not actually initialized until the var statement is executed.
 
+The function above is equivalent to the following,  
+in which the variable declaration is “hoisted” to the top  
+and the variable initialization is left where it is:
+
+```js
+function f () {
+  var scope;          // local variable is declared at the top of the function
+  console.log(scope); // local variable exists here, but still has "undefined" value
+  scope = 'local';    // local variable is initialized
+  console.log(scope); // local variable has the value we expect
+}
+```
+
+> ### Tip
+> In programming languages with block scope,
+> it is generally good programming practice to declare variables
+> as close as possible to where they are used and with the narrowest possible scope.
+> Since JavaScript does not have block scope,
+> some programmers make a point of declaring all their variables at the top of the function,
+> rather than trying to declare them closer to the point at which they are used.
+> This technique makes their source code accurately reflect the true scope of the variables.

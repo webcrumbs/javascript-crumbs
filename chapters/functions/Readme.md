@@ -39,10 +39,6 @@ var square = function (x) {
 };
 ```
 
-In JavaScript, functions are objects:  
-they can be assigned to variables and passed to other functions;  
-they have properties and methods.
-
 ## Invoking functions
 
 In order to make use of a function, you need to call it (invoke it).
@@ -69,7 +65,7 @@ var result = sum(1);
 result; // NaN
 ```
 
-### Argument lists
+### Arguments list
 
 When a function is invoked with more argument values than declared parameters,  
 there is no way to directly refer to the unnamed values.
@@ -114,25 +110,32 @@ maximum; //100
 
 ## Function as values
 
-JavaScript functions are actually data:  
-they can be assigned to variables or object properties.
+In JavaScript, functions are objects:  
+
+* they can be assigned to variables  
+* they can be passed to other functions  
+* they have properties
+
+but a special kind of object with two important features:
+
+* they contain code  
+* they are executable (can be invoked)  
+
+> #### Note
+> although functions are considered objects and don’t represent another data type
+> they do have some special properties, which differentiate them from other objects:
+> operator typeof applied to a function returns "function" not "object"
+> 
+> ```js
+> typeof function () {}; //"function"
+> ```
+
+JavaScript function can be assigned to variable or object properties.
 
 ```js
 var greetings = function () { return 'hello'; };
 var person = { say: greetings };
 ```
-
-When you use the `typeof` operator on a variable that holds a function value, it returns `"function"`.
-
-```js
-var greetings = function () { return 'hello'; };
-typeof greetings; //"function"
-```
-
-JavaScript functions are data, but a special kind of data with two important features:
-
-* they contain code
-* they are executable (can be invoked)
 
 JavaScript functions can be copied to a different variable.
 
@@ -143,119 +146,135 @@ var result = add(1, 2);
 result; //3
 ```
 
-Functions are not primitive values in JavaScript,
-but a specialized kind of object, which means that functions can have properties.
+JavaScript functions can have properties.
 
-    function add (x,y) { return x + y; }
-    function sub (x,y) { return x - y; }
-    function mul (x,y) { return x * y; }
-    function div (x,y) { return x / y; }
+```js
+function add (x,y) { return x + y; }
+function sub (x,y) { return x - y; }
+function mul (x,y) { return x * y; }
+function div (x,y) { return x / y; }
 
-    function calc (operator, x, y) {
-        return operator(x, y);
-    }
+function calc (operator, x, y) {
+  return operator(x, y);
+}
 
-    // Compute the value (2+3) + (4*5)
-    calc(add, calc(add, 2, 3), calc(mul, 4, 5));
+// Calculate ((2+3) + (4*5))
+calc(add, calc(add, 2, 3), calc(mul, 4, 5));
+```
 
-    var operators = {
-        add: function (x,y) { return x + y; }
-      , sub: function (x,y) { return x - y; }
-      , mul: function (x,y) { return x * y; }
-      , div: function (x,y) { return x / y; }
-      , pow: Math.pow
-    };
+```js
+var operators = {
+    add: function (x,y) { return x + y; }
+  , sub: function (x,y) { return x - y; }
+  , mul: function (x,y) { return x * y; }
+  , div: function (x,y) { return x / y; }
+  , pow: Math.pow
+};
 
-    function calc2 (operation, x, y) {
-        if (typeof operators[operation] === 'function') {
-            return operators[operation](x, y);
-        } else {
-            throw "unknown operator";
-        }
-    }
+function calc (operation, x, y) {
+  if (typeof operators[operation] === 'function') {
+    return operators[operation](x, y);
+  } else {
+    throw "unknown operator";
+  }
+}
 
-    calc2('add', 'hello ', 'world');
-    calc2('pow', 10, 2);
+calc('add', 'hello ', 'world'); //"hello world"
+calc('pow', 10, 2); //100
+```
 
 ## Self-invoking functions
 
-Functions can be called right after it was defined.
+JavaScript functions can be called right after it was defined.
 
-    (function () { alert('boo'); }());
-    var a = function (name) { return 'hello ' + name + '!'; }('dude');
-    console.log(a); //"hello dude!"
+```js
+(function () { alert('boo'); }());
+var message = function (name) { return 'hello ' + name + '!'; }('dude');
+message; //"hello dude!"
+```
 
-One good reason for using self-invoking anonymous functions is to have some work done without creating global variables.
-A drawback, of course, is that you cannot execute the same function twice (unless you put it inside a loop or another function).
-This makes the anonymous self-invoking functions best suited for one-off or initialization tasks.
+> #### Note 
+> You cannot execute the same anonimous function twice (unless you put it inside a loop or another function).
+
+> #### Tip
+> Use self-invoking anonymous functions to have some work done without creating global variables,  
+> for one-off or initialization tasks.
 
 ## Inner (private) functions
 
-Bearing in mind that a function is just like any other value,
-there's nothing that stops you from defining a function inside another function.
+JavaScript functions can be defined inside another function.
 
-    function a (param) {
-      function b (input) {
-          return input * 2;
-      }
-      return 'The result is ' + b(param);
-    };
+```js
+function a (param) {
+  function b (input) {
+    return input * 2;
+  }
+  return b(param);
+};
+var result = a(2); 
+result; //4
+```
 
-Using the function literal notation, this can also be written as:
+```js
+var a = function (param) {
+  var b = function (input) {
+    return input * 2;
+  };
+  return b(param);
+};
+var result = a(2); 
+result; //4
+```
 
-    var a = function (param) {
-      var b = function (input) {
-        return input * 2;
-      };
-      return 'The result is ' + b(param);
-    };
-
-When you call the global function a(), it will internally call the local function b().
-Since b() is local, it's not accessible outside a(), so we can say it's a private function.
-
-    a(2); //"The result is 4"
-    a(8); //"The result is 16"
-    b(2); //ReferenceError: b is not defined
+> ####Note
+> When you call the global function `a`, it will internally call the local function `b`.  
+> Since `b` is local, it's not accessible outside `a`, so we can say it's a private function.
+> 
+> ```js
+> a(2);
+> b(2); //ReferenceError: b is not defined
+> ```
 
 The benefit of using private functions are as follows:
-* You keep the global namespace clean (smaller chance of naming collisions).
-* Privacy—you expose only the functions you decide to the "outside world",
-keeping to yourself functionality that is not meant to be consumed by the rest of the application.
+* you keep the global namespace clean (smaller chance of naming collisions)
+* you expose only the functions you decide to the "outside world"
 
-## Functions that return Functions
+## Functions that return functions
+
 A function can return only one value and this value could just as easily be another function.
 
-    function a () {
-      console.log('A!');
-      return function () {
-        console.log('B!');
-      };
-    }
+```js
+function a () {
+  console.log('A!');
+  return function () {
+    console.log('B!');
+  };
+}
 
-    var f = a(); //"A!"
-    f(); //"B!"
-    f(); //"B!"
+var f = a(); //"A!"
+f(); //"B!"
+f(); //"B!"
 
-    a()();
-    //"A!"
-    //"B!"
-
-## Function, Rewrite Thyself!
+a()();
+//"A!"
+//"B!"
+```
 
 Because a function can return a function, you can use the new function to replace the old one.
-A function can overwrite itself after the first call in order to avoid doing unnecessary repetitive work every time it's called.
 The function can actually rewrite itself from the inside.
 
-    function a () {
-      console.log('A!');
-      a = function () {
-        console.log('B!');
-      };
-    }
+```js
+function a () {
+  console.log('A!');
+  a = function () {
+    console.log('B!');
+  };
+}
 
-    a(); //"A!"
-    a(); //"B!"
-    a(); //"B!"
+a(); //"A!"
+a(); //"B!"
+a(); //"B!"
+```
 
 ## Lexical scope
 

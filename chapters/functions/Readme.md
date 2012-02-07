@@ -298,19 +298,12 @@ f1(); //a is not defined
 
 ### Variable Scope
 
-The scope of a variable is the region of the source code in which it is defined.
-
-In some C-like programming languages, each block of code within curly braces has its own scope, 
-and variables are not visible outside of the block in which they are declared.
-This is called block scope, and JavaScript does not have it.
-
 JavaScript uses **function scope**:
 variables are visible within the function in which they are defined  
 and within any functions that are nested within that function;  
-a global variable has global scope, it is defined everywhere in the code;  
-a variable declared within a function has a local scope, it is defined only within the body of the function.
+a variable declared within a function has a local scope, it is defined only within the body of the function;
+a variable not declared within a function has a global scope, it is defined everywhere in the code.
 
-Function parameters count as local variables and are defined only within the body of the function.  
 A local variable, declared within a function, takes precedence over a global variable with the same name.
 
 ```js
@@ -323,6 +316,17 @@ function checkscope () {
 
 checkscope(); //"local"
 scope;        //"global"
+```
+
+Function parameters count as local variables and are defined only within the body of the function.
+
+```js
+function checkParamScope (a) {
+  a += 1;
+  console.log(a);
+}
+console.log(a); //"undefined"
+checkParamScope(1); //2
 ```
 
 Although you can get away with not using the var statement when you write code in the global scope,  
@@ -363,11 +367,10 @@ scope;        //"global"
 
 ### Variable hoisting
 
-JavaScript’s function scope means that all variables declared within a function are visible throughout the body of the function.
-Curiously, this means that variables are even visible before they are declared.  
-This feature of JavaScript is informally known as **hoisting**:
-JavaScript code behaves as if all variable declarations in a function  
-(but not any associated assignments) are "hoisted" to the top of the function.
+Since variables are visible within the function in which they are defined  
+variables are even visible before they are declared;  
+JavaScript code behaves as if all variable declarations in a function (but not any associated assignments)  
+are "hoisted" to the top of the function.
 
 ```js
 function test (o) {
@@ -388,11 +391,11 @@ function test (o) {
 > but all have the same scope, all three are defined throughout the body of the function.
 
 ```js
-var scope = "global";
+var scope = 'global';
 
 function f () {
   console.log(scope);  //prints "undefined", not "local" nor "global"
-  var scope = "local"; //variable scope initialized here, but defined everywhere in f
+  var scope = 'local'; //variable scope initialized here, but defined everywhere in f
   console.log(scope);  //prints "local"
 }
 ```

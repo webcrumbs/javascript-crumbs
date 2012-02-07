@@ -79,8 +79,8 @@ typeof function () {};  // "function"
 > `typeof null` returns `"object"`
 > 
 > although functions are considered objects and don’t represent another data type  
-> they do have some special properties, which differentiate them from other objects,
-> `typeof function () {}` returns `"function"` not `"object"`
+> they do have some special properties, which differentiate them from other objects:  
+> operator `typeof` applied to a function returns `"function"` not `"object"`
 
 ## Numbers
 

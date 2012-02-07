@@ -1,141 +1,147 @@
 # Functions
 
-A function is a block of JavaScript code that is defined once but may be executed, or invoked, any number of times.
+A function is a block of JavaScript code that is defined once but may be executed, or invoked, any number of times.  
 Functions allow you group together some code, give this code a name, and reuse it later, addressing it by name.
-
-    function sum (a, b) {
-      var result = a + b;
-      return result;
-    }
-
-JavaScript functions are parameterized: a function definition may include a list of identifiers, known as parameters, that work as local variables for the body of the function.
-Function invocations provide values, or arguments, for the function’s parameters.
-Functions often use their argument values to compute a return value that becomes the value of the function invocation expression.
-In addition to the arguments, each invocation has another value, the invocation context, that is the value of the this keyword.
-
-A function can only return a single value.
-If you need to return more values, then simply return an array that contains all of the values as elements of this array.
-
-If a function is assigned to the property of an object, it is known as a method of that object.
-When a function is invoked on or through an object, that object is the invocation context or this value for the function.
-Functions designed to initialize a newly created object are called constructors.
-
-In JavaScript, functions are objects, and they can be manipulated by programs.
-JavaScript can assign functions to variables and pass them to other functions.
-Since functions are objects, you can set properties on them, and even invoke methods on them.
-JavaScript function definitions can be nested within other functions,
-and they have access to any variables that are in scope where they are defined.
-This means that JavaScript functions are closures, and it enables important and powerful programming techniques.
 
 ## Defining functions
 
 Function definition is composed by:
 
-* The function statement.
-* The name of the function.
-* A list of zero or more parameter names grouped within parenthesis and separated by comma.
-Parameters behave like local variables within the body of the function.
-* A code block, also called the body of the function.
-The statements in the body are executed whenever the function is invoked.
-* The return statement.
-A function always returns a value.
-If it doesn't return value explicitly, it implicitly returns the value undefined.
+* the `function` statement
+* the name of the function
+* a list of zero or more parameter names grouped within `(` and `)`and separated by comma `,`
+* a code block, the body of the function
+* the `return` statement
 
-For example:
+```js
+function sum (a, b) {
+  var result = a + b;
+  return result;
+}
+```
 
-    function sum (a, b) {
-      return a + b;
-    }
+> #### Note
+> A function always returns a value.  
+> If it doesn't return value explicitly, it implicitly returns the value `undefined`.
+> 
+> A function can only return a single value.  
+> If you need to return more values, then simply return an object.
 
-    function distance (x1, y1, x2, y2) {
-      var dx = x2 - x1;
-      var dy = y2 - y1;
-      return Math.sqrt(dx*dx + dy*dy);
-    }
+```js
+function distance (x1, y1, x2, y2) {
+  var dx = x2 - x1;
+  var dy = y2 - y1;
+  return Math.sqrt(dx*dx + dy*dy);
+}
 
-    var square = function (x) {
-      return x*x;
-    };
+var square = function (x) {
+  return x*x;
+};
+```
+
+In JavaScript, functions are objects:  
+they can be assigned to variables and passed to other functions;  
+they have properties and methods.
 
 ## Invoking functions
 
 In order to make use of a function, you need to call it (invoke it).
-You call a function simply by using its name followed by any parameters in parentheses.
+You call a function simply by using its name followed by parameters list in parentheses.
 
-  var result = sum(1, 2);
-  console.log(result); //3
+```js
+var result = sum(1, 2);
+result; // 3
+```
 
 ## Function arguments and parameters
-Function definitions do not specify an expected type for the function parameters.
-Function invocations do not do any type checking on the argument values you pass.
-Function invocations do not even check the number of arguments being passed.
+
+Function definitions do not specify an expected type for the function parameters.  
+Function invocations do not do any type checking on the argument values you pass.  
+Function invocations do not even check the number of arguments being passed.  
 
 ### Optional parameters
-When a function is invoked with fewer arguments than declared parameters,
-the additional parameters are set to the undefined value.
 
-  sum(1); // NaN
+When a function is invoked with fewer arguments than declared parameters,  
+the additional parameters are set to `undefined`.
 
-### Variable-Length Argument Lists: The Arguments Object
+```js
+var result = sum(1);
+result; // NaN
+```
 
-When a function is invoked with more argument values than there are parameter names,
+### Argument lists
+
+When a function is invoked with more argument values than declared parameters,  
 there is no way to directly refer to the unnamed values.
-The Arguments object provides a solution to this problem.
-Within the body of a function, the identifier arguments refers to the Arguments object for that invocation.
-The Arguments object is an array-like object that allows the argument values passed to the function to be retrieved by number, rather than by name.
 
-  function sum (a, b) {
-    var result = a + b;
-    return result;
+The `arguments` object, within the body of a function, is an array-like object  
+that allows the argument values passed to the function to be retrieved by number, rather than by name.
+
+```js
+function sum (a, b) {
+  return a + b;
+}
+
+var result = sum(1, 2, 3, 4, 5); 
+result; //3
+```
+
+```js
+function sumAll () {
+  var result = 0;
+  for (var i = 0; i < arguments.length; i++) {
+    result += arguments[i];
   }
+  return result;
+}
 
-  function sum_all () {
-    var result = 0;
-    for (var i = 0; i < arguments.length; i++) {
-      result += arguments[i];
-    }
-    return result;
+var result = sum_all(1, 2, 3, 4, 5);
+result; //15
+```
+
+```js
+function max () {
+  var max = Number.NEGATIVE_INFINITY;
+  for (var i = 0; i < arguments.length; i++) {
+    max = arguments[i] > max ? arguments[i] : max;
   }
+  return max;
+}
 
-  sum(1, 2, 3, 4, 5); //3
-  sum_all(1, 2, 3, 4, 5); //15
-
-  function max () {
-    var max = Number.NEGATIVE_INFINITY;
-    for (var i = 0; i < arguments.length; i++) {
-      max = arguments[i] > max ? arguments[i] : max;
-    }
-    return max;
-  }
-
-  var maximum = max(1, 10, 100, 42, 3.14, 1.4142135);
-  console.log(maximum); //100
+maximum = max(1, 10, 100, 42, 3.14, 1.4142135);
+maximum; //100
+```
 
 ## Function as values
 
-Functions in JavaScript are actually data.
-This means that the following two ways to define a function are exactly the same:
+JavaScript functions are actually data:  
+they can be assigned to variables or object properties.
 
-    function f () { return 1; }
-    var f = function () { return 1; }
+```js
+var greetings = function () { return 'hello'; };
+var person = { say: greetings };
+```
 
-The second way of defining a function is known as function literal notation.
-When you use the typeof operator on a variable that holds a function value, it returns the string "function".
+When you use the `typeof` operator on a variable that holds a function value, it returns `"function"`.
 
-    function f () { return 1; }
-    typeof f; //"function"
+```js
+var greetings = function () { return 'hello'; };
+typeof greetings; //"function"
+```
 
-So JavaScript functions are data, but a special kind of data with two important features:
+JavaScript functions are data, but a special kind of data with two important features:
 
-* They contain code
-* They are executable (can be invoked)
+* they contain code
+* they are executable (can be invoked)
 
-Function can be copied to a different variable and even deleted.
+JavaScript functions can be copied to a different variable.
 
-    var sum = function (a, b) { return a + b; }
-    var add = sum;
-    delete sum;
-    true
+```js
+var sum = function (a, b) { return a + b; }
+var add = sum;
+var result = add(1, 2);
+result; //3
+```
 
 Functions are not primitive values in JavaScript,
 but a specialized kind of object, which means that functions can have properties.

@@ -47,9 +47,9 @@ All values can be represented as one of these six data types.
 
 ### The typeof Operator
 
-Because ECMAScript is loosely typed, there needs to be a way to determine the data type of a given variable.
-The typeof operator provides a way to determine the data type of a given variable.
-Using the typeof operator on a value returns one of the following strings:
+Because JavaScript is loosely typed, there needs to be a way to determine the data type of a given variable.  
+The `typeof` operator provides a way to determine the data type of a given variable.  
+Using the `typeof` operator on a value returns one of the following strings:
 
 * `"undefined"` if the value is undefined
 * `"boolean"` if the value is a boolean

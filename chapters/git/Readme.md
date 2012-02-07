@@ -2,10 +2,6 @@
 
 ### just a simple guide for getting started with git
 
-credits to Roger Duler, @tfnico, @fhd and Namics
-
-please report issues on [github](github.com)
-
 
 ## setup
 
@@ -233,3 +229,9 @@ guides:
 * [Think like a git](http://think-like-a-git.net/)
 * [GitHub Help](http://help.github.com/)
 * [A Visual Git Guide](http://marklodato.github.com/visual-git-guide/index-en.html)
+
+
+## credits
+Roger Duler, @tfnico, @fhd and Namics  
+
+Please report issues on [github](github.com)

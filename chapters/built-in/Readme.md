@@ -421,29 +421,29 @@ function myfunc(a, b, c){ return true; }
 myfunc.length   // 3
 ```
 
-The most important property of a function is the `prototyp`e property.  
+The most important property of a function is the `prototype` property.  
 The `prototype` property of a function contains an object.  
 It is only useful when you use this function as a constructor.  
-All objects created with this function keep a reference to the `prototype property and can use its properties as their own.
+All objects created with this function keep a reference to the `prototype` property and can use its properties as their own.
 
 ```js
 var some_obj = {
-    name: 'Ninja',
-    say: function(){
-        return 'I am a ' + this.name;
-    }
+  name: 'Ninja',
+  say: function(){
+    return 'I am a ' + this.name;
+  }
 }
 
 /* A hollow function automatically has a prototype
  * property that contains an empty object */
 function F() {}
-typeof F.prototype   // "object"
+typeof F.prototype // "object"
 
 F.prototype = some_obj;
 
 var obj = new F();
-obj.name    // "Ninja"
-obj.say()   // "I am a Ninja"
+obj.name;  // "Ninja"
+obj.say(); // "I am a Ninja"
 ```
 
 ### Methods of the Function objects
@@ -451,14 +451,17 @@ Two useful methods of the function objects are `call()` and `apply()`.
 They allow your objects to borrow methods from other objects and invoke them as their own.
 
 
-#### call
+#### call(thisArg, param...)
+It accepts:
+`thisArg` parameter will be bind to `this` in function execution, which default to the global object (even if `null` is passed);  
+any number of `params` to pass to the function.
 
 ```js
 var some_obj = {
-    name: 'Ninja',
-    say: function(who) {
-        return 'Haya ' + who + ', I am a ' + this.name;
-    }
+  name: 'Ninja',
+  say: function(who) {
+    return 'Haya ' + who + ', I am a ' + this.name;
+  }
 }
 
 some_obj.say('Dude');   // "Haya Dude, I am a Ninja"
@@ -469,18 +472,14 @@ some_obj.say.call(my_obj, 'Dude')   // "Haya Dude, I am a Scripting guru"
 ```
 
 When `say()` was invoked with `call`, the references to `this` value that it contains, pointed to `my_obj`.  
-This way `this.name` didn't return `Ninja`, but `Scripting guru` instead.  
-
-If you have more parameters to pass when invoking the `call()` method, you just keep adding them
-
-```js
-some_obj.someMethod.call(my_obj, 'a', 'b', 'c');
-```
+This way `this.name` didn't return `Ninja`, but `Scripting guru` instead.
 
 If you don't pass an object as a first parameter to `call()` or pass `null`, the global object will be assumed.
 
-#### apply
-The method `apply()` works the same way as `call()` but with the difference that all parameters you want to pass to the method of the other object are passed as an array.
+#### apply(thisArg, arrayArg)
+It accepts:
+`thisArg` parameter will be bind to `this` in function execution, which default to the global object (even if `null` is passed);  
+an array of parameters to pass to the function.  
 
 ```js
 /* Two following code line are equivalent */
@@ -560,41 +559,43 @@ typeof n   // "number"
 ```
 
 ### Number object's methods
-#### toString
-It optionally accepts a single argument indicating the radix in which to represent the number
+#### toString(radix)
+It optionally accepts a single argument indicating the radix in which to represent the number.
+It returns a string representation of the number in the given radix.
 
 ```js
 var num = 10;
 num.toString();   // "10"
-num.toString(2);   // "1010"
-num.toString(8);   // "12"
-num.toString(10);   // "10"
-num.toString(16);   // "a"
+num.toString(2);  // "1010"
+num.toString(8);  // "12"
+num.toString(10); // "10"
+num.toString(16); // "a"
 ```
-#### toFixed
-It returns a string representation of a number with a specified number of decimal points.  
+
+#### toFixed(dec)
 It accepts an arguments indicating how many decimal places should be displayed.
+It returns a string representation of a number with a specified number of decimal points.  
 
 ```js
 var num = 10;
-num.toFixed(2);   // "10.00"
+num.toFixed(2); // "10.00"
 
 var num = 10.005;
-num.toFixed(2);   // "10.01"
+num.toFixed(2); // "10.01"
 ```
 
-#### toExponential
-It returns a string with the number formatted in exponential notation.  
+#### toExponential(dec)
 It accepts one argument, which is the number of decimal places to output.
+It returns a string with the number formatted in exponential notation.  
 
 ```js
 var num = 10;
 num.toExponential(1);   // "1.0e+1"
 ```
 
-#### toPrecision
+#### toPrecision(digits)
+It accepts the total number of digits to use to represent the number (not including exponents).
 It returns either the fixed or the exponential representation of a number, depending on which makes the most sense.  
-It takes one argument, which is the total number of digits to use to represent the number (not including exponents).
 
 ```js
 var num = 99;
@@ -622,47 +623,48 @@ console.log(stringValue[1]);   // > "e"
 `String()` function without `new` converts the parameter to a primitive string.
 
 ```js
-String(1)   // "1"
-String({p: 1})  // "[object Object]"
-String([1,2,3])   // "1,2,3"
+String(1) // "1"
+String({p: 1}) // "[object Object]"
+String([1,2,3]) // "1,2,3"
 ```
 
 ### String object's methods
 
 #### charAt(pos)
-It returns the character in the given position as a single-character string, like bracket notation access.  
 It accepts a single argument, which is the character’s zero-based position.
+It returns the character in the given position as a single-character string, like bracket notation access.  
 
 ```js
 var stringValue = 'hello world';
-console.log(stringValue.charAt(1));   // > "e"
+stringValue.charAt(1); // > "e"
 ```
 
 #### charCodeAt(pos)
-It returns the character code in the given string position.  
 It accepts a single argument, which is the character’s zero-based position.
+It returns the character code in the given string position.  
 
 ```js
 var stringValue = 'hello world';
-console.log(stringValue.charCodeAt(1));   // > 101
+stringValue.charCodeAt(1); // > 101
 ```
 
-#### concat(str...)
-It concatenates one or more strings to another.  
+#### concat(str...)  
 It accepts any number of strings to concatenate as arguments.
+It returns a new string obtained by concatenating one or more strings to another.
 
 ```js
 var stringValue = 'hello, ';
 var result = stringValue.concat('my ', 'name ', 'is ', 'Bob');
-console.log(result);   // > "hello, my name is Bob"
-console.log(stringValue);   // > "hello, "
+result; // > "hello, my name is Bob"
+stringValue; // > "hello, "
 ```
 
 #### indexOf(searchString, position)
-It searches for a searchString within a string.  
-If it is found, it returns the position of the first matched character;  
-otherwise, it returns –1.  
-The optional position parameter causes the search to begin at some specified position in the string.
+It accepts:
+a string to search for inside string;  
+an optional starting search position.  
+It returns the position of the first matched character; if no mathes are found, it returns –1.  
+
 
 ```js
 var text = 'Mississippi';
@@ -685,13 +687,87 @@ Like the `indexOf` method, except that it searches from the end of the string in
 ```
 
 #### match(regexp)
-...
+The match method matches a string and a regular expression. 
+It accepts a regexp.
+If the `g` flag is setted then it returns an array of all the matches but excludes the capturing groups.  
+Otherwise the result of calling string.match(regexp) is the same as calling regexp.exec(string).
+
+```js
+var text = '<html><body bgcolor=linen><p>' + 'This is <b>bold<\/b>!<\/p><\/body><\/html>';
+
+var tags = /[^<>]+|<(\/?)([A-Za-z]+)([^<>]*)>/g;
+text.match(tags); // ["<html>", "<body bgcolor=linen>", "<p>", "This is ", "<b>", "bold", "</b>", "!", "</p>", "</body>", "</html>"]
 
 #### replace(searchValue, replaceValue)
-...
+The replace method does a search and replace operation on the string, producing a new string.  
+The `searchValue` argument can be a string or a regular expression object.  
+If it is a string, only the first occurrence of the `searchValue` is replaced.
+
+```js
+var result = "mother_in_law".replace('_', '-');
+result; // "mother-in_law"
+```
+
+If `searchValue` is a regular expression and if it has the `g` flag, then it will replace all occurrences.  
+If it does not have the `g` flag, then it will replace only the first occurrence.
+
+```js
+var result = "mother_in_law".replace(/_/g, '-');
+result; // "mother-in-law"
+```
+
+```js
+var result = "mother_in_law".replace(/_/, '-');
+result; // "mother-in-law"
+```
+
+The `replaceValue` can be a string or a function.  
+If `replaceValue` is a string, the character `$` has special meaning:
+
+```js
+$ sequence | replacement
+-----------|------------
+$$           $
+$&           The matched text
+$number      Capture group text
+$`           The text preceding the match 
+$'           The text following the match
+```
+
+If the `replaceValue` is a function, it will be called for each match.  
+That funciton accepts the matched text as first argument, following by text of capturing groups.  
+The string returned by the function will be used as the replacement text.  
+
+```js
+function entitify (str) {
+
+  function replaceFunc (c) {
+    var character = {
+      '<' : '&lt;',
+      '>' : '&gt;',
+      '&' : '&amp;',
+      '"' : '&quot;'
+    };
+
+    return character[c];
+  }
+
+  return str.replace(/[<>&"]/g, replaceFunc);
+}
+
+var test = '<&>';
+entitify(test) // &lt;&amp;&gt;
+```
 
 #### search(regexp)
-...
+It accepts a regular expression object.  
+It returns the position of the first character of the first match, if there is one, or –1 if the search fails.  
+The g flag is ignored.
+
+```js
+var text = 'and in it he says "Any damn fool could"';
+var pos = text.search(/["']/);  // pos is 18
+```
 
 #### slice(start, end)
 It returns a new string by copying a portion of another string.  
@@ -711,22 +787,44 @@ If _start_ or _end_ are negative then _string.length_ is added to them.
  console.log(d);   // > "Any damn fool"
 ```
 
-#### split(separator, limit)
-...
+#### split(separator, limit) 
+It accepts a `separator` string or regexp and an optional `limit` parameter to limit the number of pieces that will be split.  
+It returns a new array of strings by splitting the string into pieces.
 
-#### substr(?)
-...
+```js
+var digits = '0123456789';
+var a = digits.split('', 5); // ["0", "1", "2", "3", "4"]
+```
 
-#### substring(star, end)
+```js
+var ip = '192.168.1.0';
+var b = ip.split('.');
+b; // ["192", "168", "1", "0"]
+```
+
+```js
+var ip = '192.168.1.0';
+var c = ip.split('.', 2);
+c; // ["192", "168"]
+```
+
+```js
+var text = 'last,  first  ,middle';
+var d = text.split(/\s*,\s*/);
+d; // ["last", "first", "middle"]
+```
 
 #### toLowerCase()
-...
+It returns a new string that is made by converting the string to lowercase.
 
 #### toUpperCase()
-...
+It returns a new string that is made by converting the string to uppercase.
 
 #### fromCharCode(char...)
-...
+It accepts any number of char code.
+It returns a string from these series of char code.
+    var a = String.fromCharCode(67, 97, 116);
+    // a is 'Cat'
 
 
 ## Date

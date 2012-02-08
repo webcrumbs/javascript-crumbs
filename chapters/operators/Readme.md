@@ -184,8 +184,8 @@ it lines up the bits in each number and then performs an AND operation between t
 var a = 25;        //binary 0000 0000 0000 0000 0000 0000 0001 1001
 var b = 11;        //binary 0000 0000 0000 0000 0000 0000 0000 1011
 var c = a & b;     //binary 0000 0000 0000 0000 0000 0000 0000 1001
-console.log(c);    //9
 ```
+console.log(c);    //9
 
 #### Bitwise OR
 is represented by the pipe character `|` and works on two values;  
@@ -284,3 +284,256 @@ false || false; //false
 > 
 > Use parentheses instead of relying on operator precedence,  
 > in order to make your code easier to read and understand.
+
+## Multiplicative operators
+
+#### Multilpy
+is represented by an asterisk `*` and is used, as one might suspect, to multiply two numbers:  
+
+* if the operands are numbers, performs regular arithmetic multiplication
+* if the result cannot be represented, the result is `Infinity` or `–Infinity`
+* if either operand is `NaN`, the result is `NaN`
+* if `Infinity` is multiplied by zero, the result is `NaN`
+* if `Infinity` is multiplied by a nonzero finite number, the result is `Infinity` or `-Infinity` 
+depending on the sign of the number
+* if `Infinity` is multiplied by `Infinity`, the result is `Infinity`
+* if either operand isn’t a number, it is converted to a number using Number()  
+and then the other rules are applied
+
+```js
+6 * 8;               //48
+1e308 * 2;           //Infinity
+NaN * 3;             //NaN
+Infinity * 0;        //NaN
+Infinity * 1;        //Infinity
+Infinity * -2;       //-Infinity
+Infinity * Infinity; //Infinity
+"3" * true;          //3
+```
+
+#### Divide
+is represented by a slash `/` and divides the first operand by the second operand:
+
+* if the operands are numbers, regular arithmetic division is performed
+* if the result can’t be represented, the result is `Infinity` or `–Infinity`
+* if either operand is `NaN`, the result is `NaN`
+* if `Infinity` is divided by `Infinity`, the result is `NaN`
+* if zero is divided by zero, the result is `NaN`
+* if a nonzero finite number is divided by zero, the result is `Infinity` or `–Infinity`,  
+depending on the sign of the first operand
+* if `Infinity` is divided by any number, the result is `Infinity` or `–Infinity`,  
+depending on the sign of the second operand
+* if either operand isn’t a number, it is converted to a number using Number()  
+and then the other rules are applied
+
+```js
+25 * 2;              //12.5
+NaN / 3;             //NaN
+0 / 0;               //NaN
+1 / 0;               //Infinity
+Infinity / 0;        //Infinity
+Infinity / 1;        //Infinity
+Infinity / -2;       //-Infinity
+Infinity / Infinity; //NaN
+"3" / true;          //3
+```
+
+#### Modulus
+is represented by a percent sign `%` and return the remainder of the division:
+
+* if the operands are numbers, regular arithmetic division is performed,  
+and the remainder of that division is returned.
+* if the dividend is an infinite number and the divisor is a finite number, the result is `NaN`
+* if the dividend is a finite number and the divisor is `0`, the result is `NaN`
+* if `Infinity` is divided by `Infinity`, the result is `NaN`
+* if the dividend is a finite number and the divisor is an infinite number, the result is the dividend
+* if the dividend is zero and the divisor is nonzero, the result is zero
+* if either operand isn’t a number, it is converted to a number using Number()  
+and then the other rules are applied
+
+## Additive Operators
+
+### Add
+is represented by `+` and is used just as one would expect:
+
+* if either operand is `NaN`, the result is `NaN`
+* if `Infinity` is added to `Infinity`, the result is `Infinity`
+* if `–Infinity` is added to `–Infinity`, the result is `–Infinity`
+* if `Infinity` is added to `–Infinity`, the result is `NaN`
+* if `+0` is added to `+0`, the result is `+0`
+* if `–0` is added to `+0`, the result is `+0`
+* if `–0` is added to `–0`, the result is `–0`
+* if one of the operands is a string
+ * if both operands are strings, the second string is concatenated to the first
+ * if only one operand is a string, the other operand is converted to a string  
+   and the result is the concatenation of the two strings
+ * if either operand is an object, number, or boolean,  
+   its `toString()` method is called to get a string value  
+   and then the other rules regarding strings are applied
+ * if either operand is `undefined` and `null`, 
+   the String() function is called to get the values `"undefined"` and `"null"`
+   and then the other rules regarding strings are applied
+
+```js
+Infinity + Infinity;   //Infinity
+-Infinity + -Infinity; //-Infinity
+Infinity + -Infinity;  //NaN
+0 + 0;                 //0
+-0 + 0;                //0
+-0 + -0;               //-0
+1 / (-0 + -0);         //-Infinity
+5 + 5;                 //10
+5 + "5";               //"55"
+true + "5";            //"true5"
+```
+
+#### Subtract
+is represented by `-` and is used just as one would expect:
+
+* if the two operands are numbers, perform arithmetic subtract and return the result
+* if either operand is `NaN`, the result is `NaN`
+* if `Infinity` is subtracted from `Infinity`, the result is `NaN`
+* if `–Infinity` is subtracted from `–Infinity`, the result is `NaN`
+* if `–Infinity` is subtracted from `Infinity`, the result is `Infinity`
+* if `Infinity` is subtracted from `–Infinity`, the result is `–Infinity`
+* if `+0` is subtracted from `+0`, the result is `+0`
+* if `–0` is subtracted from `+0`, the result is `–0`
+* if `–0` is subtracted from `–0`, the result is `+0`
+* if either operand is a string, a boolean, `null`, or `undefined`,  
+it is converted to a number using `Number()` and the arithmetic subtract is performed
+* if either operand is an object, its valueOf() method is called to retrieve a numeric value to represent it  
+and the arithmetic subtract is performed
+* if the object doesn’t have `valueOf()` defined, then `toString()` is called 
+and the resulting string is converted into a number
+
+```js
+5 - true;  //4 because true is converted to 1
+NaN - 1;   //NaN
+5 - 3;     //2
+5 - "";    //5 because "" is converted to 0 
+5 - "2";   //3 because "2" is converted to 2
+5 - null;  //5 because null is converted to 0
+```
+
+Relational Operators
+The relational operators perform comparisons between values:
+
+* less-than `<`
+* greater-than `>`
+* less-than-or-equal-to `<=`
+* greater-than-or-equal-to `>=` 
+
+When using different data types:
+
+* if the operands are numbers, perform a numeric comparison
+* if the operands are strings, compare the character codes of each corresponding character in the string
+* if one operand is a number, convert the other operand to a number and perform a numeric comparison
+* if an operand is an object, call `valueOf()` and use its result to perform the comparison,  
+if `valueOf()` is not available, call `toString()` and use its result to perform the comparison
+* if an operand is a boolean, convert it to a number and perform the comparison
+
+## Equality operators
+
+#### Equal and Not Equal
+
+The equal operator is represented by `==`, and returns `true` if the operands are equal. 
+The not-equal operator is represented by `!=`, and returns `true` if two operands are not equal. 
+
+Both operators do conversions to determine if two operands are equal:
+
+* if an operand is a boolean, convert to a number (`false` in `0`, `true` in `1`) and check for equality
+* if one operand is a string and the other is a number, convert the string to a number and check for equality
+* if either one of the operands is an object and the other is not,  
+call `valueOf()` on the object and use its result to check for equality
+* `null` and `undefined` are equal
+* `null` and `undefined` cannot be converted into any other values for equality checking
+* if either operand is `NaN`, the equal operator returns `false`  
+and the not-equal operator returns `true`
+* if both operands are `NaN`, the equal operator returns `false`  
+because, by rule, `NaN` is not equal to `NaN`
+* if both operands are objects, then they are compared to see if they are the same object,  
+if both operands point to the same object, then the equal operator returns `true`, otherwise `false`
+
+```js
+null == undefined; //true
+"NaN" == NaN;      //false
+5 == NaN;          //false
+NaN == NaN;        //false
+NaN != NaN;        //true
+false == 0;        //true
+true == 1;         //true
+true == 2;         //false
+undefined == 0;    //false
+null == 0;         //false
+"5" == 5;          //true
+```
+
+#### Identically Equal and Not Identically Equal
+
+The identically equal and not identically equal operators do the same thing as equal and not equal,  
+except that they do not convert operands before testing for equality. 
+
+The identically equal operator is represented by `===`  
+and returns `true` only if the operands are equal without conversion.
+
+The not identically equal operator is represented `!==`  
+and returns `true` only if the operands are not equal without conversion
+
+```js
+"55" == 55;  //true - equal because of conversion
+"55" === 55; //false - not equal because different data types
+```
+```js
+var result1 = (“55” != 55); //false - equal because of conversion
+var result2 = (“55” !== 55); //true - not equal because different data types
+```
+
+> #### Note
+> `null == undefined` is `true` because they are similar values,  
+> `null === undefined` is `false` because they are not the same type.
+
+> #### Tip
+> Because of the type conversion issues with the equal and not-equal operators,  
+> use identically equal and not identically equal instead,  
+> in order to maintain data type integrity throughout your code.
+
+## Conditional Operator
+
+The *conditional operator* (also called *ternary operator*) is represented by `?` and `:`  
+and return one of two values depending on the evaluation of a boolean expression:  
+
+* if the boolean expression is `true`, return value defined after `?` 
+* if the boolean expression is `false`, return value defined after `:`
+
+```js
+boolean_expression ? true_value : false_value;
+```
+
+```js
+var max = (num1 > num2) ? num1 : num2;
+```
+
+## Assignment Operators
+
+#### Simple assignment
+is represented by `=` and simply assigns the value on the right to the variable on the left.
+
+```js
+var variable = value;
+```
+
+#### Compound assignment
+exist for each of the major mathematical operations and a few others as well:
+
+* multiply/assign `*=`
+* divide/assign `/=`
+* modulus/assign `%=`
+* add/assign `+=`
+* subtract/assign `-=`
+* left shift/assign `<<=`
+* signed right shift/assign `>>=`
+* unsigned right shift/assign `>>>=`
+
+> #### Note
+> Compound-assignment operators are designed specifically as shorthand ways of achieving operations,  
+> they do not represent any performance improvement.

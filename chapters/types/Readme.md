@@ -80,7 +80,7 @@ typeof function () {};  // "function"
 > 
 > although functions are considered objects and don’t represent another data type  
 > they do have some special properties, which differentiate them from other objects:  
-> operator `typeof` applied to a function returns `"function"` not `"object"`
+> `typeof` applied to a function returns `"function"` not `"object"`
 
 ## Numbers
 
@@ -97,7 +97,7 @@ var intNum3 = 3;
 Integers can also be represented as either octal (base 8) or hexadecimal (base 16) literals.  
 
 > #### Note
-> Numbers created using octal or hexadecimal format are treated as decimal numbers in all arithmetic operations.
+> octal or hexadecimal numbers are treated as decimal numbers in all arithmetic operations.
 
 #### Octal numbers
 starts with digit zero `0` followed by a sequence of octal digits (`0` through `7`).  
@@ -139,99 +139,129 @@ var floatNum2 = 0.1;
 > var floatNum3 = .1;  //valid, but not recommended
 > ```
 
-Because storing floating-point values uses twice as much memory as storing integer values,
-ECMAScript always looks for ways to convert values into integers.
-When there is no digit after the decimal point, the number becomes an integer.
-If the number being represented is a whole number (such as 1.0), the number becomes an integer.
+> #### Note
+> Because storing floating-point values uses twice as much memory as storing integer values,
+> JavaScript converts floating-point values into integers when it is possible:
+> if there is no digit after the decimal point;
+> if the number being represented is a whole number (decimal digit is 0).
+> 
+> ```js
+> var floatNum1 = 1.;   //missing digit after decimal - interpreted as integer 1
+> var floatNum2 = 10.0; //whole number - interpreted as integer 10
+> ```
 
-    var floatNum1 = 1.; //missing digit after decimal - interpreted as integer 1
-    var floatNum2 = 10.0; //whole number - interpreted as integer 10
+#### e-notation
 
-For very large or very small numbers, floating-point values can be represented using e-notation.
-E-notation is used to indicate a number that should be multiplied by 10 raised to a given power.
-E-notation format starts with a number (integer or floating-point)
-followed by letter e (case-insensitive), followed by the power of 10 to multiply by.
+For very large or very small numbers, floating-point values can be represented using e-notation.  
+E-notation is used to indicate a number that should be multiplied by 10 raised to a given power.  
+E-notation format starts with a number (integer or floating-point)  
+followed by letter `e` (case-insensitive), followed by the power of 10 to multiply by.
 
-    1e1;    //10
-    1e+1;   //10
-    2e+3;   //2000
-    2e-3;   //0.002
-    123E-3; //0.123
+```js
+1e1;    //10
+1e+1;   //10
+2e+3;   //2000
+2e-3;   //0.002
+123E-3; //0.123
+```
 
 ### Range of Values
 
-Not all numbers in the world can be represented in JavaScript, because of memory constraints.
-The smallest number is 5e-324, stored in Number.MIN_VALUE;
-the largest number is 1.7976931348623157e+308, stored in Number.MAX_VALUE.
+JavaScript can not represent all numbers in the world, because of memory constraints:  
+the smallest number is `5e-324`, stored in `Number.MIN_VALUE`;  
+the largest number is `1.7976931348623157e+308`, stored in `Number.MAX_VALUE`.
 
-There is a special value in JavaScript called Infinity.
-It represents a number too big for JavaScript to handle.
-Infinity is indeed a number.
+#### Infinity
 
-    typeof Infinity; //"number"
+JavaScript use the special numeric value `Infinity` to represents a number out of the range of values:  
+any positive number that can’t be represented is `Infinity` (positive infinity), stored in `Number.POSITIVE_INIFINITY`;  
+any negative number that can’t be represented is `–Infinity` (negative infinity), stored in `Number.NEGATIVE_INFINITY`.
 
-Any positive number that can’t be represented is Infinity (positive infinity), stored in Number.POSITIVE_INIFINITY.
-any negative number that can’t be represented is –Infinity (negative infinity),
+> #### Note
+> `Infinity` represents a number.
+>
+> ```js
+> typeof Infinity; //"number"
+> ```
 
-If a calculation returns either positive or negative Infinity, that value cannot be used in any further calculations,
-because Infinity has no numeric representation with which to calculate.
+> #### Note 
+> If a calculation returns either positive or negative Infinity,  
+> that value cannot be used in any further calculations,  
+> because Infinity has no numeric representation with which to calculate.
+> 
+> ```js
+> Infinity - 1e307;    //Infinity 
+> Infinity - Infinity; //NaN
+> -Infinity * -1;      //Infinity
+> Infinity * -1;       //-Infinity
+> ```
 
-To determine if a value is finite there is the isFinite() function.
+#### Testing if a value is not out of range
 
-    isFinite(Number.MAX_VALUE + Number.MAX_VALUE); //false
-    isFinite(Infinite); //false
-    isFinite(-Infinite); //false
-    isFinite(Number.POSITIVE_INFINITE); //false
-    isFinite(Number.NEGATIVE_INFINITE); //false
-    isFinite(0); //true
-    isFinite(1.7e308); //true
-    isFinite(1.8e308); //false
+To determine if a value is finite there is the `isFinite()` function.
 
-Though it is rare to do calculations that take values outside of the range of finite numbers,
-it is possible and should be monitored when doing very large or very small calculations.
-You can also get the values of positive and negative Infinity by accessing Number.NEGATIVE_INFINITY and Number.POSITIVE_INFINITY.
-As you may expect, these properties contain the values –Infinity and Infinity, respectively.
+```js
+isFinite(Infinite); //false
+isFinite(-Infinite); //false
+isFinite(Number.MAX_VALUE + Number.MAX_VALUE); //false
+isFinite(Number.POSITIVE_INFINITE); //false
+isFinite(Number.NEGATIVE_INFINITE); //false
+isFinite(0); //true
+isFinite(1.7e308); //true
+isFinite(1.8e308); //false
+```
+
+> #### Tip
+> Though it is rare to do calculations that take values outside of the range of finite numbers,  
+> it is possible and should be monitored when doing very large or very small calculations.
 
 ### NaN
 
-There is a special numeric value called NaN, short for Not a Number,
-which is used to indicate when an operation intended to return a number has failed (as opposed to throwing an error).
+JavaScript use the special numeric value `NaN`, short for Not a Number,  
+to indicate when an operation intended to return a number has failed (as opposed to throwing an error).
 
-The value NaN has a couple of unique properties:
+The value `NaN` has a couple of unique properties:
 
-* NaN is contagious, any operation involving NaN always returns NaN
-* NaN is not equal to any value, including NaN
+* `NaN` is contagious, any operation involving `NaN` always returns `NaN`
+* `NaN` is not equal to any value, including `NaN`
 
-    Nan + 1 * 2 / 3; //NaN
-    NaN == NaN; //false
+```js
+Nan + 1 * 2 / 3; //NaN
+NaN == NaN; //false
+```
 
-To determine if the value is “not a number” there is the isNaN() function.
-When a value is passed into isNaN(), an attempt is made to convert it into a number.
-Some non-number values convert into numbers directly, such as the string “10” or a Boolean value.
-Any value that cannot be converted into a number causes the function to return true.
+#### Testing if a value is not a number
 
-    isNaN(NaN); //true
-    isNaN(10); //false - 10 is a number
-    isNaN("10"); //false - can be converted to number 10
-    isNaN("blue"); //true - cannot be converted to a number
-    isNaN(true); //false - can be converted to number 1
+To determine if a value is "not a number" there is the `isNaN()` function.  
+`isNaN()` try to convert value passed in it into a number:  
+if the value cannot be converted into a number the function returns `true`.
+
+```js
+isNaN(NaN); //true
+isNaN(10); //false - 10 is a number
+isNaN("10"); //false - can be converted to number 10
+isNaN("blue"); //true - cannot be converted to a number
+isNaN(true); //false - can be converted to number 1
+```
 
 ## Strings
 
 A string is a sequence of characters used to represent text.
-In JavaScript, any value placed between single or double quotes is considered a string.
+In JavaScript, a string is a sequence of character placed between single or double quotes.
 
-    var s = "some characters";
-    var s = 'some characters and numbers 123 5.87';
-    var s = '1';
-    var s = "";
-    var s = "'hello'";
-    var s = '"hello"';
-    var s = 'hello"; //syntax error - quotes must match
+```js
+"some characters";
+'some characters and numbers 123 5.87';
+'1';
+"";
+"'hello'";
+'"hello"';
+'hello"; //syntax error - quotes must match
+```
 
-### Character Literals
+#### Character Literals
 
-The String data type includes several character literals to represent nonprintable or otherwise useful characters:
+Character literals represents nonprintable or otherwise useful characters:
 
 * `\n` new line
 * `\t` tab
@@ -244,19 +274,21 @@ The String data type includes several character literals to represent nonprintab
 * \xnn a character represented by hexadecimal code nn (where n is a hexadecimal digit 0-F).
 * \unnnn a unicode character represented by the hexadecimal code nnnn (where n is a hexadecimal digit 0-F).
 
-for example:
-
-    s = 'he said \'hello\''; //"he said 'hello'"
-    s = "he said \"hello\""; //"he said "hello""
-    s = '\u03a3';            //"Σ"
-    s = '\x41';              //"A"
+```js
+'he said \'hello\''; //"he said 'hello'"
+"he said \"hello\""; //"he said "hello""
+'\u03a3';            //"Σ"
+'\x41';              //"A"
+```
 
 ## Booleans
 
-There are only two values that belong to the boolean data type: the values true and false, used without quotes.
+Boolean data type has only two values: `true` and `false`, used without quotes.
 
-    var b = true;
-    typeof b; //"boolean"
+```js
+var b = true;
+typeof b; //"boolean"
 
-    var b = false;
-    typeof b; //"boolean"
+var b = false;
+typeof b; //"boolean"
+```

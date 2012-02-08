@@ -23,7 +23,7 @@ Arrays are objects, but of a special type because:
 * they have a `length` property which contains the number of elements in the array
 * they have additional built-in methods in addition to those inherited from the parent object
 
-### Defining an array
+### Array definition
 
 #### Array initializer
 
@@ -51,7 +51,6 @@ plain.constructor; // function Array() ...
 typeof a; // "object"
 ```
 
-### Array methods
 
 ### Stack methods: push, pop
 A stack is referred to as a last-in-first-out (LIFO) structure.  

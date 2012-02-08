@@ -247,6 +247,8 @@ TwoDShape.prototype.constructor = TwoDShape;
 
 // augment prototype
 TwoDShape.prototype.name = '2D shape';
+
+
 function Triangle(side, height) {
   this.side = side;
   this.height = height;
@@ -254,8 +256,9 @@ function Triangle(side, height) {
 
 // take care of inheritance
 var F = function(){};
-
 F.prototype = TwoDShape.prototype;
+
+
 Triangle.prototype = new F();
 Triangle.prototype.constructor = Triangle;
 
@@ -311,6 +314,8 @@ TwoDShape.uber = Shape.prototype;
 
 // augment prototype
 TwoDShape.prototype.name = '2D shape';
+
+
 function Triangle(side, height) {
   this.side = side;
   this.height = height;

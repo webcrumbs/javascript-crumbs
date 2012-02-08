@@ -1,25 +1,20 @@
 # Prototype
 
 ## Function's prototype property
-`prototype` is a property of every _Function_ object.  
+`prototype` is a property of every `Function` object.  
 It gets created as soon as you define the function.  
 Its initial value is an empty object.  
 
 ```js
 function foo(a, b) { return a * b; }
-typeof foo.prototype    // "object"
-```
-It's as if you added this property yourself like this:
-
-```js
-foo.prototype = {}
+typeof foo.prototype // "object"
 ```
 
-You can augment this empty object with properties and methods.  
+this empty object can be augmented with properties and methods.  
 They won't have any effect of the `foo()` function itself.  
 They'll only be used when you use `foo()` as a _constructor_.  
 
-Inside a function invoked with `new` you have access to the value `this`, which contains the object to be returned by the constructor.  
+Inside a function invoked with `new`, the value `this` contains the object to be returned by the constructor.  
 Augmenting (adding methods and properties to) this object is the way to add functionality to the object being created.
 
 ```js
@@ -54,8 +49,8 @@ Gadget.prototype = {
 };
 ```
 
-## Using prototype's stuff
-All the methods and properties you have added to the prototype are directly available as soon as you create a new object using the constructor.
+### Using prototype's stuff
+All the methods and properties added to the prototype are directly available as soon as a new object is created using the constructor.
 
 ```js
 var newtoy = new Gadget('webcam', 'black');
@@ -67,9 +62,9 @@ newtoy.rating;        // 3
 newtoy.getInfo();     // "Rating: 3, price: 100"
 ```
 
-The prototype is "live".  
+### The prototype is "live".  
 Objects are passed by reference in JavaScript, and therefore the prototype is not copied with every new object instance.  
-You can modify the prototype at any time and all objects (even those created before the modification) will inherit the changes.  
+Modifying of the prototype at any time implies that all objects (even those created before the modification) will inherit the changes.  
 
 ```js
 Gadget.prototype.get = function(what) {
@@ -79,16 +74,17 @@ newtoy.get('price');   // 100
 newtoy.get('color');   // "black"
 ```
 
-## What's mine is mine, what's my prototype's is mine
+### What's mine is mine, what's my prototype's is mine
 
-When you try to access a property of `newtoy`, say `newtoy.name` the JavaScript engine:
+When trying to access a property of `newtoy`, say `newtoy.name` the JavaScript engine:
 1. will look through all of the properties of the object searching for one called name
 2. if it finds it, will return its value
 
 ```js
 newtoy.name  // "webcam"
 ```
-When you try to access a property belonging to `newtoy` constructor's prototype (i.e. the prototype of the `Gadget` function), `rating` for example, the JavaScript engine:
+
+When trying to access a property belonging to `newtoy` constructor's prototype (i.e. the prototype of the `Gadget` function), `rating` for example, the JavaScript engine:
 
 1. will examine all of the properties of newtoy and will not find the one called `rating`
 2. then will identify the prototype of the constructor function used to create this object
@@ -110,13 +106,14 @@ The prototype of a constructor function is an object.
 So it must have a `constructor` too. Which in turn has a prototype.  
 The built-in `Object` object is the highest-level parent, the and of the so called the **prototype chain**.  
 
-If you try `newtoy.toString()` and `newtoy` doesn't have an own `toString()` method and its prototype doesn't either, in the end you'll get the Object's `toString()`.
+`newtoy.toString()` and `newtoy` doesn't have an own `toString()` method and its prototype doesn't either.
+In the end Object's `toString()` will use.
 
 ```js
 newtoy.toString()  // "[object Object]"
 ```
 
-## Overwriting Prototype's Property with Own Property
+### Overwriting prototype's property with own property
 What if the object does have its own property and the prototype also has one with the same name?  
 The own property takes precedence over the prototype's.
 
@@ -138,7 +135,7 @@ toy.name;                        // "camera"
 ```
 
 ## Enumerating properties
-If you want to list all properties of an object, you can use a `for-in` loop.
+To list all properties of an object use a `for-in` loop.
 
 ```js
 var o = {p1: 1, p2: 2};
@@ -176,10 +173,14 @@ for (var prop in newtoy) {
 // color = black
 // someMethod = function () { return 1; } price = 100
 // rating = 3
+```
 
+```js
 newtoy.hasOwnProperty('name')    // true
 newtoy.hasOwnProperty('price')   // false
+```
 
+```js
 for (var prop in newtoy) {
     if (newtoy.hasOwnProperty(prop)) {
     console.log(prop + '=' + newtoy[prop]);
@@ -189,16 +190,18 @@ for (var prop in newtoy) {
 // name=webcam
 // color=black
 // someMethod=function () { return 1; }
+```
 
+```js
 newtoy.propertyIsEnumerable('name')          // true
 newtoy.propertyIsEnumerable('constructor')   // false
 newtoy.propertyIsEnumerable('price')         // false
 newtoy.constructor.prototype.propertyIsEnumerable('price')   // true
 ```
 
-## The isPrototypeOf() method
+## isPrototypeOf() method
 Every object gets the `isPrototypeOf()` method.  
-This method tells you whether that specific object is used as a prototype of another object.
+This method tells whether that specific object is used as a prototype of another object.
 
 ```js
 var monkey = {
@@ -215,12 +218,13 @@ function Human(name) {
 Human.prototype = monkey;
 
 var george = new Human('George');
+
 monkey.isPrototypeOf(george)   // true
 ```
 
 ## Some prototype gotchas
 
-### `prototype.constructor` is not reliable
+### prototype.constructor is not reliable
 It could be simply overwritten.  
 JavaScript engine access object's prototype through a secret link.  
 Some engines expose this link as a `__proto__` properties.  
@@ -247,8 +251,11 @@ developer.hacks  // "JavaScript", found in the object
 developer.feeds  // "pizza", found in the object
 
 developer.breathes // "air", found in the prototype
+```
 
-/* it is allowed to overwrite constructor property */
+It is allowed to overwrite constructor property.
+
+```js
 developer.constructor = 'junk'
 typeof developer.constructor.prototype // "undefifined", a string object haven't prototype property
 
@@ -256,6 +263,7 @@ developer.breathes  // "air", engine uses imutable __proto__ secret link
 ```
 
 `__proto__` is not the same as `prototype`:
+
 * `__proto__` is a property of the instances
 * `prototype` is a property of the constructor functions.
 
@@ -264,7 +272,8 @@ typeof developer.__proto__   // "object"
 typeof developer.prototype   // "undefifined"
 ```
 
-### The prototype chain is live with the exception of when you completely replace the prototype object
+### Replacing prototype object
+The prototype chain is live with the exception of when you completely replace the prototype object.
 
 ```js
 function Dog(){this.tail = true;}
@@ -279,21 +288,31 @@ rusty.say();   // "Woof!"
 benji.constructor;   // Dog()
 rusty.constructor;   // Dog()
 
-/* Notice that the constructor of the prototype of a function
- * is the constructor function itself, rather than Object() */
-benji.constructor.prototype.constructor    // Dog()
+> #### Note
+> constructor of the prototype of a function is automatically set to the constructor function itself, rather than `Object()`
+>
+> ```js 
+> benji.constructor.prototype.constructor // Dog()
+>```
 
-typeof benji.constructor.prototype.tail    // "undefifined"
+Let's completely overwrite the prototype object with a brand new object
 
-/* Let's completely overwrite the prototype object with a brand new object */
+```js
 Dog.prototype = { paws: 4, hair: true };
+```
 
-/* Old objects do not get access to the new prototype's properties:
- * they still keep the secret link pointing to the old prototype object */
+
+Old objects do not get access to the new prototype's properties:  
+they still keep the secret link pointing to the old prototype object.
+
+```js
 typeof benji.paws   // "undefifined"
 benji.say()   // "Woof!"
+```
 
-/* Any new objects you create from now on will use the updated prototype */
+Any new objects created from now on will use the updated prototype.
+
+```js
 var lucy = new Dog();
 lucy.say()   // TypeError: lucy.say is not a function
 lucy.paws    // 4
@@ -303,13 +322,14 @@ benji.constructor   // Dog()
 
 typeof lucy.constructor.prototype.paws    // "undefifined"
 typeof benji.constructor.prototype.paws   // "number"
+```
 
-/* To fix the unexpected behavior, you have to reset the
- * constructor property when overwrite the prototype */
+To fix the unexpected behavior, you have to reset the constructor property when overwrite the prototype.
+
+```js
 Dog.prototype = {paws: 4, hair: true};
 Dog.prototype.constructor = Dog;
 ```
 
 > #### Best practice
->
 > When you overwrite the prototype, it is a good idea to reset the constructor property.

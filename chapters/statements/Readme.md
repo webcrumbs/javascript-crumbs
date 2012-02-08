@@ -158,73 +158,82 @@ it is possible that the body of the loop is never executed.
 while (expression) statement
 ```
 
-var i = 0;
-while (i < 10) {
-  i += 2;
-}
+> #### Example
+> 
+> ```js
+> var i = 0;
+> while (i < 10) {
+>   i += 2;
+> }
+> ```
 
 ### The for Statement
 
-The for statement is also a pretest loop with the added capabilities of variable initialization before entering the loop and defining postloop code to be executed.
+The for statement is a pre-test loop with code before entering the loop and post-loop code.
 
-    for (initialization; expression; post-loop-expression) statement
+```js
+for (initialization; expression; post-loop-expression) statement
+```
 
-for loops can be nested within each other.
+> #### Note
+> The for loops can be nested within each other.
+> 
+> ```js
+> var s = '\n';
+> var n = 3;
+> var m = 3;
+> 
+> for (var i = 0; i < n; i++) {
+>   for (var j = 0; j < m; j++) {
+>     s += '* ';
+>   }
+>   s += '\n';
+> }
+>
+> console.log(s);
+> "
+> * * *
+> * * *
+> * * *
+> "
 
-Here's an example of a loop that is nested inside another loop and assembles a string containing 10 rows and 10 columns of asterisks.
-Think of i being the row and j being the column of an "image".
+> ####Note
+> The initialization, control expression, and postloop expression are all optional.
+> You can create an infinite loop by omitting all three, like this:
+>
+> ```js
+> for (;;) { //infinite loop
+>  doSomething();
+> }
+> ```
 
-    var res = '\n';
-    for(var i = 0; i < 10; i++) {
-      for(var j = 0; j < 10; j++) {
-        res += '* ';
-      }
-      res += '\n';
-    }
-
-    The result is a string like:
-
-    "
-    * * * * * * * * * *
-    * * * * * * * * * *
-    * * * * * * * * * *
-    * * * * * * * * * *
-    * * * * * * * * * *
-    * * * * * * * * * *
-    * * * * * * * * * *
-    * * * * * * * * * *
-    * * * * * * * * * *
-    * * * * * * * * * *
-    "
-
-The initialization, control expression, and postloop expression are all optional.
-You can create an infinite loop by omitting all three, like this:
-
-    for (;;) { //infinite loop
-      doSomething();
-    }
-
-Including only the control expression effectively turns a for loop into a while loop, as shown here:
-
-￼￼￼￼var count = 10;
-    var i = 0;
-    for (; i < count; ) {
-      console.log(i);
-      i++;
-    }
-
-This versatility makes the for statement one of the most used in the language.
+> ####Note
+> The for loop can be turns into a while loop including only the control expression
+> 
+> ```js
+> var count = 10;
+> var i = 0;
+> for (; i < count; ) {
+>   console.log(i);
+>   i++;
+> }
+> ```
 
 ### The for-in Statement
 
-The for-in statement is a strict iterative statement.
-It is used to enumerate the properties of an object.
+The for-in statement is a strict iterative statement used to enumerate the properties of an object.
 
-    for (property in expression) statement
+```js
+for (property in expression) statement
+```
 
-For example:
-
-  var obj = {a: 1, b: 2, c: 3};
-  for (var key in obj) {
-    console.log(key);
-  }
+> #### Example
+> 
+> ```js
+> var obj = {a: 1, b: 2, c: 3};
+> var s = '';
+> for (var key in obj) {
+>   s += key + ' ';
+> }
+> console.log(s); //"a b c ";
+> ```

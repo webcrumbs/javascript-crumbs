@@ -15,135 +15,138 @@ An empty object already contains some methods and properties:
 * `o.toString()` is a method that returns a string representation of the object
 * `o.valueOf()` returns a single-value representation of the object, often this is the object itself
 
-```js
-var o = new Object();
-o.toString()   // "[object Object]"
-```
-
-`toString()` will be called internally by JavaScript, when an object is used in a string context.  
-For example alert() works only with strings, so if you call the alert() function passing an object, the method toString() will be called behind the scenes.
-
-```js
-alert(o)
-alert(o.toString())
-```
-
-Another type of string context is the string concatenation. 
-If you try to concatenate an object with a string, the object's `toString()` will be called first.
-
-```js
-"An object: " + o   // "An object: [object Object]"
-```
-
-`valueOf()` is another method that all objects provide.  
-For the simple objects (whose constructor is Object()) the valueOf() method will return the object itself.
-
-```js
-o.valueOf() === o   // true
-```
 
 ## Array
 Arrays are objects, but of a special type because:
 
 * the names of their properties are automatically assigned using numbers starting from 0
-* they have a length property which contains the number of elements in the array
+* they have a `length` property which contains the number of elements in the array
 * they have additional built-in methods in addition to those inherited from the parent object
 
-### Array initializer
+### Array definition
+
+#### Array initializer
 
 ```js
-var empty = []   // An empty array: no expressions inside brackets means no elements
-var plain = [1+2,'four']   // A 2-element array. First element is 3, second is the string 'four'
+var empty = [] // An empty array: no expressions inside brackets means no elements
+var plain = [1+2,'four'] // A 2-element array. First element is 3, second is the string 'four'
 var matrix = [[1,2,3], [4,5,6], [7,8,9]]; // nested array
 var sparseArray = [1,,,,5];
 ```
 
-### Array constructor function
+#### Array constructor function
 
 ```js
 var empty = new Array();
 var plain = new Array(2+1,'four');
 var a = new Array(5);
-empty.length;   // 0
-plain.length;   // 2
-a.length;   // 5
+empty.length; // 0
+plain.length; // 2
+a.length;     // 5
 
 /* Array is a constructor function for arrays */
-plain.constructor;   // function Array() ...
+plain.constructor; // function Array() ...
 
 /* Array is an object */
-typeof a;   // "object"
+typeof a; // "object"
 ```
+
 
 ### Stack methods: push, pop
 A stack is referred to as a last-in-first-out (LIFO) structure.  
-The insertion (called a push) and removal (called a pop) of items in a stack occur at only one point: the top of the stack.  
-ECMAScript arrays provide `push()` and `pop()` specifically to allow stack-like behavior.  
+The insertion (called a push) and removal (called a pop) of items in a stack occur at only one point: the top of the stack. 
+
+#### push(item...)
+It accepts any number of item to push in the array.  
+It returns the array's new legth.
 
 ```js
 var colors = new Array();   // create an array
 var count = colors.push('red', 'green'); // push any number of items
-count;   // 2
+count;  // 2
+colors; // ["red", "green"]
 
 count = colors.push('black');   // push another item on
-count;   // 3
+count;  // 3
+colors; // ["red", "green", "black"]
+```
 
-var item = colors.pop();   // get the last item
-item;   // "black"
-colors.length;   // 2
+#### pop()
+It acceps no parameter.
+It returns and removes the last element in the array.
+If the array is empty, return `undefined`.
+
+
+```js
+var colors = new Array('red', 'green', 'black');
+
+var item = colors.pop(); // get the last item
+item; // "black"
+colors.length; // 2
+colors; // ["red", "green"]
 ```
 
 ### Queue methods: shift, unshift
 Queues restrict access in a first-in-first-out (FIFO) data structure.  
 A queue adds items to the end of a list and retrieves items from the front of the list.  
-Already knonw `push()` method adds items to the end of an array.  
-`shift()` method retrieve the first item in the array.  
-Using shift() in combination with push() allows arrays to be used as queues.  
+It's possible to make an array behave like a queue with `push` and `shift` methods.  
+An inverse queue instead is obtainable using `pop` and `unshift` methods.
+
+
+#### shift()
+It accepts no parameters.
+It return and remove the first element in the array.
+If the array is empty, return `undefined`.
 
 ```js
-var colors = new Array();   // create an array
-var count = colors.push('red', 'green');   // push two items
-count;   // 2
+var colors = new Array('red', 'green', 'black');
 
-count = colors.push('black');  // push another item on
-count; // 3
-
-var item = colors.shift();   // get the first item
-item;   // "red"
-colors.length;   // 2
+var item = colors.shift(); // get the first item
+colors.length; // 2
+item; // "red"
 ```
 
-ECMAScript also provides an `unshift()` method for arrays.  
-`unshift()` does the opposite of `shift()`: it adds any number of items to the front of an array and returns the new array length.  
-By using `unshift()` in combination with `pop()`, it’s possible to emulate a queue where new values are added to the front of the array and values are retrieved off the back.  
+> #### Tip
+> shift is usually much slower than `pop`
+
+
+#### unshift(item...)
+It accepts any number of parameters to shove onto the front of te array.
+It returns array's new legth. 
 
 ```js
-var colors = new Array();   // create an array
-var count = colors.unshift('red', 'green');   // push two items
-count   // 2
+var colors = new Array('red', 'green', 'black');
 
-count = colors.unshift('black');   // push another item on
-count;   // 3
-
-var item = colors.pop();
-item;   // "green"
-colors.length;   // 2
+var count = colors.unshift('purple', 'yellow');
+count; // 5
+colors: // ["purple", "yellow", "red", "green", "black"]
 ```
 
 ### Reordering methods: reverse, sort
+
+
+#### reverse()
+Modify the array by reversing the order of the elements.  
+It accepts no parameters.  
+It returns the array.  
 
 ```js
 var values = [1, 2, 3, 4, 5];
 values.reverse();
 values;   // 5,4,3,2,1
-
-var values = [0, 1, 5, 10, 15];
-values.sort();
-values;   // 0,1,10,15,5
 ```
 
-`sort()` method default behaviour changes order based on lexicographical order.  
-It can be changed by passing a comparing function.
+#### sort(comparefn)
+It sorts the array's elements.  
+It accepts an optional comparing function according to which sort the array.  
+The default comparing function is the lexicographical order.  
+It returns the array.
+
+```js
+var values = [0, 1, 5, 10, 15];
+values.sort(); // default behaviour
+values;   // 0,1,10,15,5
+```
 
 ```js
 function compare(value1, value2) {
@@ -155,70 +158,135 @@ values.sort(compare);
 values;   // 0,1,5,10,15
 ```
 
+
+### Presentation methods: join
+
+#### join(separator)
+It accepts an optional separator parameter, defaulting to `,`.  
+It returns a string by making a string of each of the array’s elements, and then concatenating them all together with a separator between them.
+
+```js
+var a = ['a', 'b', 'c'];
+var c = a.join(''); // 'abcd';
+```
+
+> #### Tip
+> to assemble a string from a large number of pieces, it is usually faster to put the pieces into an array and join them than concatenate the pieces with the `+` operator
+
+
 ### Manipulation methods: concat, slice, splice
 
-#### concat
+#### concat(item...)
+It accepts any number of items.  
+It returns a shallow copy of the array with the items appended to it. If an item is an array then each of its elements is appended individually.  
 
 ```js
-var colors = ["red", "green", "blue"];
-var colors2 = colors.concat("yellow", ["black", "brown"]);
-colors;   // red,green,blue
-colors2;  // red,green,blue,yellow,black,brown
+var colors = ['red', 'green', 'blue'];
+
+var colors2 = colors.concat('yellow', ['black', 'brown']);
+colors;  // ["red", "green", "blue"]
+colors2; // ["red", "green", "blue", "yellow", "black", "brown"]
 ```
 
-#### slice
-
-```js
-var colors = ["red", "green", "blue", "yellow", "purple"];
-var colors2 = colors.slice(1);
-var colors3 = colors.slice(1,4);
-colors2;   // green,blue,yellow,purple
-colors3;   // green,blue,yellow
-```
-
+#### slice(start, end)
+It accepts the `start` position and optionally `end` position, which default to array's length.  
+It returns a shallow copy of a portion of the array.  
 If either the start or end position of `slice()` is a negative number, then the number is subtracted from the length of the array to determine the appropriate locations.  
 Calling `slice(-3, -1)` on an array with five items is the same as calling `slice(2, 4)`.  
 If the end position is smaller than the start, then an empty array is returned.
 
-#### splice
-`splice()` is useful for _deletion_, _insertion_ and _replacement_ in the middle of an array.
+```js
+var colors = ['red', 'green', 'blue', 'yellow', 'purple'];
+
+var colors2 = colors.slice(1);
+colors2; // ["green", "blue", "yellow", "purple"]
+
+var colors3 = colors.slice(1, 4);
+colors3; // ["green", "blue", "yellow"]
+```
+
+#### splice(start, deleteCount, item...)
+It accepts:
+  `start`: the number of a position within the array  
+  `deleteCount`:  the number of elements to delete starting from `start` position
+  `item...`: optional, any number of items to insert starting from `start` position
+It returns an array containing the deleted elements.
 
 ```js
-var colors = ["red", "green", "blue"];
-var removed = colors.splice(0,1);   // remove the first item
-colors;    // green,blue
-removed;   // red - one item array
+var colors = ['red', 'green', 'blue'];
 
-removed = colors.splice(1, 0, "yellow", "orange");  // insert two items at position 1
-colors;    // green,yellow,orange,blue
-removed;   // empty array
+var removed = colors.splice(0,1); // remove the first item
+colors;  // green,blue
+removed; // ["red"]
+```
 
-removed = colors.splice(1, 1, "red", "purple");   // insert two values, remove one
+```js
+var colors = ['red', 'green', 'blue'];
+
+removed = colors.splice(1, 0, 'yellow', 'orange');  // insert two items at position 1
+colors;  // green,yellow,orange,blue
+removed; // empty array
+```
+
+```js
+var colors = ['red', 'green', 'blue'];
+
+removed = colors.splice(1, 1, 'red', 'purple');   // insert two values, remove one
 colors;    // green,red,purple,orange,blue
 removed;   // yellow - one item array
 ```
 
 ### Location methods: indexOf, lastIndexOf
-The `indexOf()` method starts searching from the front of the array (item 0) and continues to the back.  
-The `lastIndexOf()` starts from the last item in the array and continues to the front.  
-The methods each return the position of the item in the array or –1 if the item isn’t in the array.  
-`===` is used in comparison.
+
+#### indexOf(item, startPos) 
+It accepts:
+  an `item` to search for, starting from the front of the array and continues to the back  
+  an optional `startPos` to indicate the starting point of the search, which default to 0. If `startPos` is negative, array's length is added to it.  
+It returns the position of the item in the array or –1 if the item isn’t in the array.  
+`===` is used in comparison.  
 
 ```js
 var numbers = [1,2,3,4,5,4,3,2,1];
 
-numbers.indexOf(4);   // 3
-numbers.lastIndexOf(4);   // 5
+var index = numbers.indexOf(4);   
+index; // 3
+```
 
-numbers.indexOf(4, 4);   // 5
-numbers.lastIndexOf(4, 4);   // 3
+```js
+var numbers = [1,2,3,4,5,4,3,2,1];
 
-var person = { name: "Nicholas" };
-var people = [{ name: "Nicholas" }];
+var index = numbers.indexOf(4, 4);
+index; // 5
+```
+
+```js
+var person = { name: 'Nicholas' };
+var people = [{ name: 'Nicholas' }];
 
 var morePeople = [person];
 people.indexOf(person);   // -1
 morePeople.indexOf(person);   // 0
+```
+
+#### lastIndexOf(item, startPos) 
+It accepts:
+  an `item` to search for, starting from the back of the array and continues to the front 
+  an optional `startPos` to indicate the starting point of the search, which default to array's length. If `startPos` is negative, array's length is added to it.
+It returns the last position of the item in the array or –1 if the item isn’t in the array.  
+`===` is used in comparison.  
+
+```js
+var numbers = [1,2,3,4,5,4,3,2,1];
+
+var index = numbers.lastIndexOf(3);   
+index; // 6
+```
+
+```js
+var numbers = [1,2,3,4,5,4,3,2,1];
+
+var index = numbers.lastIndexOf(4, -4);
+index; // 2
 ```
 
 ### Iterative methods: every, filter, forEach, map, some
@@ -233,7 +301,7 @@ The function passed into one of these methods will receive three arguments:
   2. the position of the item in the array
   3. the array object itself
 
-#### every
+#### every(function(item, pos, array) {...}, scope)
 Runs the given function on every item in the array and returns true if the function returns true for every item.
 
 ```js
@@ -246,7 +314,7 @@ var everyResult = numbers.every(function(item, index, array) {
 everyResult;   //false
 ```
 
-#### some
+#### some(function(item, pos, array) {...}, scope)
 Runs the given function on every item in the array and returns true if the function returns true for any one item.
 
 ```js
@@ -257,7 +325,7 @@ var someResult = numbers.some(function(item, index, array) {
 someResult;   //true
 ```
 
-#### filter
+#### filter(function(item, pos, array) {...}, scope)
 Runs the given function on every item in the array and returns an array of all items for which the function returns true.
 
 ```js
@@ -270,7 +338,7 @@ var filterResult = numbers.filter(function(item, index, array){
 filterResult;   //[3,4,5,4,3]
 ```
 
-#### forEach
+#### forEach(function(item, pos, array) {...}, scope)
 Runs the given function on every item in the array. This method has no return value.
 
 ```js
@@ -281,7 +349,7 @@ numbers.forEach(function(item, index, array){
 });
 ```
 
-#### map
+#### map(function(item, pos, array) {...}, scope)
 Runs the given function on every item in the array and returns the result of each function call in an array.
 
 ```js
@@ -308,22 +376,28 @@ The passed function accepts four arguments:
 
 Any value returned from the function is automatically passed in as the first argument for the next item.  
 The first iteration occurs on the second item in the array.  
-`reduce()` perform reduction in left-to-right order.  
-`reduceRight()` perform reduction in right-to-left order
+
+
+#### reduce(function(previous, current, index, array) {...}, initVal)
+Perform reduction in left-to-right order.
 
 ```js
 var values = [1,2,3,4,5];
 
-var sum = values.reduce(function(prev, cur, index, array){
+var sum = values.reduce(function(previous, current, index, array){
   return prev + cur;
 });
 
 sum;   // 15
+```
 
+### reduceRight(function(previous, current, index, array) {...}, initVal)
+Perform reduction in right-to-left order.
 
+```js
 var values = [1,2,3,4,5,15];
 
-var sum = values.reduceRight(function(prev, cur, index, array){
+var sum = values.reduceRight(function(previous, current, index, array){
   return prev - cur;
 });
 

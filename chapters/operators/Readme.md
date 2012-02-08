@@ -184,8 +184,8 @@ it lines up the bits in each number and then performs an AND operation between t
 var a = 25;        //binary 0000 0000 0000 0000 0000 0000 0001 1001
 var b = 11;        //binary 0000 0000 0000 0000 0000 0000 0000 1011
 var c = a & b;     //binary 0000 0000 0000 0000 0000 0000 0000 1001
-console.log(c);    //9
 ```
+console.log(c);    //9
 
 #### Bitwise OR
 is represented by the pipe character `|` and works on two values;  

@@ -57,40 +57,39 @@ b; //123
 a; //122
 ```
 
-> #### Note
-> The increment and decrement operators follow these rules regarding values:
->
-> * when used on a string that is a valid number, convert to a number and apply the change;  
-> the variable is changed from a string to a number
-> * when used on a string that is not a valid number, convert to `NaN`;  
-> the variable is changed from a string to a number  
-> * when used on a boolean, convert to a number (`false` in `0`, `true` in `1`) and apply the change;  
-> the variable is changed from a boolean to a number
-> * when used on a floating-point value, apply the change;  
-> the variable is just a number
-> * when used on an object, call its `valueOf()` method to get a value to work with and apply the change;  
-> the variable is changed from an object to a number
-> 
-> ```js
-> var s = "10";
-> ++s; //11
-> ```
-> ```js
-> var x = "hello";
-> ++x; //NaN
-> ```
-> ```js
-> var b = true;
-> ++b; //2
-> ```
-> ```js
-> var f = 0.07;
-> ++f; 1.07;
-> ```
-> ```js
-> var o = { valueOf: function () { return 100; } };
-> ++o; //101
-> ```
+When used on a nonnumeric value, these operators convert the value to a number and then apply the change:
+
+* when used on a string that is a valid number, convert to a number and apply the change;  
+the variable is changed from a string to a number
+* when used on a string that is not a valid number, convert to `NaN`;  
+the variable is changed from a string to a number  
+* when used on a boolean, convert to a number (`false` in `0`, `true` in `1`) and apply the change;  
+the variable is changed from a boolean to a number
+* when used on a floating-point value, apply the change;  
+the variable is just a number
+* when used on an object, call its `valueOf()` method to get a value to work with and apply the change;  
+the variable is changed from an object to a number
+
+```js
+var s = "10";
+++s; //11
+```
+```js
+var x = "hello";
+++x; //NaN
+```
+```js
+var b = true;
+++b; //2
+```
+```js
+var f = 0.07;
+++f; 1.07;
+```
+```js
+var o = { valueOf: function () { return 100; } };
+++o; //101
+```
 
 ### Unary plus and minus
 
@@ -185,8 +184,8 @@ it lines up the bits in each number and then performs an AND operation between t
 var a = 25;        //binary 0000 0000 0000 0000 0000 0000 0001 1001
 var b = 11;        //binary 0000 0000 0000 0000 0000 0000 0000 1011
 var c = a & b;     //binary 0000 0000 0000 0000 0000 0000 0000 1001
-console.log(c);    //9
 ```
+console.log(c);    //9
 
 #### Bitwise OR
 is represented by the pipe character `|` and works on two values;  
@@ -220,32 +219,31 @@ is represented by `!` and negate the boolean value.
 !false; //true
 ```
 
+when used on a non-boolean value, it converts the value to a boolean and return the result;
+most values convert to `true` with the exception of the following (which convert to `false`):
+
+* the empty string `""`
+* `null`
+* `undefined`
+* the number `0`
+* the number `NaN`
+* the boolean `false`
+
 > #### Tip
 > If you use the logical NOT twice, you get the original value.
+> Use double negation to easily convert any value to its boolean equivalent.
 >  
 > ```js
-> !!true; //true
+> !!false;     //false
+> !!"";        //false
+> !!null;      //false
+> !!undefined; //false
+> !!0;         //false
+> !!NaN;       //false
+> !!true;      //true
+> !!"0";       //true
+> !!1;         //true
 > ```
->
-> Using double negation is an easy way to convert any value to its boolean equivalent.
-> This is rarely useful, but on the other hand understanding how any value converts to a boolean is important.
-> Most values convert to true with the exception of the following (which convert to false):
->
-> * the empty string ""
-> * null
-> * undefined
-> * the number 0
-> * the number NaN
-> * the boolean false
-> 
-> If you use a logical operator on a non-boolean value, the value is converted to boolean behind the scenes.
-> 
-> ```js
-> !"one"; //false
-> ```
-> 
-> These six values are sometimes referred to as being falsy, while all others are truthy
-> (including, for example, the strings "0", " ", and "false").
 
 #### Logical AND
 is represented by `&&` and returns the logical AND of the operands.

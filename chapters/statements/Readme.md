@@ -63,6 +63,20 @@ You can also chain if statements together like so:
       console.log("Between 0 and 25, inclusive.");
     }
 
+Control statements, such as if, require code blocks only when executing multiple statements.
+However, it is considered a best practice to always use code blocks with control statements,
+even if there’s only one statement to be executed.
+Using code blocks for control statements makes the intent clearer,
+and there’s less chance for errors when changes need to be made.
+
+    if (test)
+        alert("hello!"); //valid, but error-prone and should be avoided
+
+    if (test) { //preferred
+         alert(test);
+    }
+
+
 ### The switch Statement
 
 If you find yourself using an if condition and having too many else if parts, you could consider changing the if to a switch.

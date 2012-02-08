@@ -36,7 +36,7 @@ var o = {
 };
 ```
 
-## Elements, Properties, Methods
+## Elements, properties, methods
 An object contains **properties**.  
 A property of an object can contain a function, because functions are just data.  
 In this case, you say that this property is a **method**.  
@@ -50,7 +50,7 @@ var dog = {
 };
 ```
 
-## Accessing Object's properties
+## Accessing object's properties
 There are two ways to access a property of an object:
 
 * Using square bracket notation, for example `hero['occupation']`
@@ -95,7 +95,7 @@ var key = 'firstname';
 book.author[key]; // "Joseph"
 ```
 
-## Calling an Object's methods
+## Calling an object's methods
 Calling (invoking) a method is the same as calling any other function: just add parentheses after the method name, which effectively say "Execute!".
 
 ```js
@@ -141,7 +141,7 @@ delete hero.name; // true
 hero.sayName(); // TypeError: Object #<Object> has no method 'sayName'
 ```
 
-## Using this Value
+## Using this value
 In the previous example, the method `sayName()` used `hero.name` to access the name property of the hero object.  
 When you're inside a method, there is another way to access the object this method belongs to: by using the special value `this`.  
 
@@ -158,7 +158,7 @@ hero.sayName();   // "Rafaelo"
 
 So when you say `this`, you are actually saying "this object" or "the current object".
 
-## Constructor Functions
+## Constructor functions
 There is another way to create objects: by using constructor functions.
 
 ```js 
@@ -209,7 +209,7 @@ h2.whoAreYou(); // "I'm Donatello and I'm a Ninja"
 > so it actually returns `undefined`, which gets assigned to `h`.
 > In this case, `this` refer to global object.
 
-## The Global Object
+## The global object
 The host environment provides a global object and all global variables are actually properties of the global object.  
 If your host environment is the web browser, the global object is called `window`.  
 
@@ -274,7 +274,7 @@ h instanceof Object; // false
 o instanceof Object; // true
 ```
 
-## Passing Objects
+## Passing objects
 When you copy an object or pass it to a function, you only pass a reference to that object.  
 Consequently, if you make a change to the reference, you are actually modifying the original object.
 
@@ -295,7 +295,7 @@ nullify(original);
 original.howmany; // 0
 ```
 
-## Comparing Objects
+## Comparing objects
 When you compare objects, you'll get `true` only if you compare two references to the same object.  
 Comparing two distinct objects that happen to have the exact same methods and properties will return `false`.
 

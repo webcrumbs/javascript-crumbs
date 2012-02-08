@@ -537,3 +537,25 @@ exist for each of the major mathematical operations and a few others as well:
 > #### Note
 > Compound-assignment operators are designed specifically as shorthand ways of achieving operations,  
 > they do not represent any performance improvement.
+
+### Comma Operator
+#### comma operator 
+allows execution of more than one operation in a single statement.
+
+> #### Tip
+> Comma operator can be used in the declaration of variables
+> 
+> ```js
+> var a, b = 1, c = 2;
+> console.log(a); //undefined
+> console.log(b); //1
+> console.log(c); //2
+> ```
+>
+> Comma operator can be used to assign value to a variable,  
+> it returns the last item in the expression.
+>
+> ```js 
+> var n = (0, 1, 2, 3, 4, 5);
+> console.log(n); //5
+> ```

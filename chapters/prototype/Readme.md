@@ -287,6 +287,7 @@ rusty.say();   // "Woof!"
 
 benji.constructor;   // Dog()
 rusty.constructor;   // Dog()
+```
 
 > #### Note
 > constructor of the prototype of a function is automatically set to the constructor function itself, rather than `Object()`

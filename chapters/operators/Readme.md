@@ -1,234 +1,286 @@
 # Operators
 
-ECMA-262 describes a set of operators that can be used to manipulate data values.
-The operators range from mathematical operations (such as addition and subtraction) and bitwise operators to relational operators and equality operators.
-Operators are unique in ECMAScript in that they can be used on a wide range of values, including strings, numbers, booleans, and even objects.
-When used on objects, operators typically call the valueOf() and/or toString() method to retrieve a value they can work with.
-
 ## Unary Operators
 
-Operators that work on only one value are called unary operators.
-They are the simplest operators in ECMAScript.
+Unary operators are operators that work on only one value.  
+They are the simplest operators in JavaScript.
 
 ### increment/decrement
 
-The increment and decrement operators are taken directly from C and come in two versions: prefix and postfix.
-The prefix versions of the operators are placed before the variable they work on;
-the postfix versions of the operators are placed after the variable.
+The increment operator is represented by `++` and increments the value by 1;  
+the decrement operator is represented by `--` and decrements the value by 1.
 
-When using the prefix versions of the operators,
-the variable’s value is changed before the statement is evaluated.
+The increment and decrement operators can be used in two versions, prefix and postfix:  
 
-When using the postfix versions of the operators,
-the variable’s value is changed after the statement is evaluated.
+* the prefix versions of the operators are placed before the variable they work on,  
+and is applied before the statement is evaluated;
+* the postfix versions of the operators are placed after the variable,  
+and is applied after the statement is evaluated.
 
-pre-increment is when the input value is first incremented by 1 and then returned.
+#### pre-increment 
+increments the input value by 1 before the statement is evaluated.
 
-    var a = 123;
-    var b = ++a;
-    b; //124
-    a; //124
+```js
+var a = 123;
+var b = ++a;
+a; //124
+b; //124
+```
 
-post-increment is when the input value is incremented by 1 after it's returned.
+#### post-increment 
+increments the input value by 1 after the statement is evaluated.
 
-    var a = 123;
-    var b = a++;
-    b; //123
-    a; //124
+```js
+var a = 123;
+var b = a++;
+a; //124
+b; //123
+```
 
-pre-decrement is when the input value is first decremented by 1 and then returned.
+#### pre-decrement 
+decremented the input value by 1 before the statement is evaluated.
 
-    var a = 123;
-    var b = ++a;
-    b; //124
-    a; //124
+```js
+var a = 123;
+var b = ++a;
+b; //124
+a; //124
+```
 
-post-decrement is when the input value is decremented by 1 after it's returned.
+#### post-decrement 
+decremented the input value by 1 after the statement is evaluated.
 
-    var a = 123;
-    var b = a--;
-    b; //123
-    a; //122
+```js
+var a = 123;
+var b = a--;
+b; //123
+a; //122
+```
 
-All four of these operators work on any values, meaning not just integers but strings, booleans, floating-point values, and objects.
-The increment and decrement operators follow these rules regarding values:
+When used on a nonnumeric value, these operators convert the value to a number and then apply the change:
 
-* When used on a string that is a valid representation of a number, convert to a number and apply the change.
-The variable is changed from a string to a number.
-* When used on a string that is not a valid number, the variable’s value is set to NaN.
-The variable is changed from a string to a number.
-* When used on a boolean value that is false (or true), convert to 0 (or 1) and apply the change.
-The variable is changed from a Boolean to a number.
-* When used on a floating-point value, apply the change by adding or subtracting 1.
-* When used on an object, call its valueOf() method to get a value to work with and apply the change.
-If the result is NaN, then call toString() and apply the change.
-The variable is changed from an object to a number.
+* when used on a string that is a valid number, convert to a number and apply the change;  
+the variable is changed from a string to a number
+* when used on a string that is not a valid number, convert to `NaN`;  
+the variable is changed from a string to a number  
+* when used on a boolean, convert to a number (`false` in `0`, `true` in `1`) and apply the change;  
+the variable is changed from a boolean to a number
+* when used on a floating-point value, apply the change;  
+the variable is just a number
+* when used on an object, call its `valueOf()` method to get a value to work with and apply the change;  
+the variable is changed from an object to a number
+
+```js
+var s = "10";
+++s; //11
+```
+```js
+var x = "hello";
+++x; //NaN
+```
+```js
+var b = true;
+++b; //2
+```
+```js
+var f = 0.07;
+++f; 1.07;
+```
+```js
+var o = { valueOf: function () { return 100; } };
+++o; //101
+```
 
 ### Unary plus and minus
 
-The unary plus is represented by a single plus sign (+) placed before a variable;
-when it is applied to a numeric values, it does nothing to a numeric value.
+#### Unary plus
+is represented by a single plus sign `+` placed before a variable and returns its numeric value:  
+when used on a numeric values, it does nothing to a numeric value but return the value;  
+when used on a nonnumeric value, it converts the value to a number and return the result:
 
-When it is applied to a nonnumeric value, it converts the value to a number and return the result.
-* When used on a string that is a valid representation of a number, convert to a number and return the result.
-* When used on a boolean value that is false (or true), convert to 0 (or 1) and return the result.
-* When used on an object, call its valueOf() method to get a value to work with and return the result.
-If the result is NaN, then call toString() and return the result.
+* when used on a string that is a valid number, convert to a number and return the result
+* when used on a boolean, convert to a number (`false` in `0`, `true` in `1`) and return the result
+* when used on an object, call its `valueOf()` method to get a value to work with and return the result
 
-    var num = 25;
-    var s1 = “01”;
-    var s2 = “1.1”;
-    var s3 = “z”;
-    var b = false;
-    var f = 1.1;
-    var o = {
-      valueOf: function () {
-        return -1;
-      }
-    };
+```js
+var n = 25;
+n = +n; //still 25
+```
+```js
+var s = "01";
+s = +s; //value becomes numeric 1
+```
+```js
+var s = "1.1";
+s = +s; //value becomes numeric 1.1
+```
+```js
+var s = "z";
+s = +s; //value becomes NaN
+```
+```js
+var b = false;
+b = +b; //value becomes numeric 0
+```
+```js
+var f = 1.1;
+f = +f; //still 1.1
+```
+```js
+var o = { valueOf: function () { return 1; } };
+o = +o; //value becomes numeric 1
+```
 
-    num = +num; //still 25
-    s1 = +s1; //value becomes numeric 1
-    s2 = +s2; //value becomes numeric 1.1
-    s3 = +s3; //value becomes NaN
-    b = +b; //value becomes numeric 0
-    f = +f; //no change, still 1.1
-    o = +o; //value becomes numeric -1
+#### Unary minus
+is represented by the character minus `-` placed before a value and simply negate it:  
+when used on a numeric value, it simply negates the value;  
+when used on nonnumeric values, it applies all of the same rules as unary plus and then negates the result.
 
-The unary minus operator’s primary use is to negate a numeric value.
-When used on a numeric value, it simply negates the value.
-When used on nonnumeric values, it applies all of the same rules as unary plus and then negates the result:
-
-￼￼￼￼var num = 25;
-    var s1 = “01”;
-    var s2 = “1.1”;
-    var s3 = “z”;
-    var b = false;
-    var f = 1.1;
-    var o = {
-      valueOf: function() {
-        return -1;
-￼￼￼￼  }
-    };
-
-    num = -num; //becomes -25
-    s1 = -s1; //value becomes numeric -1
-    s2 = -s2; //value becomes numeric -1.1
-    s3 = -s3; //value becomes NaN
-    b = -b; //value becomes numeric 0
-    f = -f; //change to -1.1
-    o = -o; //value becomes numeric 1
+```js
+var n = 25;
+n = -n; //-25
+```
+```js
+var s = "01";
+s = -s; //value becomes numeric -1
+```
+```js
+var s = "1.1";
+s = -s; //value becomes numeric -1.1
+```
+```js
+var s = "z";
+s = -s; //value becomes NaN
+```
+```js
+var b = false;
+b = -b; //value becomes numeric 0
+```
+```js
+var f = 1.1;
+f = -f; //value becomes -1.1
+```
+```js
+var o = { valueOf: function () { return 1; } };
+o = -o; //value becomes numeric -1
+```
 
 ## Bitwise operators
 
-### Bitwise NOT
+#### Bitwise NOT
+is represented by the tilde character `~` and simply returns the one’s complement of the number.
 
-The bitwise NOT is represented by a tilde (~) and simply returns the one’s complement of the number.
-Bitwise NOT is one of just a few ECMAScript operators related to binary mathematics.
+```js
+var num1 = 25;     //binary 0000 0000 0000 0000 0000 0000 0001 1001
+var num2 = ~num1;  //binary 1111 1111 1111 1111 1111 1111 1110 0110
+console.log(num2); //-26
+```
 
-    var num1 = 25;     //binary 0000 0000 0000 0000 0000 0000 0001 1001
-    var num2 = ~num1;  //binary 1111 1111 1111 1111 1111 1111 1110 0110
-    console.log(num2); //-26
-
-### Bitwise AND
-
-The bitwise AND is represented by the ampersand character (&) and works on two values;
+#### Bitwise AND
+is represented by the ampersand character `&` and works on two values;  
 it lines up the bits in each number and then performs an AND operation between the bits in the same position.
-A bitwise AND returns 1 only if both bits are 1.
 
-For example:
+```js
+var a = 25;        //binary 0000 0000 0000 0000 0000 0000 0001 1001
+var b = 11;        //binary 0000 0000 0000 0000 0000 0000 0000 1011
+var c = a & b;     //binary 0000 0000 0000 0000 0000 0000 0000 1001
+console.log(c);    //9
+```
 
-    var a = 25;        //binary 0000 0000 0000 0000 0000 0000 0001 1001
-    var b = 11;        //binary 0000 0000 0000 0000 0000 0000 0000 1011
-    var c = a & b;     //binary 0000 0000 0000 0000 0000 0000 0000 1001
-    console.log(c);    //9
-
-### Bitwise OR
-
-The bitwise OR is represented by the pipe character (|) and works on two values;
+#### Bitwise OR
+is represented by the pipe character `|` and works on two values;  
 it lines up the bits in each number and then performs an OR operation between the bits in the same position.
-Bitwise OR operation returns 1 if at least one bit is 1 (returns 0 only if both bits are 0).
 
-For example:
+```js
+var a = 25;        //binary 0000 0000 0000 0000 0000 0000 0001 1001
+var b = 11;        //binary 0000 0000 0000 0000 0000 0000 0000 1011
+var c = a | b;     //binary 0000 0000 0000 0000 0000 0000 0001 1011
+console.log(c);    //27
+```
 
-    var a = 25;        //binary 0000 0000 0000 0000 0000 0000 0001 1001
-    var b = 11;        //binary 0000 0000 0000 0000 0000 0000 0000 1011
-    var c = a | b;     //binary 0000 0000 0000 0000 0000 0000 0001 1011
-    console.log(c);    //27
+#### Bitwise XOR
+is represented by the caret character `^` and works on two values;  
+it lines up the bits in each number and then performs a XOR operation between the bits in the same position.
 
-### Bitwise XOR
-
-The bitwise XOR is represented by the pipe character (|) and works on two values;
-it lines up the bits in each number and then performs an OR operation between the bits in the same position.
-Bitwise XOR returns 1 only when exactly one bit has a value of 1 (returns 0 if both bits contain 1).
+```js
+var a = 25;        //0000 0000 0000 0000 0000 0000 0001 1001 
+var b = 3;         //0000 0000 0000 0000 0000 0000 0000 0011
+var c = a ^ b;     //0000 0000 0000 0000 0000 0000 0001 1010
+console.log(c);    //26
+```
 
 ## Logical Operators
 
-There are three operators, called logical operators, that work with boolean values:
+#### Logical NOT
+is represented by `!` and negate the boolean value.
 
-* `!` logical NOT (negation)
-* `&&` logical AND
-* `||` logical OR
+```js
+!true;  //false
+!false; //true
+```
 
-### Logical NOT
+when used on a non-boolean value, it converts the value to a boolean and return the result;
+most values convert to `true` with the exception of the following (which convert to `false`):
 
-In everyday meaning, if something is not true, it is false.
+* the empty string `""`
+* `null`
+* `undefined`
+* the number `0`
+* the number `NaN`
+* the boolean `false`
 
-    !true; //false
+> #### Tip
+> If you use the logical NOT twice, you get the original value.
+> Use double negation to easily convert any value to its boolean equivalent.
+>  
+> ```js
+> !!false;     //false
+> !!"";        //false
+> !!null;      //false
+> !!undefined; //false
+> !!0;         //false
+> !!NaN;       //false
+> !!true;      //true
+> !!"0";       //true
+> !!1;         //true
+> ```
 
-If you use the logical NOT twice, you get the original value.
+#### Logical AND
+is represented by `&&` and returns the logical AND of the operands.
 
-    !!true; //true
+```js
+true && true;   //true
+true && false;  //false
+false && true;  //false
+false && false; //false
+```
 
-Using double negation is an easy way to convert any value to its boolean equivalent.
-This is rarely useful, but on the other hand understanding how any value converts to a boolean is important.
-Most values convert to true with the exception of the following (which convert to false):
+#### Logical OR
+is represented by `||` and returns the logical OR of the operands.
 
-* the empty string ""
-* null
-* undefined
-* the number 0
-* the number NaN
-* the boolean false
+```js
+true || true;   //true
+true || false;  //true
+false || true;  //true
+false || false; //false
+```
 
-If you use a logical operator on a non-boolean value, the value is converted to boolean behind the scenes.
-
-    !"one"; //false
-
-These six values are sometimes referred to as being falsy, while all others are truthy
-(including, for example, the strings "0", " ", and "false").
-
-### Logical AND
-
-When you use AND, the result is true only if all of the operands are true.
-
-    true && true; //true
-    true && false; //false
-    false && true; //false
-    false && false; //false
-
-### Logical OR
-
-When using OR, the result is true if at least one of the operands is true.
-
-    true || true; //true
-    true || false; //true
-    false || true; //true
-    false || false; //false
-
-### Logical operator precedence
-
-You can also mix && and || in the same expression.
-In this case, you should use parentheses to clarify how you intend the operation to work.
-
-    false && false || true && true; //true
-    false && (false || true) && true; //false
-
-Similarly for logical operations, assuming there are no parentheses that demand otherwise,
-`!` has the highest precedence and is executed first, then comes `&&` and finally `||`.
-
-    false && false || true && true; // true
-    (false && false) || (true && true); //true
-
-Use parentheses instead of relying on operator precedence.
-This makes your code easier to read and understand.
+> #### Tip
+> If you mix logical operators in the same expression,  
+> you should use parentheses to clarify how you intend the operation to work.
+> 
+> ```js
+> false && false || true && true;     //true
+> false && (false || true) && true;   //false
+> ```
+> 
+> Assuming there are no parentheses that demand otherwise,  
+> `!` is executed first, then comes `&&` and finally `||`.
+> 
+> ```js
+> false && false || true && true;     //true
+> (false && false) || (true && true); //true
+> ```
+> 
+> Use parentheses instead of relying on operator precedence,  
+> in order to make your code easier to read and understand.

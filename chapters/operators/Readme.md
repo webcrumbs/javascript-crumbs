@@ -440,7 +440,7 @@ if `valueOf()` is not available, call `toString()` and use its result to perform
 
 #### Equal and Not Equal
 
-The equal operator is represented by `==`, and returns `true` if the operands are equal. 
+The equal operator is represented by `==`, and returns `true` if the operands are equal.  
 The not-equal operator is represented by `!=`, and returns `true` if two operands are not equal. 
 
 Both operators do conversions to determine if two operands are equal:

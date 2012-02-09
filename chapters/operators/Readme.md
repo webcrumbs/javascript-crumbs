@@ -20,42 +20,46 @@ and is applied after the statement is evaluated.
 #### pre-increment 
 increments the input value by 1 before the statement is evaluated.
 
-```js
-var a = 123;
-var b = ++a;
-a; //124
-b; //124
-```
+> #### Example
+> ```js
+> var a = 123;
+> var b = ++a;
+> a; //124
+> b; //124
+> ```
 
 #### post-increment 
 increments the input value by 1 after the statement is evaluated.
 
-```js
-var a = 123;
-var b = a++;
-a; //124
-b; //123
-```
+> #### Example
+> ```js
+> var a = 123;
+> var b = a++;
+> a; //124
+> b; //123
+> ```
 
 #### pre-decrement 
 decremented the input value by 1 before the statement is evaluated.
 
-```js
-var a = 123;
-var b = ++a;
-b; //124
-a; //124
-```
+> #### Example
+> ```js
+> var a = 123;
+> var b = ++a;
+> b; //124
+> a; //124
+> ```
 
 #### post-decrement 
 decremented the input value by 1 after the statement is evaluated.
 
-```js
-var a = 123;
-var b = a--;
-b; //123
-a; //122
-```
+> #### Example
+> ```js
+> var a = 123;
+> var b = a--;
+> b; //123
+> a; //122
+> ```
 
 When used on a nonnumeric value, these operators convert the value to a number and then apply the change:
 
@@ -70,26 +74,27 @@ the variable is just a number
 * when used on an object, call its `valueOf()` method to get a value to work with and apply the change;  
 the variable is changed from an object to a number
 
-```js
-var s = "10";
-++s; //11
-```
-```js
-var x = "hello";
-++x; //NaN
-```
-```js
-var b = true;
-++b; //2
-```
-```js
-var f = 0.07;
-++f; 1.07;
-```
-```js
-var o = { valueOf: function () { return 100; } };
-++o; //101
-```
+> #### Example
+> ```js
+> var s = "10";
+> ++s; //11
+> ```
+> ```js
+> var x = "hello";
+> ++x; //NaN
+> ```
+> ```js
+> var b = true;
+> ++b; //2
+> ```
+> ```js
+> var f = 0.07;
+> ++f; 1.07;
+> ```
+> ```js
+> var o = { valueOf: function () { return 100; } };
+> ++o; //101
+> ```
 
 ### Unary plus and minus
 
@@ -184,8 +189,8 @@ it lines up the bits in each number and then performs an AND operation between t
 var a = 25;        //binary 0000 0000 0000 0000 0000 0000 0001 1001
 var b = 11;        //binary 0000 0000 0000 0000 0000 0000 0000 1011
 var c = a & b;     //binary 0000 0000 0000 0000 0000 0000 0000 1001
-```
 console.log(c);    //9
+```
 
 #### Bitwise OR
 is represented by the pipe character `|` and works on two values;  
@@ -219,7 +224,7 @@ is represented by `!` and negate the boolean value.
 !false; //true
 ```
 
-when used on a non-boolean value, it converts the value to a boolean and return the result;
+when used on a non-boolean value, it converts the value to a boolean and return the result;  
 most values convert to `true` with the exception of the following (which convert to `false`):
 
 * the empty string `""`
@@ -230,7 +235,7 @@ most values convert to `true` with the exception of the following (which convert
 * the boolean `false`
 
 > #### Tip
-> If you use the logical NOT twice, you get the original value.
+> If you use the logical NOT twice, you get the original value.  
 > Use double negation to easily convert any value to its boolean equivalent.
 >  
 > ```js
@@ -294,8 +299,8 @@ is represented by an asterisk `*` and is used, as one might suspect, to multiply
 * if the result cannot be represented, the result is `Infinity` or `–Infinity`
 * if either operand is `NaN`, the result is `NaN`
 * if `Infinity` is multiplied by zero, the result is `NaN`
-* if `Infinity` is multiplied by a nonzero finite number, the result is `Infinity` or `-Infinity` 
-depending on the sign of the number
+* if `Infinity` is multiplied by a nonzero finite number, the result is `Infinity` or `-Infinity`,  
+  depending on the sign of the number
 * if `Infinity` is multiplied by `Infinity`, the result is `Infinity`
 * if either operand isn’t a number, it is converted to a number using Number()  
 and then the other rules are applied
@@ -367,11 +372,9 @@ is represented by `+` and is used just as one would expect:
  * if both operands are strings, the second string is concatenated to the first
  * if only one operand is a string, the other operand is converted to a string  
    and the result is the concatenation of the two strings
- * if either operand is an object, number, or boolean,  
-   its `toString()` method is called to get a string value  
+ * if either operand is an object, number, or boolean, it is converted to a string calling its `toString()` method  
    and then the other rules regarding strings are applied
- * if either operand is `undefined` and `null`, 
-   the String() function is called to get the values `"undefined"` and `"null"`
+ * if either operand is `undefined` or `null`, it is converted to `"undefined"` or `"null"`  
    and then the other rules regarding strings are applied
 
 ```js
@@ -484,8 +487,8 @@ and returns `true` only if the operands are not equal without conversion
 "55" === 55; //false - not equal because different data types
 ```
 ```js
-var result1 = (“55” != 55); //false - equal because of conversion
-var result2 = (“55” !== 55); //true - not equal because different data types
+"55" != 55); //false - equal because of conversion
+"55" !== 55); //true - not equal because different data types
 ```
 
 > #### Note
@@ -509,9 +512,10 @@ and return one of two values depending on the evaluation of a boolean expression
 boolean_expression ? true_value : false_value;
 ```
 
-```js
-var max = (num1 > num2) ? num1 : num2;
-```
+> #### Example
+> ```js
+> var max = (num1 > num2) ? num1 : num2;
+> ```
 
 ## Assignment Operators
 

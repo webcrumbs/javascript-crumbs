@@ -418,7 +418,8 @@ NaN - 1;   //NaN
 5 - null;  //5 because null is converted to 0
 ```
 
-Relational Operators
+## Relational Operators
+
 The relational operators perform comparisons between values:
 
 * less-than `<`

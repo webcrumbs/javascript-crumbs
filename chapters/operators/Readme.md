@@ -488,8 +488,8 @@ and returns `true` only if the operands are not equal without conversion
 "55" === 55; //false - not equal because different data types
 ```
 ```js
-"55" != 55); //false - equal because of conversion
-"55" !== 55); //true - not equal because different data types
+"55" != 55; //false - equal because of conversion
+"55" !== 55; //true - not equal because different data types
 ```
 
 > #### Note

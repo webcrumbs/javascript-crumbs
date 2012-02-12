@@ -3,193 +3,259 @@
 An object is an unordered collection of properties, each of which has a name and a value.
 
 ```js
-var hero = {
-  breed: 'Turtle',
-  occupation: 'Ninja'
-};
+{
+  prop1: 'string value',
+  prop2: 123
+}
 ```
 
-`hero` is the name of the variable that contains the object.  
 `{` and `}` are used to define an object.  
 Object's elements (called properties) are separated with commas.  
 The key/value pairs are divided by colons, as `key: value`.  
 The keys (names of the properties) can optionally be placed in quotation marks.  
 
-```js
-/* Following definitions are all the same */
-var o = {prop: 1};
-var o = {"prop": 1};
-var o = {'prop': 1};
-```
+> #### Example
+>
+>```js
+>var hero = {
+>  breed: 'Turtle',
+>  occupation: 'Ninja'
+>};
+>```
+>
+>`hero` is the name of the variable that contains the object.
 
-You have to quote key names when the property name:  
+
+> #### Example 
+>
+>```js
+>/* Following definitions are all the same */
+>var o = {prop: 1};
+>var o = {"prop": 1};
+>var o = {'prop': 1};
+>```
+
+Property key name has to be quoted when:  
 
 * is one of the reserved words in JavaScript
 * contains spaces or special characters (anything other than letters, numbers, and the underscore character)
 * starts with a number
 
-```js
-var o = {
-  something: 1,
-  'yes or no': 'yes',
-  '!@#$%^&*': true
-};
-```
+> ### Example
+> ```js
+>var o = {
+>  something: 1,
+>  'yes or no': 'yes',
+>  '!@#$%^&*': true
+>};
+>```
 
 ## Elements, properties, methods
 An object contains **properties**.  
 A property of an object can contain a function, because functions are just data.  
 In this case, you say that this property is a **method**.  
 
-```js
-var dog = {
-  name: 'Benji',
-  talk: function(){
-    alert('Woof, woof!');
-  }
-};
-```
+> #### Example
+>
+>```js
+>var dog = {
+>  name: 'Benji',
+>  talk: function(){
+>    alert('Woof, woof!');
+>  }
+>};
+>```
 
 ## Accessing object's properties
-There are two ways to access a property of an object:
+There are two ways to access a property of an object.
 
-* Using square bracket notation, for example `hero['occupation']`
-* Using the dot notation, for example `hero.occupation`
-
-In some cases you have no choice: you cannot use the dot notation.
+Using square bracket notation
 
 ```js
-var hero = {
-  breed: 'Turtle',
-  occupation: 'Ninja'
-};
-
-/* Accessing a property with the dot notation */
-hero.breed; // "Turtle"
-
-/* Accessing a property with the bracket notation */
-hero['occupation']; // "Ninja"
-
-/* Accessing a non-existing property returns undefined */
-hero.hair_color; // "undefined"
+objectNAme['property key name']
 ```
+
+Or using the dot notation
+
+```js
+hero.property_key_name
+```
+
+> #### Example
+>
+>```js
+>var hero = {
+>  breed: 'Turtle',
+>  occupation: 'Ninja',
+>  'finger count':  3
+>};
+>
+>/* Accessing a property with the dot notation */
+>hero.breed; // "Turtle"
+>
+>/* Accessing a property with the bracket notation */
+>hero['occupation']; // "Ninja"
+>
+>/* Accessing a non-existing property returns undefined */
+>hero.height; // "undefined"
+>```
+
+If property name needs quotation in definition, access needs square bracket notation.
+
+> #### Example
+> 
+> hero['finger count']; // "green"
+
+> ### Tip
+>
+> if property name is stored in a variable, use it with square bracket notation
+>  
+>```js
+>var keyName = occupation;
+>hero[keyName]; // "Ninja"
+>```
 
 Objects can contain any data, including other objects.
 
-```js
-var book = {
-  name: 'Catch-22',
-  published: 1961,
-  author: {
-    firstname: 'Joseph',
-    lastname: 'Heller'
-  }
-};
-
-book.author.firstname      // "Joseph"
-book['author']['lastname'] // "Heller"
-book.author['lastname']    // "Heller"
-book['author'].lastname    // "Heller"
-
-var key = 'firstname';
-book.author[key]; // "Joseph"
-```
+> ### Example
+>```js
+>var book = {
+>  name: 'Catch-22',
+>  published: 1961,
+>  author: {
+>    firstname: 'Joseph',
+>    lastname: 'Heller'
+>  }
+>};
+>
+>book.author.firstname      // "Joseph"
+>book['author']['lastname'] // "Heller"
+>book.author['lastname']    // "Heller"
+>book['author'].lastname    // "Heller"
+>
+>var key = 'firstname';
+>book.author[key]; // "Joseph"
+>```
 
 ## Calling an object's methods
 Calling (invoking) a method is the same as calling any other function: just add parentheses after the method name, which effectively say "Execute!".
 
-```js
-var hero = {
-  breed: 'Turtle',
-  occupation: 'Ninja',
-  say: function() {
-    return 'I am ' + hero.occupation;
-  }
-}
-
-hero.say();    // "I am Ninja"
-hero['say'](); // "I am Ninja"
-
-/* If say method had parameters... */
-hero.say('a', 'b', 'c');
-```
+> #### Example
+>
+>```js
+>var hero = {
+>  breed: 'Turtle',
+>  occupation: 'Ninja',
+>  say: function() {
+>    return 'I am ' + hero.occupation;
+>  }
+>}
+>
+>hero.say();    // "I am Ninja"
+>hero['say'](); // "I am Ninja"
+>
+>/* If say method had parameters... */
+>hero.say('a', 'b', 'c');
+>```
 
 ## Altering properties/methods
-JavaScript is a dynamic language; it allows you to alter properties and methods of existing objects at any time.  
+JavaScript is a dynamic language.  
+It means it's possible to alter properties and methods of existing objects at any time.  
 This includes adding new properties or deleting them.  
-You can start with a blank object and add properties later.  
 
-```js
-/* An empty object */
-var hero = {};
-
-/* Accessing a non-existing property */
-typeof hero.breed // "undefifined"
-
-/* Adding some properties and a method */
-hero.breed = 'turtle';
-hero.name = 'Leonardo';
-hero.sayName = function() { return hero.name; };
-
-/* Calling the method */
-hero.sayName(); // "Leonardo"
-
-/* Deleting a property */
-delete hero.name; // true
-
-/* Calling the method again will no longer work */
-hero.sayName(); // TypeError: Object #<Object> has no method 'sayName'
-```
+> ### Exmaple
+>
+> define an empty object
+>
+>```js
+>var hero = {};
+>```
+>
+> access a non-existing property
+>
+>```js
+>typeof hero.breed // "undefifined"
+>```
+>
+> add some properties and a method
+>
+>```js
+>hero.breed = 'turtle';
+>hero.name = 'Leonardo';
+>hero.sayName = function() { return hero.name; };
+>```
+>
+> call the method
+>
+>```js
+>hero.sayName(); // "Leonardo"
+>```
+>
+> delete a property
+>
+>```js
+>delete hero.name; // true
+>```
+>
+> calling the method again will no longer work
+>
+>```js
+>hero.sayName(); // TypeError: Object #<Object> has no method 'sayName'
+>```
 
 ## Using this value
-In the previous example, the method `sayName()` used `hero.name` to access the name property of the hero object.  
-When you're inside a method, there is another way to access the object this method belongs to: by using the special value `this`.  
+Inside a method, there is a special way to access the object this method belongs to:  
+by using the special value `this`.  
 
-```js
-var hero = {
-  name: 'Rafaelo',
-  sayName: function() {
-    return this.name;
-  }
-}
+> #### Example
+>```js
+>var hero = {
+>  name: 'Rafaelo',
+>  sayName: function() {
+>    return this.name;
+>  }
+>}
+>
+>hero.sayName();   // "Rafaelo"
+>```
+>
 
-hero.sayName();   // "Rafaelo"
-```
-
-So when you say `this`, you are actually saying "this object" or "the current object".
+> #### Tip
+> when you say `this`, you are actually saying "this object" or "the current object".
 
 ## Constructor functions
-There is another way to create objects: by using constructor functions.
+There is another way to create objects: by using **constructor functions***.
+In order to create an object using this kind of function, use the `new` operator.
 
-```js 
-function Hero() {
-  this.occupation = 'Ninja';
-}
-```
-
-In order to create an object using this function, you use the `new` operator.
-
-```js
-var hero = new Hero();
-hero.occupation; // "Ninja"
-```
+> #### Exmaple
+>```js 
+>function Hero() {
+>  this.occupation = 'Ninja';
+>}
+>```
+>
+>```js
+>var hero = new Hero();
+>hero.occupation; // "Ninja"
+>```
 
 The benefit of using constructor functions is that they accept parameters, which can be used when creating new objects.
 
-```js
-function Hero(name) {
-  this.name = name;
-  this.occupation = 'Ninja';
-  this.whoAreYou = function() {
-    return "I'm " + this.name + " and I'm a " + this.occupation;
-  }
-}
-
-var h1 = new Hero('Michelangelo');
-var h2 = new Hero('Donatello');
-h1.whoAreYou(); // "I'm Michelangelo and I'm a Ninja"
-h2.whoAreYou(); // "I'm Donatello and I'm a Ninja"
-```
+> #### Example
+>```js
+>function Hero(name) {
+>  this.name = name;
+>  this.occupation = 'Ninja';
+>  this.whoAreYou = function() {
+>    return "I'm " + this.name + " and I'm a " + this.occupation;
+>  }
+>}
+>
+>var h1 = new Hero('Michelangelo');
+>var h2 = new Hero('Donatello');
+>h1.whoAreYou(); // "I'm Michelangelo and I'm a Ninja"
+>h2.whoAreYou(); // "I'm Donatello and I'm a Ninja"
+>```
 
 > #### Convention
 > capitalize the first letter of your constructor functions
@@ -213,101 +279,129 @@ h2.whoAreYou(); // "I'm Donatello and I'm a Ninja"
 The host environment provides a global object and all global variables are actually properties of the global object.  
 If your host environment is the web browser, the global object is called `window`.  
 
-```js
-var a = 1;
-a;   // 1
-
-/* a is global i.e. belongs to the global object */
-window['a']   // 1
-```
+> #### Exmaple
+>```js
+>var a = 1;
+>a;   // 1
+>```
+>
+> a is global i.e. belongs to the global object
+>
+>```js
+>window['a']   // 1
+>```
 
 Declaring a constructor function and calling it without `new`, returns `"undefined"`, and `this` result binded to global object.
 
-```js
-function Hero(name) { this.name = name; }
-
-var h = Hero('Leonardo');
-typeof h   // "undefined"
-typeof h.name   // TypeError: Cannot read property 'name' of undefined
-
-/* this is binded to global object */
-name   // "Leonardo"
-window.name   // "Leonardo"
-
-/* using new operator insead */
-var h2 = new Hero('Michelangelo');
-typeof h2   // "object"
-h2.name   // "Michelangelo"
-```
+> #### Exmaple
+>```js
+>function Hero(name) { this.name = name; }
+>
+>var h = Hero('Leonardo');
+>typeof h   // "undefined"
+>typeof h.name   // TypeError: Cannot read property 'name' of undefined
+>
+> `this` is binded to global object
+> 
+>```js
+>name   // "Leonardo"
+>window.name   // "Leonardo"
+>```
+>
+> using new operator insead
+>
+>```js
+>var h2 = new Hero('Michelangelo');
+>typeof h2   // "object"
+>h2.name   // "Michelangelo"
+>```
 
 ## constructor property
 When an object is created, a special property is assigned to it behind the scenes—the constructor property.  
 It contains a reference to the constructor function used to create this object.  
 
-```js
-h2.constructor // Hero(name)
-
-/* Following code means:
- * "I don't care how object h2 was created,
- * but I want another one just like it" */
-var h3 = new h2.constructor('Rafaello');
-h3.name; // "Rafaello"
-```
+> #### Exmaple
+>```js
+>function Hero(name) { this.name = name; }
+>var h = Hero('Leonardo');
+>
+>h2.constructor // Hero(name)
+>```
+>
+> following code means:
+> "I don't care how object h2 was created,
+> but I want another one just like it"
+>
+>```js
+> var h2 = new h2.constructor('Rafaello');
+>h3.name; // "Rafaello"
+>```
 
 If an object was created using the object literal notation, its constructor is the built-in `Object()` constructor function.
 
-```js
-var o = {};
-o.constructor; // Object();
-typeof o.constructor; // "function"
-```
+> #### Example
+>
+>```js
+>var o = {};
+>o.constructor; // Object();
+>typeof o.constructor; // "function"
+>```
 
 ## instanceof operator
 Using the instanceof operator, you can test if an object was created with a specific constructor function.
-￼￼
-```js￼
-function Hero() {}
-var h = new Hero();
-var o = {};
-h instanceof Hero;   // true
-h instanceof Object; // false
-o instanceof Object; // true
-```
+
+> #### Example￼
+>```js￼
+>function Hero() {}
+>var h = new Hero();
+>var o = {};
+>h instanceof Hero;   // true
+>h instanceof Object; // false
+>o instanceof Object; // true
+>```
 
 ## Passing objects
 When you copy an object or pass it to a function, you only pass a reference to that object.  
 Consequently, if you make a change to the reference, you are actually modifying the original object.
 
-```js
-var original = { howmany: 1 };
-var copy = original;
-copy.howmany; //￼1
-copy.howmany = 100;
-original.howmany; // 100
-```
+> #### Example
+>```js
+>var original = { howmany: 1 };
+>var copy = original;
+>copy.howmany; //￼1
+>copy.howmany = 100;
+>original.howmany; // 100
+>```
 
 The same thing applies when passing objects to functions:
 
-```js
-var original = { howmany: 100 };
-var nullify = function(o) { o.howmany = 0; }
-nullify(original);
-original.howmany; // 0
-```
+> #### Example
+>```js
+>var original = { howmany: 100 };
+>var nullify = function(o) { o.howmany = 0; }
+>nullify(original);
+>original.howmany; // 0
+>```
 
 ## Comparing objects
 When you compare objects, you'll get `true` only if you compare two references to the same object.  
 Comparing two distinct objects that happen to have the exact same methods and properties will return `false`.
 
-```js
-var fido  = {breed: 'dog'};
-var benji = {breed: 'dog'};
-
-/* Comparing them will return false */
-benji === fido // false
-benji == fido  // false
-
-var mydog = benji;
-mydog === benji // true
-mydog === fido  // false
+> #### Example
+>```js
+>var fido  = {breed: 'dog'};
+>var benji = {breed: 'dog'};
 ```
+>
+> comparing them will return false
+>
+>```js
+>benji === fido // false
+>benji == fido  // false
+>```
+>
+>```js
+>var mydog = benji;
+>mydog === benji // true
+>mydog === fido  // false
+>```

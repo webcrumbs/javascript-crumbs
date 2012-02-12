@@ -50,7 +50,7 @@ Property key name has to be quoted when:
 >};
 >```
 
-## Elements, properties, methods
+### Elements, properties, methods
 An object contains **properties**.  
 A property of an object can contain a function, because functions are just data.  
 In this case, you say that this property is a **method**.  
@@ -66,45 +66,54 @@ In this case, you say that this property is a **method**.
 >};
 >```
 
-## Accessing object's properties
+### Accessing object's properties
 There are two ways to access a property of an object.
 
 Using square bracket notation
 
 ```js
-objectNAme['property key name']
+obj['property key name']
 ```
 
 Or using the dot notation
 
 ```js
-hero.property_key_name
+obj.property_key_name
 ```
 
 > #### Example
->
 >```js
 >var hero = {
 >  breed: 'Turtle',
 >  occupation: 'Ninja',
 >  'finger count':  3
 >};
+>```
 >
->/* Accessing a property with the dot notation */
+> accessing a property with the dot notation
+>
+>```js
 >hero.breed; // "Turtle"
+>```
 >
->/* Accessing a property with the bracket notation */
+> accessing a property with the bracket notation
+>
+>```js
 >hero['occupation']; // "Ninja"
+>```
 >
->/* Accessing a non-existing property returns undefined */
+> accessing a non-existing property returns undefined
+>
+>```js
 >hero.height; // "undefined"
 >```
 
 If property name needs quotation in definition, access needs square bracket notation.
 
 > #### Example
-> 
+> ```js
 > hero['finger count']; // "green"
+>```
 
 > ### Tip
 >
@@ -137,8 +146,9 @@ Objects can contain any data, including other objects.
 >book.author[key]; // "Joseph"
 >```
 
-## Calling an object's methods
-Calling (invoking) a method is the same as calling any other function: just add parentheses after the method name, which effectively say "Execute!".
+### Calling an object's methods
+Calling (invoking) a method is the same as calling any other function:   
+just add parentheses after the method name, which effectively say "Execute!".
 
 > #### Example
 >
@@ -153,12 +163,15 @@ Calling (invoking) a method is the same as calling any other function: just add 
 >
 >hero.say();    // "I am Ninja"
 >hero['say'](); // "I am Ninja"
+>```
 >
->/* If say method had parameters... */
+> if say method had parameters...
+>
+>```js
 >hero.say('a', 'b', 'c');
 >```
 
-## Altering properties/methods
+### Altering properties/methods
 JavaScript is a dynamic language.  
 It means it's possible to alter properties and methods of existing objects at any time.  
 This includes adding new properties or deleting them.  
@@ -224,7 +237,7 @@ by using the special value `this`.
 > when you say `this`, you are actually saying "this object" or "the current object".
 
 ## Constructor functions
-There is another way to create objects: by using **constructor functions***.
+There is another way to create objects: by using **constructor functions***.  
 In order to create an object using this kind of function, use the `new` operator.
 
 > #### Exmaple
@@ -271,8 +284,8 @@ The benefit of using constructor functions is that they accept parameters, which
 >
 > As there was no `new` operator, it didn't create a new object.  
 > The function was called like any other function, so `h` contains the value that the function returns.  
-> The function does not return anything (there's no `return`), 
-> so it actually returns `undefined`, which gets assigned to `h`.
+> The function does not return anything (there's no `return`),  
+> so it actually returns `undefined`, which gets assigned to `h`.  
 > In this case, `this` refer to global object.
 
 ## The global object

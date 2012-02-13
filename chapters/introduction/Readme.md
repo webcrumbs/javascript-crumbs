@@ -8,17 +8,17 @@ Virtually every personal computer has at least one JavaScript interpreter on it 
 
 The Java- prefix suggests that JavaScript is somehow related to Java,  
 that it is a subset or less capable version of Java.  
-But JavaScript is not interpreted Java (Java is interpreted Java). 
-It is a very nice dynamic object-oriented general-purpose programming language.  
+But JavaScript is not interpreted Java (Java is interpreted Java).  
+Compared to Java, JavaScript is betterin the applications that Java was originally intended for.
 
-The -Script suffix suggests that it is not a real programming language, 
-that a scripting language is less than a programming language. 
+The -Script suffix suggests that it is not a real programming language,  
+that a scripting language is less than a programming language.  
 But JavaScript is a surprisingly powerful language.  
 Compared to C, JavaScript trades performance for expressive power and dynamism.
 
 ### Features
 
-JavaScript is object-oriented.  
+JavaScript is a very nice dynamic object-oriented general-purpose programming language.    
 It has objects which can contain data and methods that act upon that data, and can contain other objects.  
 It does not have classes, but it does have constructors which do what classes do.  
 It does not have class-oriented inheritance, but it does have prototype-oriented inheritance.

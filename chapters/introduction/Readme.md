@@ -4,19 +4,17 @@ JavaScript is one of the world's most popular programming languages.
 JavaScript's popularity is due entirely to its role as the scripting language of the web.  
 Virtually every personal computer has at least one JavaScript interpreter on it and in active use.  
 
-#### The Name
-
-The Java- prefix suggests that JavaScript is somehow related to Java,  
-that it is a subset or less capable version of Java.  
-But JavaScript is not interpreted Java (Java is interpreted Java).  
-Compared to Java, JavaScript is betterin the applications that Java was originally intended for.
-
-The -Script suffix suggests that it is not a real programming language,  
-that a scripting language is less than a programming language.  
-But JavaScript is a surprisingly powerful language.  
-Compared to C, JavaScript trades performance for expressive power and dynamism.
-
-### Features
+> #### The Name
+>
+> The Java- prefix suggests that JavaScript is somehow related to Java,  
+> that it is a subset or less capable version of Java.  
+> But JavaScript is not interpreted Java (Java is interpreted Java).  
+> Compared to Java, JavaScript is betterin the applications that Java was originally intended for.
+>
+> The -Script suffix suggests that it is not a real programming language,  
+> that a scripting language is less than a programming language.  
+> But JavaScript is a surprisingly powerful language.  
+> Compared to C, JavaScript trades performance for expressive power and dynamism.
 
 JavaScript is a very nice dynamic object-oriented general-purpose programming language.    
 It has objects which can contain data and methods that act upon that data, and can contain other objects.  

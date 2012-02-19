@@ -73,7 +73,7 @@ var empty = new Array();
 >empty.length; // 0
 >plain.length; // 2
 >a.length;     // 5
->```js
+>```
 >
 > `Array` is a constructor function for arrays
 >
@@ -81,7 +81,7 @@ var empty = new Array();
 >plain.constructor; // function Array() ...
 >```
 >
-> anyway Array is an object
+> an array is an object
 >
 >```js
 >typeof a; // "object"
@@ -501,6 +501,7 @@ All objects created with this function keep a reference to the `prototype` prope
 An hollow function automatically has a prototype property that contains an empty object.
 
 > #### Example
+>```js
 >function F() {}
 >typeof F.prototype // "object"
 >

@@ -1066,7 +1066,7 @@ Flags can be:
 
 ### Instance methods: exec, test
 
-#### exec
+#### exec(str)
 It is intended for use with capturing groups `( ... )`.  
 It accepts a single argument, which is the string on which to apply the pattern.  
 It returns an array of information about the first match or _null_ if no match was found.  
@@ -1121,7 +1121,7 @@ In the array, the first item is the string that matches the entire pattern, any 
 >pattern2.lastIndex; // 8
 >```
 
-#### test
+#### test(str)
 It accepts a string argument.
 It returns _true_ if the pattern matches the argument and _false_ if it does not.
 
@@ -1234,7 +1234,6 @@ It returns a random number between the 0 and the 1, not including either 0 or 1.
 
 > #### Example
 >
->```js
 >```js
 >/* To select a number between 1 and 10 */
 >var num = Math.floor(Math.random() * 10 + 1);

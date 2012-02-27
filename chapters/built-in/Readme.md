@@ -1007,44 +1007,64 @@ Flags can be:
 * `m` — multiline mode, meaning the pattern will continue looking for matches after reaching the end of one line of text
 
 
-### Regexp examples
-
-```js
-/* Match all instances of "at" in a string. */
-var pattern1 = /at/g;
-
-/* Match the first instance of "bat" or "cat", regardless of case. */
-var pattern2 = /[bc]at/i;
-
-/* Match all three-character combinations ending with "at", regardless of case. */
-var pattern3 = /.at/gi;
-```
-
-_metacharacter_ : `( [ { \ ^ $ | ) ] } ? * + .`
-
-```js
-/* Match the first instance of "bat" or "cat", regardless of case. */
-var pattern1 = /[bc]at/i;
-
-/* Match the first instance of "[bc]at", regardless of case. */
-var pattern2 = /\[bc\]at/i;
-
-/* Match all three-character combinations ending with "at", regardless of case. */
-var pattern3 = /.at/gi;
-
-/* Match all instances of ".at", regardless of case. */
-var pattern4 = /\.at/gi;
-
-/* Match the first instance of "bat" or "cat", regardless of case. */
-var pattern1 = /[bc]at/i;
-
-/* Same as pattern1, just using the constructor. */
-var pattern2 = new RegExp("[bc]at", "i");
-```
+> #### Example
+> match all instances of "at" in a string
+>```js
+>var pattern1 = /at/g;
+>```
+>
+> match the first instance of "bat" or "cat", regardless of case
+> 
+> ```js
+>var pattern2 = /[bc]at/i;
+>```
+>
+> match all three-character combinations ending with "at", regardless of case
+>
+>```js
+>var pattern3 = /.at/gi;
+>```
+>
+>_meta-characters_ : `( [ { \ ^ $ | ) ] } ? * + .`
+>
+>
+> match the first instance of "bat" or "cat", regardless of case
+>```js
+>var pattern1 = /[bc]at/i;
+>```
+>
+> match the first instance of "[bc]at", regardless of case
+>
+>```js
+>var pattern2 = /\[bc\]at/i;
+>
+> match all three-character combinations ending with "at", regardless of case
+>
+>```js
+>var pattern3 = /.at/gi;
+>```
+>
+> match all instances of ".at", regardless of case
+>
+>```js
+>var pattern4 = /\.at/gi;
+>```
+>
+> match the first instance of "bat" or "cat", regardless of case
+>
+>```js
+>var pattern1 = /[bc]at/i;
+>```
+>
+> same as pattern1, just using the constructor
+>
+> ```js
+>var pattern2 = new RegExp("[bc]at", "i");
+>```
 
 ### Instance methods: exec, test
 
-### exec
+#### exec
 It is intended for use with capturing groups `( ... )`.  
 It accepts a single argument, which is the string on which to apply the pattern.  
 It returns an array of information about the first match or _null_ if no match was found.  
@@ -1055,55 +1075,65 @@ The returned array, though an instance of Array, contains two additional propert
 
 In the array, the first item is the string that matches the entire pattern, any additional items represent captured groups inside the expression.
 
-```js
-var text = "mom and dad and baby";
-var pattern = /mom( and dad( and baby)?)?/gi;
-var matches = pattern.exec(text);
-￼￼￼￼matches.index;   // 0
-matches.input;   // "mom and dad and baby"
-matches[0];   // "mom and dad and baby"
-matches[1];   // " and dad and baby"
-matches[2];   // " and baby"
-
-var text = “cat, bat, sat, fat";
-var pattern1 = /.at/;
-
-var matches = pattern1.exec(text);
-matches.index;   // 0
-matches[0];   // cat
-pattern1.lastIndex;   // 0
-
-matches = pattern1.exec(text);
-matches.index;   // 0
-matches[0];   // cat
-pattern1.lastIndex;   // 0
-
-var pattern2 = /.at/g;
-
-var matches = pattern2.exec(text);
-matches.index;   // 0
-matches[0];   // cat
-pattern2.lastIndex;   // 0
-
-matches = pattern2.exec(text);
-matches.index;   // 5
-matches[0];   // bat
-pattern2.lastIndex;   // 8
-```
+> #### Example
+>
+>```js
+>var text = "mom and dad and baby";
+>var pattern = /mom( and dad( and baby)?)?/gi;
+>
+>var matches = pattern.exec(text);
+>matches.index; // 0
+>matches.input; // "mom and dad and baby"
+>matches[0]; // "mom and dad and baby"
+>matches[1]; // " and dad and baby"
+>matches[2]; // " and baby"
+>```
+>
+>```js
+>var text = "cat, bat, sat, fat";
+>var pattern1 = /.at/;
+>
+>var matches = pattern1.exec(text);
+>matches.index; // 0
+>matches[0]; // cat
+>pattern1.lastIndex; // 0>
+>
+>matches = pattern1.exec(text);
+>matches.index; // 0
+>matches[0]; // cat
+>pattern1.lastIndex; // 0
+>```
+>
+>```js
+>var text = "cat, bat, sat, fat";
+>var pattern2 = /.at/g;
+>
+>var matches = pattern2.exec(text);
+>matches.index; // 0
+>matches[0]; // cat
+>pattern2.lastIndex; // 0
+>
+>matches = pattern2.exec(text);
+>matches.index; // 5
+>matches[0]; // bat
+>pattern2.lastIndex; // 8
+>```
 
 #### test
-It accepts a string argument and returns _true_ if the pattern matches the argument and _false_ if it does not.
+It accepts a string argument.
+It returns _true_ if the pattern matches the argument and _false_ if it does not.
 
-```js
-var text = “000-00-0000";
-var pattern = /\d{3}-\d{2}-\d{4}/;
-if (pattern.test(text)) {
-  "The pattern was matched.";
-}
-```
+> Example
+>```js
+>var text = “000-00-0000";
+>var pattern = /\d{3}-\d{2}-\d{4}/;
+>if (pattern.test(text)) {
+>  "The pattern was matched.";
+>}
+>```
 
 ## Math object
-ECMAScript provides the `Math` object as a common location for mathematical formulas and information.  
+The built-in `Math` object is the common location for mathematical formulas and information.  
 The computations available on the `Math` object execute faster than if you were to write the computations in JavaScript directly.
 
 ### Math object properties
@@ -1122,55 +1152,84 @@ Math.SQRT2    // the square root of 2
 
 ### Math object methods
 
-#### min() and max()
+#### Math.min(n0,n1,...)
+It accepts any number of values.  
+It returns the minimum value.
 
-```js
-var max = Math.max(3, 54, 32, 16); alert(max);   // 54
-var min = Math.min(3, 54, 32, 16); alert(min);   // 3
-```
+> #### Example
+>```js
+>var min = Math.min(3, 54, 32, 16); alert(min); // 3
+>```
+>
+>To find the maximum or the minimum value in an array, use the `apply()` method
+>
+>```js
+>var values = [1, 8, 3, 5, 6, 7, 2];
+>var maxValue = Math.max.apply(Math, values); // 8
+>var minValue = Math.min.apply(Math, values); // 1
+>```
 
-To find the maximum or the minimum value in an array, you can use the `apply()` method
+#### Math.max(n0,n1,...)
+It accepts any number of values.  
+It returns the maximum value.
 
-```js
-var values = [1, 8, 3, 5, 6, 7, 2];
-var maxValue = Math.max.apply(Math, values);   // 8
-var minValue = Math.min.apply(Math, values);   // 1
-```
+> #### Example
+> ```js
+>var maxValue = Math.max(3, 54, 32, 16); alert(max);   
+>maxValue;// 54
+>```
+>
+> To find the maximum or the minimum value in an array, use the `apply()` method
+>
+> ```js
+>var values = [1, 8, 3, 5, 6, 7, 2];
+>var maxValue = Math.max.apply(Math, values);
+>maxValue; // 8
+>```
 
-#### ceil(num)
+#### Math.ceil(num)
+It accepts a number.  
 It rounds numbers up to the nearest integer value.
 
-```js
-Math.ceil(25.9);   // 26
-Math.ceil(25.5);   //26
-Math.ceil(25.1);   // 26
-```
+> #### Example
+>```js
+>Math.ceil(25.9); // 26
+>Math.ceil(25.5); //26
+>Math.ceil(25.1); // 26
+>```
 
-#### floor(num)
+#### Math.floor(num)
+It accepts a number.  
 It rounds rounds numbers down to the nearest integer value.
 
-```js
-Math.round(25.9);   // 26
-Math.round(25.5);   // 26
-Math.round(25.1);   // 25
-```
+> #### Example
+>```js
+>Math.floor(25.9);   // 25
+>Math.floor(25.5);   // 25
+>Math.floor(25.1);   // 25
+>```
 
-#### round(num)
+#### Math.round(num)
+It accepts a number.  
 It rounds up if the number is at least halfway to the next integer value (0.5 or higher) and rounds down if not.
 
-```js
-Math.floor(25.9);   // 25
-Math.floor(25.5);   // 25
-Math.floor(25.1);   // 25
-```
+> #### Example
+>```js
+>Math.round(25.9);   // 26
+>Math.round(25.5);   // 26
+>Math.round(25.1);   // 25
+>```
 
 #### random()
+It accepts no parameters.  
 It returns a random number between the 0 and the 1, not including either 0 or 1.
 
-```js
-/* To select a number between 1 and 10 */
-var num = Math.floor(Math.random() * 10 + 1);
-```
+> #### Example
+>```js
+>```js
+>/* To select a number between 1 and 10 */
+>var num = Math.floor(Math.random() * 10 + 1);
+>```
 
 ### Other Methods
 

@@ -1009,6 +1009,7 @@ Flags can be:
 
 > #### Example
 > match all instances of "at" in a string
+>
 >```js
 >var pattern1 = /at/g;
 >```
@@ -1037,6 +1038,7 @@ Flags can be:
 >
 >```js
 >var pattern2 = /\[bc\]at/i;
+>```
 >
 > match all three-character combinations ending with "at", regardless of case
 >
@@ -1124,6 +1126,7 @@ It accepts a string argument.
 It returns _true_ if the pattern matches the argument and _false_ if it does not.
 
 > Example
+>
 >```js
 >var text = “000-00-0000";
 >var pattern = /\d{3}-\d{2}-\d{4}/;
@@ -1157,6 +1160,7 @@ It accepts any number of values.
 It returns the minimum value.
 
 > #### Example
+>
 >```js
 >var min = Math.min(3, 54, 32, 16); alert(min); // 3
 >```
@@ -1174,6 +1178,7 @@ It accepts any number of values.
 It returns the maximum value.
 
 > #### Example
+>
 > ```js
 >var maxValue = Math.max(3, 54, 32, 16); alert(max);   
 >maxValue;// 54
@@ -1192,6 +1197,7 @@ It accepts a number.
 It rounds numbers up to the nearest integer value.
 
 > #### Example
+>
 >```js
 >Math.ceil(25.9); // 26
 >Math.ceil(25.5); //26
@@ -1203,6 +1209,7 @@ It accepts a number.
 It rounds rounds numbers down to the nearest integer value.
 
 > #### Example
+>
 >```js
 >Math.floor(25.9);   // 25
 >Math.floor(25.5);   // 25
@@ -1214,6 +1221,7 @@ It accepts a number.
 It rounds up if the number is at least halfway to the next integer value (0.5 or higher) and rounds down if not.
 
 > #### Example
+>
 >```js
 >Math.round(25.9);   // 26
 >Math.round(25.5);   // 26
@@ -1225,6 +1233,7 @@ It accepts no parameters.
 It returns a random number between the 0 and the 1, not including either 0 or 1.
 
 > #### Example
+>
 >```js
 >```js
 >/* To select a number between 1 and 10 */

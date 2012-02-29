@@ -43,6 +43,5 @@ and JavaScript is the only language that is found in all browsers.
 Java did fail in that environment, and JavaScript is flourishing,  
 so there is evidence that JavaScript did something right.
 
-The second answer is that, despite its deficiencies, JavaScript is really good. 
-It is light-weight and expressive,
-and once you get the hang of it, functional programming is a lot of fun.
+The second answer is that, despite its deficiencies, JavaScript is really good.  
+It is light-weight and expressive, and once you get the hang of it, it is a lot of fun.

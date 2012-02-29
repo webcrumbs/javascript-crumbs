@@ -29,3 +29,20 @@ Some argue that JavaScript is not truly object oriented because it does not prov
 But it turns out that JavaScript supports not only classical inheritance, but other code reuse patterns as well.
 
 Few understand JavaScript because JavaScript is the world's most misunderstood programming language.
+
+## Why should I use JavaScript?
+
+JavaScript is a language of many contrasts, so you might wonder  
+*"Why should I use JavaScript?"*  
+
+There are two answers.  
+
+The first is that you don't have a choice.  
+The Web has become an important platform for application development,  
+and JavaScript is the only language that is found in all browsers.  
+Java did fail in that environment, and JavaScript is flourishing,  
+so there is evidence that JavaScript did something right.
+
+The second answer is that, despite its deficiencies, JavaScript is really good. 
+It is light-weight and expressive,
+and once you get the hang of it, functional programming is a lot of fun.

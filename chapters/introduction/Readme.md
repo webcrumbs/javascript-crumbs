@@ -147,7 +147,8 @@ but rely on the host environment to provide mechanisms for communicating with th
 
 #### in the browser
 
-`hello.html`:
+`hello.html`:  
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -160,7 +161,8 @@ but rely on the host environment to provide mechanisms for communicating with th
 </html>
 ```
 
-`hello.js`:
+`hello.js`:  
+
 ```js
 document.write('Hello JavaScript!');
 ```

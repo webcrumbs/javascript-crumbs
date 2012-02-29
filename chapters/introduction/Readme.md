@@ -69,33 +69,22 @@ Microsoft decided to put more resources into a competing browser named Internet 
 Microsoft introduced Internet Explorer 3 with a JavaScript implementation called JScript  
 (so called to avoid any possible licensing issues with Netscape). 
 
-> #### the war of the browsers
->
-> Microsoft’s implementation of JavaScript meant that  
-> there were two different JavaScript versions floating around:  
-> JavaScript in Netscape Navigator and JScript in Internet Explorer. 
-> 
-> JavaScript had no standards governing its syntax or features,  
-> and its different versions only highlighted this problem. 
+> Microsoft’s implementation of JavaScript meant that there were different versions of the langauge floating around.  
+> JavaScript had no standards governing its syntax or features, and its different versions highlighted this problem. 
 
 #### 1997
-Netscape submitted the language to Ecma International, a European standards organization.  
-which resulted in the first edition of the ECMAScript standard in 1997. 
 
 With industry fears mounting, it was decided that the language must be standardized.  
-JavaScript 1.1 was submitted to the European Computer Manufacturers Association (Ecma) as a proposal. 
+So Netscape submitted JavaScript 1.1 to the European Computer Manufacturers Association (Ecma) as a proposal. 
 
-Technical Committee #39 (TC39) was assigned to  
+ECMA defined a new standard of the scripting language named *ECMAScript* (pronounced as "ek-ma-script").
 
+The ISO and IEC (ISO/IEC) adopted ECMAScript as a standard (ISO/IEC-16262).  
+
+> #### Technical Committee #39
+> TC39 was made up of programmers from Netscape, Sun, Microsoft, Borland, NOMBAS, and other companies, to  
 > *standardize the syntax and semantics of a general purpose, cross-platform, vendor-neutral scripting language*  
 > (www.ecma-international.org/memento/TC39.htm). 
-
-Made up of programmers from Netscape, Sun, Microsoft, Borland, NOMBAS,and other companies  
-defined a new scripting language named *ECMAScript* (often pronounced as “ek-ma-script”).
-
-The ISO and IEC (ISO/IEC) also adopted ECMAScript as a standard (ISO/IEC-16262).  
-Since that time, browsers have tried, with varying degrees of success,  
-to use ECMAScript as a basis for their JavaScript implementations.
 
 #### 1999
 
@@ -141,8 +130,8 @@ JavaScript started inside web pages, but today it's safe to say it is practicall
 
 ## Hello JavaScript world!
 
-JavaScript is designed to run as a scripting language in a host environment,
-so, unlike most programming languages, it has no concept of input or output,
+JavaScript is designed to run as a scripting language in a host environment,  
+so, unlike most programming languages, it has no concept of input or output,  
 but rely on the host environment to provide mechanisms for communicating with the outside world.  
 
 #### in the browser

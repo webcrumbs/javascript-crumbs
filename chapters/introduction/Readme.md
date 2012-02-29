@@ -127,10 +127,6 @@ and enjoy its unique object-oriented features more and more.
 
 ## JavaScript everywhere
 
-The most common host environment is the browser,  
-but JavaScript interpreters can also be found in Adobe Acrobat, Photoshop, Yahoo!'s Widget engine, 
-and even server side environments, e.g. NodeJS.
-
 An interesting thing about JavaScript is that it always runs inside a *host environment*.  
 The browser is the most popular host environment, but it is not the only one.  
 JavaScript can run on the server, on the desktop, and in rich media. 
@@ -150,12 +146,13 @@ JavaScript started inside web pages, but today it's safe to say it is practicall
 
 ## Hello JavaScript world!
 
-Unlike most programming languages, the JavaScript language has no concept of input or output.  
-It is designed to run as a scripting language in a host environment, 
-and it is up to the host environment to provide mechanisms for communicating with the outside world.  
+JavaScript is designed to run as a scripting language in a host environment,
+so, unlike most programming languages, it has no concept of input or output,
+but rely on the host environment to provide mechanisms for communicating with the outside world.  
 
 #### in the browser
 
+`hello.html`:
 ```html
 <!DOCTYPE html>
 <html>
@@ -168,6 +165,7 @@ and it is up to the host environment to provide mechanisms for communicating wit
 </html>
 ```
 
+`hello.js`:
 ```js
 document.write('Hello JavaScript!');
 ```

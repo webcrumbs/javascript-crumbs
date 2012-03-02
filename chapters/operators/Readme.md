@@ -33,8 +33,8 @@ Using the `typeof` operator on a value returns one of the following strings:
 > no parentheses are required (although they can be used)
 > 
 > ```js
-> typeof('hello'); OK
-> typeof 'hello';  OK
+> typeof('hello'); //OK
+> typeof 'hello';  //OK
 > ```
 > 
 > #### Note

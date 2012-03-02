@@ -247,7 +247,7 @@ isNaN(true); //false - can be converted to number 1
 
 ## Strings
 
-A string is a sequence of characters used to represent text.
+A string is a sequence of characters used to represent text.  
 In JavaScript, a string is a sequence of character placed between single or double quotes.
 
 ```js

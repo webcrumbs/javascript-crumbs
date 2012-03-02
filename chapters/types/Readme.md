@@ -61,7 +61,7 @@ Using the `typeof` operator on a value returns one of the following strings:
 * `"object"` if the value is an object or null
 * `"function"` if the value is a function
 
-> #### example
+> #### Example
 >
 > ```js
 > typeof undefined;       // "undefined"
@@ -85,6 +85,7 @@ Using the `typeof` operator on a value returns one of the following strings:
 > typeof 'hello';  OK
 > ```
 > 
+> #### Note
 > because special value `null` is considered an empty object reference  
 > `typeof null` returns `"object"`
 > 
@@ -92,6 +93,7 @@ Using the `typeof` operator on a value returns one of the following strings:
 > typeof null; // "object"
 > ```
 >
+> #### Note
 > although functions are considered objects and don’t represent another data type  
 > they do have some special properties, which differentiate them from other objects:  
 > `typeof` applied to a function returns `"function"` not `"object"`

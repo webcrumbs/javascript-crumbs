@@ -552,9 +552,9 @@ allows execution of more than one operation in a single statement.
 > 
 > ```js
 > var a, b = 1, c = 2;
-> console.log(a); //undefined
-> console.log(b); //1
-> console.log(c); //2
+> a; //undefined
+> b; //1
+> c; //2
 > ```
 >
 > Comma operator can be used to assign value to a variable,  
@@ -562,5 +562,5 @@ allows execution of more than one operation in a single statement.
 >
 > ```js 
 > var n = (0, 1, 2, 3, 4, 5);
-> console.log(n); //5
+> n; //5
 > ```

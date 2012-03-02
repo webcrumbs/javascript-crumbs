@@ -2,7 +2,7 @@
 
 ## for beginners
 
-### Recipe
+### [Recipe](https://github.com/cvd-lab/javascript-crumbs/blob/master/chapters/Readme.md)
 
 1. [introduction](https://github.com/cvd-lab/javascript-crumbs/blob/master/chapters/introduction/Readme.md)
 2. [syntax](https://github.com/cvd-lab/javascript-crumbs/blob/master/chapters/syntax/Readme.md)

@@ -1,6 +1,21 @@
 # javascript-crumbs
 
-JavaScript crumbs for beginners
+## for beginners
+
+### [Recipe](https://github.com/cvd-lab/javascript-crumbs/tree/master/chapters)
+
+
+### Bakers
+
+- Enrico Marino / [@onirame](https://twitter.com/#!/onirame)
+- Federico Spini / [@federicospini](https://twitter.com/#!/federicospini)
+
+### Flour
+
+- JavaScript the definitive guide - 6th edition - O'Really - David Flanagan
+- professional JavaScript for Web Developers - 3rd edition - Wrox - Nicholas C. Zakas
+- Object-Oriented JavaScript - Packt publishing - Stoyan Stefanov
+- Mozilla Developer Network - Docs - [JavaScript](https://developer.mozilla.org/en/JavaScript)
 
 ## License
 

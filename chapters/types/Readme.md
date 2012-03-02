@@ -48,58 +48,26 @@ and one complex data type:
 
 All values can be represented as one of these six data types.  
 
-### The typeof Operator
+## Null
 
-Because JavaScript is loosely typed, there needs to be a way to determine the data type of a given variable.  
-The `typeof` operator provides a way to determine the data type of a given variable.  
-Using the `typeof` operator on a value returns one of the following strings:
+`null` is a special value that all variables are considered to have  
+if they have been defined but have not been assigned a value. 
 
-* `"undefined"` if the value is undefined
-* `"boolean"` if the value is a boolean
-* `"string"` if the value is a string
-* `"number"` if the value is a number
-* `"object"` if the value is an object or null
-* `"function"` if the value is a function
+`null` is a reserved word and cannot be used for anything,  
+but to check that a variable does not have an assigned value.
 
-> #### Example
->
-> ```js
-> typeof undefined;       // "undefined"
-> typeof null;            // "object"
-> typeof true;            // "boolean"
-> typeof 'false';         // "string"
-> typeof 'hello';         // "string"
-> typeof 42;              // "number"
-> typeof 1.4142135;       // "number"
-> typeof {key: 'value' }; // "object"
-> typeof Math.sin;        // "function"
-> typeof function () {};  // "function"
-> ```
+## Undefined
+
+Javascript treats `undefined` as being equal to `null`.  
+
+The one difference between `null` and `undefined` is that  
+`null` is a reserved word while `undefined` is not. 
 
 > #### Note
-> because `typeof` is an operator and not a function  
-> no parentheses are required (although they can be used)
+> Since `undefined` is not a reserved word you can declare your own variable or function called undefined.
 > 
 > ```js
-> typeof('hello'); OK
-> typeof 'hello';  OK
-> ```
-> 
-> #### Note
-> because special value `null` is considered an empty object reference  
-> `typeof null` returns `"object"`
-> 
-> ```js
-> typeof null; // "object"
-> ```
->
-> #### Note
-> although functions are considered objects and don’t represent another data type  
-> they do have some special properties, which differentiate them from other objects:  
-> `typeof` applied to a function returns `"function"` not `"object"`
-> 
-> ```js
-> typeof function(){}; // "function"
+> var undefined = 'hello'; // legal, but not reccomended
 > ```
 
 ## Numbers
@@ -109,9 +77,10 @@ Using the `typeof` operator on a value returns one of the following strings:
 The simplest number is an integer.
 
 ```js
-var intNum1 = 1;
-var intNum2 = 2;
-var intNum3 = 3;
+var int1 = 1;
+var int2 = 2;
+var int3 = 3;
+// ...
 ```
 
 Integers can also be represented as either octal (base 8) or hexadecimal (base 16) literals.  
@@ -122,42 +91,43 @@ Integers can also be represented as either octal (base 8) or hexadecimal (base 1
 #### Octal numbers
 starts with digit zero `0` followed by a sequence of octal digits (`0` through `7`).  
 
-```js
-var octalNum1 = 070; //octal for 56
-var octalNum2 = 079; //invalid octal - interpreted as 79
-var octalNum3 = 008; //invalid octal - interpreted as 8
-```
-
 > #### Note
 > If a number out of this range is detected in the literal,  
 > then the leading zero is ignored and the number is treated as a decimal.
+> 
+> ```js
+> var octal1 = 070; //octal for 56
+> var octal2 = 079; //invalid octal - interpreted as 79
+> var octal3 = 008; //invalid octal - interpreted as 8
+> ```
 
 #### Hexadecimal numbers
 starts with two characters `0x` followed by a sequence of hexadecimal digits (`0` through `9`, `A` through `F`).  
 
-```js
-var hexNum1 = 0x0;  //hexadecimal for 0
-var hexNum2 = 0xA;  //hexadecimal for 10
-var hexNum3 = 0X1F; //hexedecimal for 31
-```
-
 > #### Note
 > Letters may be in uppercase or lowercase.
+> 
+> ```js
+> var hexNum1 = 0x0;  //hexadecimal for 0
+> var hexNum2 = 0xA;  //hexadecimal for 10
+> var hexNum3 = 0X1F; //hexedecimal for 31
+> ```
 
 ### Floating-Point Values
 
 Floating-point value must include a decimal point `.` and at least one number after the decimal point.
 
 ```js
-var floatNum1 = 1.1;
-var floatNum2 = 0.1;
+var float1 = 0.1;
+var float2 = 1.2;
+var float3 = 3.14;
 ```
 
 > #### Convention
 > Although an integer is not necessary before a decimal point, it is recommended.
 >
 > ```js
-> var floatNum3 = .1;  //valid, but not recommended
+> var float4 = .1;  //valid, but not recommended
 > ```
 
 > #### Note
@@ -167,8 +137,8 @@ var floatNum2 = 0.1;
 > if the number being represented is a whole number (decimal digit is 0).
 > 
 > ```js
-> var floatNum1 = 1.;   //missing digit after decimal - interpreted as integer 1
-> var floatNum2 = 10.0; //whole number - interpreted as integer 10
+> var float5 = 1.;   //missing digit after decimal - interpreted as integer 1
+> var float6 = 10.0; //whole number - interpreted as integer 10
 > ```
 
 #### e-notation
@@ -178,13 +148,14 @@ E-notation is used to indicate a number that should be multiplied by 10 raised t
 E-notation format starts with a number (integer or floating-point)  
 followed by letter `e` (case-insensitive), followed by the power of 10 to multiply by.
 
-```js
-1e1;    //10
-1e+1;   //10
-2e+3;   //2000
-2e-3;   //0.002
-123E-3; //0.123
-```
+> #### Example
+> ```js
+> 1e1;    //10
+> 1e+1;   //10
+> 2e+3;   //2000
+> 2e-3;   //0.002
+> 123E-3; //0.123
+> ```
 
 ### Range of Values
 
@@ -221,16 +192,17 @@ any negative number that can’t be represented is `–Infinity` (negative infin
 
 To determine if a value is finite there is the `isFinite()` function.
 
-```js
-isFinite(Infinite); //false
-isFinite(-Infinite); //false
-isFinite(Number.MAX_VALUE + Number.MAX_VALUE); //false
-isFinite(Number.POSITIVE_INFINITE); //false
-isFinite(Number.NEGATIVE_INFINITE); //false
-isFinite(0); //true
-isFinite(1.7e308); //true
-isFinite(1.8e308); //false
-```
+> #### Example
+> ```js
+> isFinite(Infinite); //false
+> isFinite(-Infinite); //false
+> isFinite(Number.MAX_VALUE + Number.MAX_VALUE); //false
+> isFinite(Number.POSITIVE_INFINITE); //false
+> isFinite(Number.NEGATIVE_INFINITE); //false
+> isFinite(0); //true
+> isFinite(1.7e308); //true
+> isFinite(1.8e308); //false
+> ```
 
 > #### Tip
 > Though it is rare to do calculations that take values outside of the range of finite numbers,  
@@ -295,21 +267,20 @@ Character literals represents nonprintable or otherwise useful characters:
 * \xnn a character represented by hexadecimal code nn (where n is a hexadecimal digit 0-F).
 * \unnnn a unicode character represented by the hexadecimal code nnnn (where n is a hexadecimal digit 0-F).
 
-```js
-'he said \'hello\''; //"he said 'hello'"
-"he said \"hello\""; //"he said "hello""
-'\u03a3';            //"Σ"
-'\x41';              //"A"
-```
+> #### Example
+> 
+> ```js
+> 'he said \'hello\''; //"he said 'hello'"
+> "he said \"hello\""; //"he said "hello""
+> '\u03a3';            //"Σ"
+> '\x41';              //"A"
+> ```
 
 ## Booleans
 
 Boolean data type has only two values: `true` and `false`, used without quotes.
 
 ```js
-var b = true;
-typeof b; //"boolean"
-
-var b = false;
-typeof b; //"boolean"
+var t = true;
+var f = false;
 ```

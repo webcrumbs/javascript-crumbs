@@ -135,6 +135,7 @@ var floatNum2 = 0.1;
 
 > #### Convention
 > Although an integer is not necessary before a decimal point, it is recommended.
+>
 > ```js
 > var floatNum3 = .1;  //valid, but not recommended
 > ```

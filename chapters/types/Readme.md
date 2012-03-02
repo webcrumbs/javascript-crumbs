@@ -36,8 +36,8 @@ Without initialization, a variable holds the special value `undefined`.
 
 There are five simple data types (or primitive types):
 
-* Undefined  
 * Null  
+* Undefined  
 * Boolean  
 * Number  
 * String  
@@ -69,6 +69,15 @@ The one difference between `null` and `undefined` is that
 > ```js
 > var undefined = 'hello'; // legal, but not reccomended
 > ```
+
+## Booleans
+
+Boolean data type has only two values: `true` and `false`, used without quotes.
+
+```js
+var t = true;
+var f = false;
+```
 
 ## Numbers
 
@@ -276,11 +285,32 @@ Character literals represents nonprintable or otherwise useful characters:
 > '\x41';              //"A"
 > ```
 
-## Booleans
+## Object
 
-Boolean data type has only two values: `true` and `false`, used without quotes.
+An object is an unordered collection of key/value pairs,  
+separated by commas `,`, placed within curly braces `{` and `}`.
+
+The keys are strings, the values can be of any type (even Object).
 
 ```js
-var t = true;
-var f = false;
+{
+  s: 'string value',
+  n: 123,
+  b: true,
+  o: {
+    k: 2
+  }
+}
 ```
+
+> #### Note
+> 
+> The keys can optionally be placed in quotation marks.  
+> 
+> ```js
+> var obj = {
+>   "s": 'string value',
+>   'key': 'another value'
+> };
+> 
+

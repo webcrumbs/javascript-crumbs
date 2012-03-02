@@ -2,7 +2,7 @@
 
 ## for beginners
 
-### [Recipe](https://github.com/cvd-lab/javascript-crumbs/tree/master/chapters)
+### [Recipe](https://github.com/cvd-lab/javascript-crumbs/blob/master/chapters/Readme.md)
 
 
 ### Bakers

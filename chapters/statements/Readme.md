@@ -102,7 +102,7 @@ move on to the next `case` block, repeat steps **2** to **5**
 >     console.log("25");
 >     break;
 >   case 35:
->     console.log(“35”);
+>     console.log("35");
 >     break;
 >   case 45:
 >     console.log("45");

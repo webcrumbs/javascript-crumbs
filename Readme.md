@@ -22,7 +22,7 @@
 ### Flour
 
 - JavaScript the definitive guide - 6th edition - O'Really - David Flanagan
-- professional JavaScript for Web Developers - 3rd edition - Wrox - Nicholas C. Zakas
+- Professional JavaScript for Web Developers - 3rd edition - Wrox - Nicholas C. Zakas
 - Object-Oriented JavaScript - Packt publishing - Stoyan Stefanov
 - Mozilla Developer Network - Docs - [JavaScript](https://developer.mozilla.org/en/JavaScript)
 

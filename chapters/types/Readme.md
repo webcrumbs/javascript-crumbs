@@ -10,24 +10,27 @@ a variable is simply a named placeholder for a value of any type.
 To define a variable, use the `var` operator followed by the variable name.
 
 ```js
-var message;
+var variable_name;
 ```
 
 #### initialization
 
 Without initialization, a variable holds the special value `undefined`.  
-It’s possible to define the variable and set its value at the same time.
 
-```js
-var message = 'hello!';
-```
-
-It's possible to change the value stored in the variable and also its type.
-
-```js
-var response = 'bye!';
-response = 100;        //legal, but not recommended
-```
+> #### note
+> It’s possible to define the variable and set its value at the same time.
+>
+> ```js
+> var message = 'hello!';
+> ```
+>
+> #### note
+> It's possible to change the value stored in the variable and also its type.
+>
+> ```js
+> var response = 'bye!';
+> response = 100;        //legal, but not recommended
+> ```
 
 ## Data types
 
@@ -58,29 +61,44 @@ Using the `typeof` operator on a value returns one of the following strings:
 * `"object"` if the value is an object or null
 * `"function"` if the value is a function
 
-```js
-typeof undefined;       // "undefined"
-typeof null;            // "object"
-typeof true;            // "boolean"
-typeof 'false';         // "string"
-typeof 'hello';         // "string"
-typeof 42;              // "number"
-typeof 1.4142135;       // "number"
-typeof {key: 'value' }; // "object"
-typeof Math.sin;        // "function"
-typeof function () {};  // "function"
-```
+> #### example
+>
+> ```js
+> typeof undefined;       // "undefined"
+> typeof null;            // "object"
+> typeof true;            // "boolean"
+> typeof 'false';         // "string"
+> typeof 'hello';         // "string"
+> typeof 42;              // "number"
+> typeof 1.4142135;       // "number"
+> typeof {key: 'value' }; // "object"
+> typeof Math.sin;        // "function"
+> typeof function () {};  // "function"
+> ```
 
 > #### Note
 > because `typeof` is an operator and not a function  
 > no parentheses are required (although they can be used)
 > 
+> ```js
+> typeof('hello'); OK
+> typeof 'hello';  OK
+> ```
+> 
 > because special value `null` is considered an empty object reference  
 > `typeof null` returns `"object"`
 > 
+> ```js
+> typeof null; // "object"
+> ```
+>
 > although functions are considered objects and don’t represent another data type  
 > they do have some special properties, which differentiate them from other objects:  
 > `typeof` applied to a function returns `"function"` not `"object"`
+> 
+> ```js
+> typeof function(){}; // "function"
+> ```
 
 ## Numbers
 

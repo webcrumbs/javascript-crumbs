@@ -203,7 +203,7 @@ for (initialization; expression; post-loop-expression) statement
 > "
 > ```
 
-> ####Note
+> #### Note
 > The initialization, control expression, and postloop expression are all optional.  
 > You can create an infinite loop by omitting all three, like this:
 >
@@ -213,7 +213,7 @@ for (initialization; expression; post-loop-expression) statement
 > }
 > ```
 
-> ####Note
+> #### Note
 > The for loop can be turns into a while loop including only the control expression
 > 
 > ```js

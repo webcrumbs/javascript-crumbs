@@ -346,7 +346,7 @@ false || false; //false
 
 ## Multiplicative operators
 
-#### Multilpy
+#### Multiply
 is represented by an asterisk `*` and is used, as one might suspect, to multiply two numbers:  
 
 * if the operands are numbers, performs regular arithmetic multiplication

@@ -1,5 +1,59 @@
 # Operators
 
+## The `typeof` Operator
+
+Because JavaScript is loosely typed, there needs to be a way to determine the data type of a given variable.  
+The `typeof` operator provides a way to determine the data type of a given variable.  
+Using the `typeof` operator on a value returns one of the following strings:
+
+* `"undefined"` if the value is undefined
+* `"boolean"` if the value is a boolean
+* `"string"` if the value is a string
+* `"number"` if the value is a number
+* `"object"` if the value is an object or null
+* `"function"` if the value is a function
+
+> #### Example
+>
+> ```js
+> typeof undefined;       // "undefined"
+> typeof null;            // "object"
+> typeof true;            // "boolean"
+> typeof 'false';         // "string"
+> typeof 'hello';         // "string"
+> typeof 42;              // "number"
+> typeof 1.4142135;       // "number"
+> typeof {key: 'value' }; // "object"
+> typeof Math.sin;        // "function"
+> typeof function () {};  // "function"
+> ```
+
+> #### Note
+> because `typeof` is an operator and not a function  
+> no parentheses are required (although they can be used)
+> 
+> ```js
+> typeof('hello'); //OK
+> typeof 'hello';  //OK
+> ```
+> 
+> #### Note
+> because special value `null` is considered an empty object reference  
+> `typeof null` returns `"object"`
+> 
+> ```js
+> typeof null; // "object"
+> ```
+>
+> #### Note
+> although functions are considered objects and don’t represent another data type  
+> they do have some special properties, which differentiate them from other objects:  
+> `typeof` applied to a function returns `"function"` not `"object"`
+> 
+> ```js
+> typeof function(){}; // "function"
+> ```
+
 ## Unary Operators
 
 Unary operators are operators that work on only one value.  
@@ -292,7 +346,7 @@ false || false; //false
 
 ## Multiplicative operators
 
-#### Multilpy
+#### Multiply
 is represented by an asterisk `*` and is used, as one might suspect, to multiply two numbers:  
 
 * if the operands are numbers, performs regular arithmetic multiplication
@@ -552,9 +606,9 @@ allows execution of more than one operation in a single statement.
 > 
 > ```js
 > var a, b = 1, c = 2;
-> console.log(a); //undefined
-> console.log(b); //1
-> console.log(c); //2
+> a; //undefined
+> b; //1
+> c; //2
 > ```
 >
 > Comma operator can be used to assign value to a variable,  
@@ -562,5 +616,5 @@ allows execution of more than one operation in a single statement.
 >
 > ```js 
 > var n = (0, 1, 2, 3, 4, 5);
-> console.log(n); //5
+> n; //5
 > ```

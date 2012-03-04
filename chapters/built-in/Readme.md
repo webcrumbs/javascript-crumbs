@@ -94,7 +94,7 @@ The insertion (called a push) and removal (called a pop) of items in a stack occ
 
 #### push(item...)
 It accepts any number of item to push in the array.  
-It returns the array's new legth.
+It returns the array's new length.
 
 > #### Example
 >```js

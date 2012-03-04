@@ -52,7 +52,7 @@ Property key name has to be quoted when:
 
 ### Elements, properties, methods
 An object contains **properties**.  
-A property of an object can contain a function, because functions are just data.  
+Since functions are just data, a property of an object can contain a function.  
 In this case, you say that this property is a **method**.  
 
 > #### Example
@@ -112,7 +112,7 @@ If property name needs quotation in definition, access needs square bracket nota
 
 > #### Example
 > ```js
-> hero['finger count']; // "green"
+> hero['finger count']; // 3
 >```
 
 > ### Tip
@@ -120,7 +120,7 @@ If property name needs quotation in definition, access needs square bracket nota
 > if property name is stored in a variable, use it with square bracket notation
 >  
 >```js
->var keyName = occupation;
+>var keyName = 'occupation';
 >hero[keyName]; // "Ninja"
 >```
 
@@ -187,7 +187,7 @@ This includes adding new properties or deleting them.
 > access a non-existing property
 >
 >```js
->typeof hero.breed // "undefifined"
+>typeof hero.breed // "undefined"
 >```
 >
 > add some properties and a method
@@ -321,7 +321,7 @@ Declaring a constructor function and calling it without `new`, returns `"undefin
 >window.name   // "Leonardo"
 >```
 >
-> using new operator insead
+> using new operator instead
 >
 >```js
 >var h2 = new Hero('Michelangelo');
@@ -345,10 +345,10 @@ It contains a reference to the constructor function used to create this object.
 > "I don't care how object h2 was created,
 > but I want another one just like it"
 >
->```js
+> ```js
 > var h2 = new h2.constructor('Rafaello');
->h3.name; // "Rafaello"
->```
+> h3.name; // "Rafaello"
+> ```
 
 If an object was created using the object literal notation, its constructor is the built-in `Object()` constructor function.
 
@@ -389,32 +389,30 @@ Consequently, if you make a change to the reference, you are actually modifying 
 The same thing applies when passing objects to functions:
 
 > #### Example
->```js
->var original = { howmany: 100 };
->var nullify = function(o) { o.howmany = 0; }
->nullify(original);
->original.howmany; // 0
->```
+> ```js
+> var original = { howmany: 100 };
+> var nullify = function(o) { o.howmany = 0; }
+> nullify(original);
+> original.howmany; // 0
+> ```
 
 ## Comparing objects
 When you compare objects, you'll get `true` only if you compare two references to the same object.  
 Comparing two distinct objects that happen to have the exact same methods and properties will return `false`.
 
 > #### Example
->```js
->var fido  = {breed: 'dog'};
->var benji = {breed: 'dog'};
-```
+> ```js
+> var fido  = {breed: 'dog'};
+> var benji = {breed: 'dog'};
+> ```
 >
-> comparing them will return false
+> ```js
+> benji === fido // false
+> benji == fido  // false
+> ```
 >
->```js
->benji === fido // false
->benji == fido  // false
->```
->
->```js
->var mydog = benji;
->mydog === benji // true
->mydog === fido  // false
->```
+> ```js
+> var mydog = benji;
+> mydog === benji // true
+> mydog === fido  // false
+> ```

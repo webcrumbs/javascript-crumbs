@@ -120,7 +120,7 @@ If property name needs quotation in definition, access needs square bracket nota
 > if property name is stored in a variable, use it with square bracket notation
 >  
 >```js
->var keyName = occupation;
+>var keyName = 'occupation';
 >hero[keyName]; // "Ninja"
 >```
 

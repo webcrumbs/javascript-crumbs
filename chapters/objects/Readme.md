@@ -52,7 +52,7 @@ Property key name has to be quoted when:
 
 ### Elements, properties, methods
 An object contains **properties**.  
-A property of an object can contain a function, because functions are just data.  
+Since functions are just data, a property of an object can contain a function.  
 In this case, you say that this property is a **method**.  
 
 > #### Example

@@ -112,7 +112,7 @@ If property name needs quotation in definition, access needs square bracket nota
 
 > #### Example
 > ```js
-> hero['finger count']; // "green"
+> hero['finger count']; // 3
 >```
 
 > ### Tip

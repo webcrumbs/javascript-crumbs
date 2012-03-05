@@ -1,0 +1,2440 @@
+<!DOCTYPE html>
+<!--
+  Copyright 2010 Google Inc.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+
+  Original slides: Marcin Wichary (mwichary@google.com)
+  Modifications: Ernest Delgado (ernestd@google.com)
+                 Alex Russell (slightlyoff@chromium.org)
+
+  landslide modifications: Adam Zapletal (adamzap@gmail.com)
+                           Nicolas Perriault (nperriault@gmail.com)
+-->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>From past lessons...</title>
+    <!-- Styles -->
+    
+    <link rel="stylesheet" media="print" href="/Library/Python/2.7/site-packages/landslide/themes/default/css/print.css">
+    <link rel="stylesheet" media="screen, projection" href="/Library/Python/2.7/site-packages/landslide/themes/default/css/screen.css">
+    
+    
+    <!-- /Styles -->
+    <!-- Javascripts -->
+    
+    <script type="text/javascript" src="/Library/Python/2.7/site-packages/landslide/themes/default/js/slides.js"></script>
+    
+    
+    <!-- /Javascripts -->
+</head>
+<body>
+  <div id="blank"></div>
+  <div class="presentation">
+    <div id="current_presenter_notes">
+      <div id="presenter_note"></div>
+    </div>
+    <div class="slides">
+      
+      <!-- slide source: introduction/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>From past lessons...</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="introduction/Readme.md">introduction/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              1/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: introduction/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h2>types</h2></header>
+            
+            
+            <section><ul>
+<li><code>null</code></li>
+<li><code>undefined</code></li>
+<li><code>boolean</code></li>
+<li><code>number</code></li>
+<li><code>string</code></li>
+<li><code>object</code></li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="introduction/Readme.md">introduction/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              2/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: introduction/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h2>operators</h2></header>
+            
+            
+            <section><ul>
+<li><code>typeof</code></li>
+<li><code>===</code>, <code>!==</code></li>
+<li><code>!</code>, <code>&amp;&amp;</code>, <code>||</code></li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="introduction/Readme.md">introduction/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              3/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: introduction/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>Logical AND</h2></header>
+            
+            
+            <section><h3><code>&amp;&amp;</code> operator</h3>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">v</span> <span class="o">=</span> <span class="nx">v</span> <span class="o">&amp;&amp;</span> <span class="mi">15</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">v</span><span class="p">);</span>
+</pre></div>
+
+<p>Experiment by first setting <code>v</code> to <code>100</code>, <code>0</code>, <code>null</code>.</p>
+<h3>Exmaple:</h3>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">test</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nx">test</span> <span class="o">&amp;&amp;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;test is true!&#39;</span><span class="p">);</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="introduction/Readme.md">introduction/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              4/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: introduction/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>Logical OR</h2></header>
+            
+            
+            <section><h3><code>||</code> operator</h3>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">v</span> <span class="o">=</span> <span class="nx">v</span> <span class="o">||</span> <span class="mi">10</span><span class="p">;</span>
+</pre></div>
+
+<p>Experiment by first setting <code>v</code> to <code>100</code>, <code>0</code>, <code>null</code>.</p>
+<h3>Exmaple:</h3>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">empty</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">myString</span> <span class="o">=</span> <span class="nx">empty</span> <span class="o">||</span> <span class="s2">&quot;Hello Web :)&quot;</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myString</span><span class="p">);</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="introduction/Readme.md">introduction/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              5/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: introduction/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>New stuff</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="introduction/Readme.md">introduction/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              6/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: statements/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Statements</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="statements/Readme.md">statements/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              7/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: statements/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>code block statement</h2></header>
+            
+            
+            <section><div class="highlight"><pre><span class="p">{</span>
+  <span class="c1">//code block</span>
+  <span class="p">{</span>
+    <span class="c1">//nested code block</span>
+    <span class="c1">//use indentation</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="statements/Readme.md">statements/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              8/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: statements/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2><code>if</code> statement</h2></header>
+            
+            
+            <section><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nx">condition</span><span class="p">)</span> <span class="nx">statement1</span> <span class="k">else</span> <span class="nx">statement2</span>
+
+<span class="o">!</span><span class="nx">js</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">condition1</span><span class="p">)</span> <span class="nx">statement1</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">condition2</span><span class="p">)</span> <span class="nx">statement2</span> <span class="k">else</span> <span class="nx">statement3</span>
+
+<span class="o">!</span><span class="nx">js</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">condition1</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">statement1</span> 
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">condition2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">statement2</span> 
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="nx">statement3</span>
+<span class="p">}</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="statements/Readme.md">statements/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              9/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: statements/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2><code>switch</code> statement</h2></header>
+            
+            
+            <section><div class="highlight"><pre><span class="k">switch</span> <span class="p">(</span><span class="nx">expression</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">case</span> <span class="nx">value1</span><span class="o">:</span> <span class="nx">statement1</span><span class="p">;</span> <span class="k">break</span><span class="p">;</span>
+  <span class="k">case</span> <span class="nx">value2</span><span class="o">:</span> <span class="nx">statement2</span><span class="p">;</span> <span class="k">break</span><span class="p">;</span>
+  <span class="c1">//...</span>
+  <span class="k">case</span> <span class="nx">valueN</span><span class="o">:</span> <span class="nx">statementN</span><span class="p">;</span> <span class="k">break</span><span class="p">;</span>
+  <span class="k">default</span><span class="o">:</span> <span class="nx">statement</span>
+<span class="p">}</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="statements/Readme.md">statements/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              10/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: statements/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2><code>do-while</code> statement</h2></header>
+            
+            
+            <section><div class="highlight"><pre><span class="k">do</span> <span class="p">{</span>
+  <span class="nx">statement</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nx">expression</span><span class="p">);</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="statements/Readme.md">statements/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              11/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: statements/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2><code>do-while</code> statement</h2></header>
+            
+            
+            <section><div class="highlight"><pre><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">do</span> <span class="p">{</span>
+  <span class="nx">i</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span> <span class="c1">//?</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="statements/Readme.md">statements/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              12/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: statements/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2><code>while</code> statement</h2></header>
+            
+            
+            <section><div class="highlight"><pre><span class="k">while</span> <span class="p">(</span><span class="nx">expression</span><span class="p">)</span> <span class="nx">statement</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="statements/Readme.md">statements/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              13/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: statements/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1><code>while</code> statement</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">i</span> <span class="o">+=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="statements/Readme.md">statements/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              14/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: statements/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2><code>for</code> statement</h2></header>
+            
+            
+            <section><div class="highlight"><pre><span class="k">for</span> <span class="p">(</span><span class="nx">initialization</span><span class="p">;</span> <span class="nx">expression</span><span class="p">;</span> <span class="nx">post</span><span class="o">-</span><span class="nx">loop</span><span class="o">-</span><span class="nx">expression</span><span class="p">)</span> <span class="nx">statement</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="statements/Readme.md">statements/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              15/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: statements/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2><code>for</code> statement</h2></header>
+            
+            
+            <section><h4><code>while</code> using <code>for</code></h4>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>             <span class="c1">//initialization</span>
+<span class="k">for</span> <span class="p">(;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">count</span><span class="p">;</span> <span class="p">)</span> <span class="p">{</span>  <span class="c1">//expression</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
+  <span class="nx">i</span><span class="o">++</span><span class="p">;</span>                 <span class="c1">//post-loop-expression</span>
+<span class="p">}</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="statements/Readme.md">statements/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              16/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: statements/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2><code>for</code> statement</h2></header>
+            
+            
+            <section><h4>infinite loop</h4>
+<div class="highlight"><pre><span class="k">for</span> <span class="p">(;;)</span> <span class="p">{</span> <span class="c1">//don&#39;t try this at home!</span>
+  <span class="nx">doSomething</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="statements/Readme.md">statements/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              17/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: statements/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2><code>for in</code> statement</h2></header>
+            
+            
+            <section><div class="highlight"><pre><span class="k">for</span> <span class="p">(</span><span class="nx">property</span> <span class="k">in</span> <span class="nx">object</span><span class="p">)</span> <span class="nx">statement</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="statements/Readme.md">statements/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              18/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: statements/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2><code>for in</code> statement</h2></header>
+            
+            
+            <section><div class="highlight"><pre><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span><span class="nx">a</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">b</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">c</span><span class="o">:</span> <span class="mi">3</span><span class="p">};</span>
+<span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">key</span> <span class="k">in</span> <span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nx">s</span> <span class="o">+=</span> <span class="nx">key</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">s</span><span class="p">);</span> <span class="c1">//?;</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="statements/Readme.md">statements/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              19/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: types/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Objects</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="types/Readme.md">types/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              20/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: types/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>definition</h2></header>
+            
+            
+            <section><p>Objects are colleciton of key/value pairs.</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">hero</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">breed</span><span class="o">:</span> <span class="s1">&#39;Turtle&#39;</span><span class="p">,</span>
+  <span class="nx">occupation</span><span class="o">:</span> <span class="s1">&#39;Ninja&#39;</span>
+<span class="p">};</span>
+</pre></div>
+
+<p>Keys are strings: sometimes you have to quote them.</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span>
+ <span class="nx">something</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+ <span class="s1">&#39;yes or no&#39;</span><span class="o">:</span> <span class="s1">&#39;yes&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;!@#$%^&amp;*&#39;</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">};</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="types/Readme.md">types/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              21/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: types/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>access properties</h2></header>
+            
+            
+            <section><div class="highlight"><pre><span class="kd">var</span> <span class="nx">hero</span> <span class="o">=</span> <span class="p">{</span>
+ <span class="nx">breed</span><span class="o">:</span> <span class="s1">&#39;Turtle&#39;</span><span class="p">,</span>
+ <span class="nx">occupation</span><span class="o">:</span> <span class="s1">&#39;Ninja&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;finger count&#39;</span><span class="o">:</span>  <span class="mi">3</span>
+<span class="p">};</span>
+</pre></div>
+
+<h3>Dot notation.</h3>
+<div class="highlight"><pre><span class="nx">hero</span><span class="p">.</span><span class="nx">breed</span><span class="p">;</span> <span class="c1">// &quot;Turtle&quot;</span>
+</pre></div>
+
+<h3>Square bracket notation.</h3>
+<div class="highlight"><pre><span class="nx">hero</span><span class="p">[</span><span class="s1">&#39;finger count&#39;</span><span class="p">];</span> <span class="c1">// 3</span>
+</pre></div>
+
+<h3>If property name is stored in a variable, use it with square bracket notation.</h3>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">keyName</span> <span class="o">=</span> <span class="s1">&#39;occupation&#39;</span><span class="p">;</span>
+<span class="nx">hero</span><span class="p">[</span><span class="nx">keyName</span><span class="p">];</span> <span class="c1">// &quot;Ninja&quot;</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="types/Readme.md">types/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              22/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: types/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>set properties</h2></header>
+            
+            
+            <section><h3>Properties can be dynamically added and modified using both notations.</h3>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">hero</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="nx">hero</span><span class="p">.</span><span class="nx">breed</span> <span class="o">=</span> <span class="s1">&#39;turtle&#39;</span><span class="p">;</span>
+<span class="nx">hero</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Leonardo&#39;</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">hero</span><span class="p">);</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="types/Readme.md">types/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              23/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: types/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>delete properties</h2></header>
+            
+            
+            <section><h3>Properties can be even deleted.</h3>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">hero</span> <span class="o">=</span> <span class="p">{};</span>
+<span class="nx">hero</span><span class="p">.</span><span class="nx">breed</span> <span class="o">=</span> <span class="s1">&#39;turtle&#39;</span><span class="p">;</span>
+<span class="nx">hero</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Rafaelo&#39;</span><span class="p">;</span>
+<span class="k">delete</span> <span class="nx">hero</span><span class="p">.</span><span class="nx">breed</span><span class="p">;</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="types/Readme.md">types/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              24/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: functions/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Functions</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="functions/Readme.md">functions/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              25/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: functions/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>definition</h2></header>
+            
+            
+            <section><div class="highlight"><pre><span class="kd">function</span> <span class="nx">name</span> <span class="p">(</span><span class="nx">comma_separated_params</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// code block </span>
+<span class="p">}</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="functions/Readme.md">functions/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              26/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: functions/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>definition</h2></header>
+            
+            
+            <section><div class="highlight"><pre><span class="kd">function</span> <span class="nx">sum</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="functions/Readme.md">functions/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              27/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: functions/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>definition</h2></header>
+            
+            
+            <section><div class="highlight"><pre><span class="kd">function</span> <span class="nx">greets</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Hello &#39;</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="s1">&#39;!&#39;</span><span class="p">);</span>
+  <span class="c1">// implicitly return undefined;</span>
+<span class="p">}</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="functions/Readme.md">functions/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              28/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: functions/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>definition</h2></header>
+            
+            
+            <section><div class="highlight"><pre><span class="kd">var</span> <span class="nx">square</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">x</span><span class="o">*</span><span class="nx">x</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="functions/Readme.md">functions/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              29/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: functions/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>invoking functions</h2></header>
+            
+            
+            <section><div class="highlight"><pre><span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">square</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+<span class="nx">result</span><span class="p">;</span> <span class="c1">// ?</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="functions/Readme.md">functions/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              30/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: functions/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Function arguments and parameters</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="functions/Readme.md">functions/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              31/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: functions/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>optional parameters</h1></header>
+            
+            
+            <section><p>When a function is invoked with fewer arguments than declared parameters,<br />
+the additional parameters are set to <code>undefined</code>.</p>
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">sum</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="nx">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>        <span class="c1">// NaN</span>
+<span class="nx">sum</span><span class="p">(</span><span class="s1">&#39;Hello &#39;</span><span class="p">);</span> <span class="c1">// &quot;Hello undefined&quot;</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="functions/Readme.md">functions/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              32/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: functions/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>arguments list</h2></header>
+            
+            
+            <section><p>When a function is invoked with more argument values than declared parameters,<br />
+you can refer to the unnamed values using the <code>arguments</code> object of the function.</p>
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">args</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">arguments</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">args</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">);</span> <span class="c1">//[1, &quot;hello&quot;, 3.141592653589793]</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="functions/Readme.md">functions/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              33/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: functions/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>arguments list</h2></header>
+            
+            
+            <section><div class="highlight"><pre><span class="kd">function</span> <span class="nx">sumAll</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">result</span> <span class="o">+=</span> <span class="nx">arguments</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">sum_all</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span> <span class="c1">//15</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="functions/Readme.md">functions/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              34/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: functions/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>arguments list</h2></header>
+            
+            
+            <section><div class="highlight"><pre><span class="kd">function</span> <span class="nx">max</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">max</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">.</span><span class="nx">NEGATIVE_INFINITY</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">max</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>     <span class="nx">max</span> <span class="o">?</span> <span class="nx">arguments</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">:</span> <span class="nx">max</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">max</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="p">,</span> <span class="mf">1.4142135</span><span class="p">);</span> <span class="c1">//100</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="functions/Readme.md">functions/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              35/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: functions/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Functions as values</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="functions/Readme.md">functions/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              36/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: functions/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h2>functions as values</h2></header>
+            
+            
+            <section><p>JavaScript functions are a special kind of object with two important features:</p>
+<ul>
+<li>they contain code<br />
+</li>
+<li>they are executable (can be invoked)<br />
+</li>
+</ul>
+<p>Because they are objects:</p>
+<ul>
+<li>they can be assigned to variables or object properties</li>
+<li>they can be passed to functions<br />
+</li>
+<li>they can have properties</li>
+<li>they can be returned by functions</li>
+</ul></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="functions/Readme.md">functions/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              37/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: functions/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>assign functions to variables</h2></header>
+            
+            
+            <section><p>JavaScript function can be assigned to variables or object properties.</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">greets</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="s1">&#39;Hello!&#39;</span><span class="p">;</span> <span class="p">};</span>
+<span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">say</span><span class="o">:</span> <span class="nx">greets</span> <span class="p">};</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="functions/Readme.md">functions/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              38/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: functions/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>copy functions to variables</h2></header>
+            
+            
+            <section><p>JavaScript functions can be copied to different variables.</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">sum</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span> <span class="p">}</span>
+<span class="kd">var</span> <span class="nx">add</span> <span class="o">=</span> <span class="nx">sum</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+<span class="nx">result</span><span class="p">;</span> <span class="c1">//3</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="functions/Readme.md">functions/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              39/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: functions/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>pass functions to functions</h2></header>
+            
+            
+            <section><p>JavaScript functions can be passed to other function.</p>
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">add</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span> <span class="p">}</span>
+<span class="kd">function</span> <span class="nx">sub</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span> <span class="o">-</span> <span class="nx">y</span><span class="p">;</span> <span class="p">}</span>
+<span class="kd">function</span> <span class="nx">mul</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span> <span class="o">*</span> <span class="nx">y</span><span class="p">;</span> <span class="p">}</span>
+<span class="kd">function</span> <span class="nx">div</span> <span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span> <span class="o">/</span> <span class="nx">y</span><span class="p">;</span> <span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">calc</span> <span class="p">(</span><span class="nx">operator</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">operator</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Calculate ((2+3) + (4*5))</span>
+<span class="nx">calc</span><span class="p">(</span><span class="nx">add</span><span class="p">,</span> <span class="nx">calc</span><span class="p">(</span><span class="nx">add</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="nx">calc</span><span class="p">(</span><span class="nx">mul</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">));</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="functions/Readme.md">functions/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              40/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: functions/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>assign properties to functions</h2></header>
+            
+            
+            <section><div class="highlight"><pre><span class="c1">// Compute factorials and cache results as properties of the function itself.</span>
+<span class="kd">function</span> <span class="nx">factorial</span> <span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="nx">n</span> <span class="k">in</span> <span class="nx">factorial</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nx">factorial</span><span class="p">[</span><span class="nx">n</span><span class="p">]</span> <span class="o">=</span> <span class="nx">n</span> <span class="o">*</span> <span class="nx">factorial</span><span class="p">(</span><span class="nx">n</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> 
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">factorial</span><span class="p">[</span><span class="nx">n</span><span class="p">];</span>
+<span class="p">}</span>
+<span class="nx">factorial</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// Initialize the cache to hold this base case.</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="functions/Readme.md">functions/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              41/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: functions/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>return functions</h2></header>
+            
+            
+            <section><p>JavaScript functions can be returned by functions.</p>
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">greets</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Hello!&#39;</span><span class="p">);</span>
+  <span class="k">return</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Bye!&#39;</span><span class="p">);</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">f</span> <span class="o">=</span> <span class="nx">greets</span><span class="p">();</span> <span class="c1">//&quot;Hello!&quot;</span>
+<span class="nx">f</span><span class="p">();</span> <span class="c1">//&quot;Bye!&quot;</span>
+<span class="nx">f</span><span class="p">();</span> <span class="c1">//&quot;Bye!&quot;</span>
+<span class="c1">//...</span>
+
+<span class="nx">greets</span><span class="p">()();</span>
+<span class="c1">//&quot;Hello!&quot;</span>
+<span class="c1">//&quot;Bye!&quot;</span>
+
+<span class="nx">greets</span><span class="p">()()();</span>
+<span class="c1">//&quot;Hello!&quot;</span>
+<span class="c1">//&quot;Bye!&quot;</span>
+<span class="c1">// TypeError: object is not a function</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="functions/Readme.md">functions/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              42/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: functions/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>self-invoking functions</h2></header>
+            
+            
+            <section><p>JavaScript functions can be called right after they were defined.</p>
+<div class="highlight"><pre><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;boo&#39;</span><span class="p">);</span> <span class="p">}());</span>
+
+<span class="o">!</span><span class="nx">js</span>
+<span class="kd">var</span> <span class="nx">message</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="s1">&#39;Hello &#39;</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="s1">&#39;!&#39;</span><span class="p">;</span> <span class="p">}(</span><span class="s1">&#39;dude&#39;</span><span class="p">));</span>
+<span class="nx">message</span><span class="p">;</span> <span class="c1">//&quot;Hello dude!&quot;</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="functions/Readme.md">functions/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              43/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: functions/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Inner (private) functions</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="functions/Readme.md">functions/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              44/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: functions/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>define functions inside functions</h2></header>
+            
+            
+            <section><p>JavaScript functions can be defined inside another function.</p>
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">f1</span> <span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">function</span> <span class="nx">f2</span> <span class="p">(</span><span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">b</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">f2</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+<span class="p">};</span>
+<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nx">f1</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span> 
+<span class="nx">result</span><span class="p">;</span> <span class="c1">//4</span>
+</pre></div>
+
+<h2>Note</h2>
+<p>When you call the global function <code>f1</code>, it will internally call the local function <code>f2</code>.<br />
+Since <code>f2</code> is local, it's not accessible outside <code>f1</code>, so we can say it's a private function.</p>
+<div class="highlight"><pre><span class="nx">f1</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="nx">f2</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span> <span class="c1">//ReferenceError: f2 is not defined</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="functions/Readme.md">functions/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              45/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: functions/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>rewrite functions from inside</h2></header>
+            
+            
+            <section><p>JavaScript functions can actually rewrite themselves from the inside.</p>
+<div class="highlight"><pre><span class="kd">function</span> <span class="nx">greets</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Hello!&#39;</span><span class="p">);</span>
+  <span class="nx">greets</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Bye!&#39;</span><span class="p">);</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="o">!</span><span class="nx">js</span> 
+<span class="nx">greets</span><span class="p">()();</span>
+<span class="c1">//&quot;Hello!&quot;</span>
+<span class="c1">//&quot;Bye!&quot;</span>
+
+<span class="o">!</span><span class="nx">js</span>
+<span class="nx">greets</span><span class="p">()()();</span>
+<span class="c1">//&quot;Hello!&quot;</span>
+<span class="c1">//&quot;Bye!&quot;</span>
+<span class="c1">//&quot;Bye!&quot;</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="functions/Readme.md">functions/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              46/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: objects/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Object methods</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="objects/Readme.md">objects/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              47/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: objects/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>definition</h2></header>
+            
+            
+            <section><p>An object contains properties.<br />
+Since functions are just data, a property of an object can contain a function.<br />
+In this case, you say that this property is a <em>method</em>.</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">dog</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Benji&#39;</span><span class="p">,</span>
+  <span class="nx">talk</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Woof, woof!&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="objects/Readme.md">objects/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              48/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: objects/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>invocation</h2></header>
+            
+            
+            <section><div class="highlight"><pre><span class="kd">var</span> <span class="nx">hero</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">breed</span><span class="o">:</span> <span class="s1">&#39;Turtle&#39;</span><span class="p">,</span>
+  <span class="nx">occupation</span><span class="o">:</span> <span class="s1">&#39;Ninja&#39;</span><span class="p">,</span>
+  <span class="nx">say</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s1">&#39;I am &#39;</span> <span class="o">+</span> <span class="nx">hero</span><span class="p">.</span><span class="nx">occupation</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">hero</span><span class="p">.</span><span class="nx">say</span><span class="p">();</span>    <span class="c1">// &quot;I am Ninja&quot;</span>
+<span class="nx">hero</span><span class="p">[</span><span class="s1">&#39;say&#39;</span><span class="p">]();</span> <span class="c1">// &quot;I am Ninja&quot;</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="objects/Readme.md">objects/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              49/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: objects/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2><code>this</code> value</h2></header>
+            
+            
+            <section><p>Inside a method, there is a special way to access the object this method belongs to:<br />
+by using the special value <code>this</code>.</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">hero</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;Rafaelo&#39;</span><span class="p">,</span>
+  <span class="nx">sayName</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="nx">hero</span><span class="p">.</span><span class="nx">sayName</span><span class="p">();</span>   <span class="c1">// &quot;Rafaelo&quot;</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="objects/Readme.md">objects/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              50/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: built-in/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide">
+          <div class="inner">
+            
+            <header><h1>Array</h1></header>
+            
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="built-in/Readme.md">built-in/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              51/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: built-in/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>definition</h2></header>
+            
+            
+            <section><div class="highlight"><pre><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">empty</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="kd">var</span> <span class="nx">plain</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;four&#39;</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]];</span>
+<span class="kd">var</span> <span class="nx">sparseArray</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,,,,</span><span class="mi">5</span><span class="p">];</span>
+</pre></div>
+
+<p>Arrays are objects, but of a special type because:<br />
+– the names of their properties are automatically assigned using numbers<br />
+– they have a <code>length</code> property which contains the number of elements in the array<br />
+</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">];</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="c1">//3</span>
+<span class="k">typeof</span> <span class="nx">a</span><span class="p">;</span> <span class="c1">//&quot;object&quot;</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="built-in/Readme.md">built-in/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              52/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: built-in/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2>access</h2></header>
+            
+            
+            <section><p>Arrays can be accessed through square bracket notation.</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">];</span>
+<span class="nx">a</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span> <span class="c1">//&quot;two&quot;</span>
+<span class="nx">a</span><span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">];</span> <span class="c1">//&quot;two&quot;</span>
+<span class="nx">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="nx">a</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span> <span class="c1">//2</span>
+<span class="kd">var</span> <span class="nx">matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]];</span>
+<span class="nx">matrix</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">];</span> <span class="c1">//2</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="built-in/Readme.md">built-in/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              53/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: built-in/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2><code>push(item...)</code> method</h2></header>
+            
+            
+            <section><p>It accepts any number of item to push in the array.<br />
+It returns the array's new length.<br />
+</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="p">[];</span>   <span class="c1">// create an array</span>
+<span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">);</span> <span class="c1">// push any number of items</span>
+<span class="nx">count</span><span class="p">;</span>  <span class="c1">// 2</span>
+<span class="nx">colors</span><span class="p">;</span> <span class="c1">// [&quot;red&quot;, &quot;green&quot;]</span>
+
+<span class="nx">count</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">);</span>   <span class="c1">// push another item on</span>
+<span class="nx">count</span><span class="p">;</span>  <span class="c1">// 3</span>
+<span class="nx">colors</span><span class="p">;</span> <span class="c1">// [&quot;red&quot;, &quot;green&quot;, &quot;black&quot;]</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="built-in/Readme.md">built-in/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              54/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: built-in/Readme.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h2><code>pop()</code> method</h2></header>
+            
+            
+            <section><p>It acceps no parameter.<br />
+It returns and removes the last element in the array.<br />
+If the array is empty, return undefined.</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">colors</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;black&#39;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">item</span> <span class="o">=</span> <span class="nx">colors</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span> <span class="c1">// get the last item</span>
+<span class="nx">item</span><span class="p">;</span> <span class="c1">// &quot;black&quot;</span>
+<span class="nx">colors</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="c1">// 2</span>
+<span class="nx">colors</span><span class="p">;</span> <span class="c1">// [&quot;red&quot;, &quot;green&quot;]</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="built-in/Readme.md">built-in/Readme.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              55/55
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <div id="toc" class="sidebar hidden">
+    <h2>Table of Contents</h2>
+    <table>
+      <caption>Table of Contents</caption>
+      
+      <tr id="toc-row-1">
+        <th><a href="#slide1">From past lessons...</a></th>
+        <td><a href="#slide1">1</a></td>
+      </tr>
+      
+        
+        <tr id="toc-row-2" class="sub">
+          <th><a href="#slide2">types</a></th>
+          <td><a href="#slide2">2</a></td>
+        </tr>
+        
+        <tr id="toc-row-3" class="sub">
+          <th><a href="#slide3">operators</a></th>
+          <td><a href="#slide3">3</a></td>
+        </tr>
+        
+        <tr id="toc-row-4" class="sub">
+          <th><a href="#slide4">Logical AND</a></th>
+          <td><a href="#slide4">4</a></td>
+        </tr>
+        
+        <tr id="toc-row-5" class="sub">
+          <th><a href="#slide5">Logical OR</a></th>
+          <td><a href="#slide5">5</a></td>
+        </tr>
+        
+      
+      
+      <tr id="toc-row-6">
+        <th><a href="#slide6">New stuff</a></th>
+        <td><a href="#slide6">6</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-7">
+        <th><a href="#slide7">Statements</a></th>
+        <td><a href="#slide7">7</a></td>
+      </tr>
+      
+        
+        <tr id="toc-row-8" class="sub">
+          <th><a href="#slide8">code block statement</a></th>
+          <td><a href="#slide8">8</a></td>
+        </tr>
+        
+        <tr id="toc-row-9" class="sub">
+          <th><a href="#slide9"><code>if</code> statement</a></th>
+          <td><a href="#slide9">9</a></td>
+        </tr>
+        
+        <tr id="toc-row-10" class="sub">
+          <th><a href="#slide10"><code>switch</code> statement</a></th>
+          <td><a href="#slide10">10</a></td>
+        </tr>
+        
+        <tr id="toc-row-11" class="sub">
+          <th><a href="#slide11"><code>do-while</code> statement</a></th>
+          <td><a href="#slide11">11</a></td>
+        </tr>
+        
+        <tr id="toc-row-12" class="sub">
+          <th><a href="#slide12"><code>do-while</code> statement</a></th>
+          <td><a href="#slide12">12</a></td>
+        </tr>
+        
+        <tr id="toc-row-13" class="sub">
+          <th><a href="#slide13"><code>while</code> statement</a></th>
+          <td><a href="#slide13">13</a></td>
+        </tr>
+        
+      
+      
+      <tr id="toc-row-14">
+        <th><a href="#slide14"><code>while</code> statement</a></th>
+        <td><a href="#slide14">14</a></td>
+      </tr>
+      
+        
+        <tr id="toc-row-15" class="sub">
+          <th><a href="#slide15"><code>for</code> statement</a></th>
+          <td><a href="#slide15">15</a></td>
+        </tr>
+        
+        <tr id="toc-row-16" class="sub">
+          <th><a href="#slide16"><code>for</code> statement</a></th>
+          <td><a href="#slide16">16</a></td>
+        </tr>
+        
+        <tr id="toc-row-17" class="sub">
+          <th><a href="#slide17"><code>for</code> statement</a></th>
+          <td><a href="#slide17">17</a></td>
+        </tr>
+        
+        <tr id="toc-row-18" class="sub">
+          <th><a href="#slide18"><code>for in</code> statement</a></th>
+          <td><a href="#slide18">18</a></td>
+        </tr>
+        
+        <tr id="toc-row-19" class="sub">
+          <th><a href="#slide19"><code>for in</code> statement</a></th>
+          <td><a href="#slide19">19</a></td>
+        </tr>
+        
+      
+      
+      <tr id="toc-row-20">
+        <th><a href="#slide20">Objects</a></th>
+        <td><a href="#slide20">20</a></td>
+      </tr>
+      
+        
+        <tr id="toc-row-21" class="sub">
+          <th><a href="#slide21">definition</a></th>
+          <td><a href="#slide21">21</a></td>
+        </tr>
+        
+        <tr id="toc-row-22" class="sub">
+          <th><a href="#slide22">access properties</a></th>
+          <td><a href="#slide22">22</a></td>
+        </tr>
+        
+        <tr id="toc-row-23" class="sub">
+          <th><a href="#slide23">set properties</a></th>
+          <td><a href="#slide23">23</a></td>
+        </tr>
+        
+        <tr id="toc-row-24" class="sub">
+          <th><a href="#slide24">delete properties</a></th>
+          <td><a href="#slide24">24</a></td>
+        </tr>
+        
+      
+      
+      <tr id="toc-row-25">
+        <th><a href="#slide25">Functions</a></th>
+        <td><a href="#slide25">25</a></td>
+      </tr>
+      
+        
+        <tr id="toc-row-26" class="sub">
+          <th><a href="#slide26">definition</a></th>
+          <td><a href="#slide26">26</a></td>
+        </tr>
+        
+        <tr id="toc-row-27" class="sub">
+          <th><a href="#slide27">definition</a></th>
+          <td><a href="#slide27">27</a></td>
+        </tr>
+        
+        <tr id="toc-row-28" class="sub">
+          <th><a href="#slide28">definition</a></th>
+          <td><a href="#slide28">28</a></td>
+        </tr>
+        
+        <tr id="toc-row-29" class="sub">
+          <th><a href="#slide29">definition</a></th>
+          <td><a href="#slide29">29</a></td>
+        </tr>
+        
+        <tr id="toc-row-30" class="sub">
+          <th><a href="#slide30">invoking functions</a></th>
+          <td><a href="#slide30">30</a></td>
+        </tr>
+        
+      
+      
+      <tr id="toc-row-31">
+        <th><a href="#slide31">Function arguments and parameters</a></th>
+        <td><a href="#slide31">31</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-32">
+        <th><a href="#slide32">optional parameters</a></th>
+        <td><a href="#slide32">32</a></td>
+      </tr>
+      
+        
+        <tr id="toc-row-33" class="sub">
+          <th><a href="#slide33">arguments list</a></th>
+          <td><a href="#slide33">33</a></td>
+        </tr>
+        
+        <tr id="toc-row-34" class="sub">
+          <th><a href="#slide34">arguments list</a></th>
+          <td><a href="#slide34">34</a></td>
+        </tr>
+        
+        <tr id="toc-row-35" class="sub">
+          <th><a href="#slide35">arguments list</a></th>
+          <td><a href="#slide35">35</a></td>
+        </tr>
+        
+      
+      
+      <tr id="toc-row-36">
+        <th><a href="#slide36">Functions as values</a></th>
+        <td><a href="#slide36">36</a></td>
+      </tr>
+      
+        
+        <tr id="toc-row-37" class="sub">
+          <th><a href="#slide37">functions as values</a></th>
+          <td><a href="#slide37">37</a></td>
+        </tr>
+        
+        <tr id="toc-row-38" class="sub">
+          <th><a href="#slide38">assign functions to variables</a></th>
+          <td><a href="#slide38">38</a></td>
+        </tr>
+        
+        <tr id="toc-row-39" class="sub">
+          <th><a href="#slide39">copy functions to variables</a></th>
+          <td><a href="#slide39">39</a></td>
+        </tr>
+        
+        <tr id="toc-row-40" class="sub">
+          <th><a href="#slide40">pass functions to functions</a></th>
+          <td><a href="#slide40">40</a></td>
+        </tr>
+        
+        <tr id="toc-row-41" class="sub">
+          <th><a href="#slide41">assign properties to functions</a></th>
+          <td><a href="#slide41">41</a></td>
+        </tr>
+        
+        <tr id="toc-row-42" class="sub">
+          <th><a href="#slide42">return functions</a></th>
+          <td><a href="#slide42">42</a></td>
+        </tr>
+        
+        <tr id="toc-row-43" class="sub">
+          <th><a href="#slide43">self-invoking functions</a></th>
+          <td><a href="#slide43">43</a></td>
+        </tr>
+        
+      
+      
+      <tr id="toc-row-44">
+        <th><a href="#slide44">Inner (private) functions</a></th>
+        <td><a href="#slide44">44</a></td>
+      </tr>
+      
+        
+        <tr id="toc-row-45" class="sub">
+          <th><a href="#slide45">define functions inside functions</a></th>
+          <td><a href="#slide45">45</a></td>
+        </tr>
+        
+        <tr id="toc-row-46" class="sub">
+          <th><a href="#slide46">rewrite functions from inside</a></th>
+          <td><a href="#slide46">46</a></td>
+        </tr>
+        
+      
+      
+      <tr id="toc-row-47">
+        <th><a href="#slide47">Object methods</a></th>
+        <td><a href="#slide47">47</a></td>
+      </tr>
+      
+        
+        <tr id="toc-row-48" class="sub">
+          <th><a href="#slide48">definition</a></th>
+          <td><a href="#slide48">48</a></td>
+        </tr>
+        
+        <tr id="toc-row-49" class="sub">
+          <th><a href="#slide49">invocation</a></th>
+          <td><a href="#slide49">49</a></td>
+        </tr>
+        
+        <tr id="toc-row-50" class="sub">
+          <th><a href="#slide50"><code>this</code> value</a></th>
+          <td><a href="#slide50">50</a></td>
+        </tr>
+        
+      
+      
+      <tr id="toc-row-51">
+        <th><a href="#slide51">Array</a></th>
+        <td><a href="#slide51">51</a></td>
+      </tr>
+      
+        
+        <tr id="toc-row-52" class="sub">
+          <th><a href="#slide52">definition</a></th>
+          <td><a href="#slide52">52</a></td>
+        </tr>
+        
+        <tr id="toc-row-53" class="sub">
+          <th><a href="#slide53">access</a></th>
+          <td><a href="#slide53">53</a></td>
+        </tr>
+        
+        <tr id="toc-row-54" class="sub">
+          <th><a href="#slide54"><code>push(item...)</code> method</a></th>
+          <td><a href="#slide54">54</a></td>
+        </tr>
+        
+        <tr id="toc-row-55" class="sub">
+          <th><a href="#slide55"><code>pop()</code> method</a></th>
+          <td><a href="#slide55">55</a></td>
+        </tr>
+        
+      
+      
+    </table>
+  </div>
+  
+  <div id="help" class="sidebar hidden">
+    <h2>Help</h2>
+    <table>
+      <caption>Help</caption>
+      <tr>
+        <th>Table of Contents</th>
+        <td>t</td>
+      </tr>
+      <tr>
+        <th>Exposé</th>
+        <td>ESC</td>
+      </tr>
+      <tr>
+        <th>Full screen slides</th>
+        <td>e</td>
+      </tr>
+      <tr>
+        <th>Presenter View</th>
+        <td>p</td>
+      </tr>
+      <tr>
+        <th>Source Files</th>
+        <td>s</td>
+      </tr>
+      <tr>
+        <th>Slide Numbers</th>
+        <td>n</td>
+      </tr>
+      <tr>
+        <th>Toggle screen blanking</th>
+        <td>b</td>
+      </tr>
+      <tr>
+        <th>Show/hide slide context</th>
+        <td>c</td>
+      </tr>
+      <tr>
+        <th>Notes</th>
+        <td>2</td>
+      </tr>
+      <tr>
+        <th>Help</th>
+        <td>h</td>
+      </tr>
+    </table>
+  </div>
+  <script>main()</script>
+</body>
+</html>

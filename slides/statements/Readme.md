@@ -1,169 +1,125 @@
-## Statements
-
-#### Code block statement
-
-```js
-{
-  //code block
-  {
-    //nested code block
-    //use indentation
-  }
-}
-```
-- - -
-
-## Statements
-
-#### `if` statement
-
-```js
-if (condition) statement1 else statement2
-```
-```js
-if (condition1) statement1 else if (condition2) statement2 else statement3
-```
-```js
-if (condition1) {
-  statement1 
-} else if (condition2) {
-  statement2 
-} else {
-  statement3
-}
-```
+# Statements
 
 - - -
+## code block statement
 
-## Statements
-
-### `switch` statement
-
-```js
-switch (expression) {
-  case value1: statement1; break;
-  case value2: statement2; break;
-  //...
-  case valueN: statementN; break;
-  default: statement
-}
-```
+    !js
+    {
+      //code block
+      {
+        //nested code block
+        //use indentation
+      }
+    }
 
 - - -
+## `if` statement
 
-## Statements
+    !js
+    if (condition) statement1 else statement2
 
-### `do-while` statement
+    !js
+    if (condition1) statement1 else if (condition2) statement2 else statement3
 
-```js
-do {
-  statement
-} while (expression);
-```
+    !js
+    if (condition1) {
+      statement1 
+    } else if (condition2) {
+      statement2 
+    } else {
+      statement3
+    }
+
+- - -
+## `switch` statement
+
+    !js
+    switch (expression) {
+      case value1: statement1; break;
+      case value2: statement2; break;
+      //...
+      case valueN: statementN; break;
+      default: statement
+    }
+
+- - -
+## `do-while` statement
+
+    !js
+    do {
+      statement
+    } while (expression);
 
 - - - 
+## `do-while` statement
 
-## Statements
+    !js
+    var i = 0;
+    do {
+      i += 1;
+    } while (i < 10);
 
-### `do-while` statement
+    console.log(i); //?
 
-#### example
-
-```js
-var i = 0;
-do {
-  i += 1;
-} while (i < 10);
-
-console.log(i); //?
-```
 - - -
+## `while` statement
 
-## Statements
+    !js
+    while (expression) statement
 
-### `while` statement
-
-```js
-while (expression) statement
-```
 
 - - - 
+# `while` statement
 
-## Statements
-
-### `while` statement
-
-#### Example
-
-```js
-var i = 0;
-while (i < 10) {
-  i += 2;
-}
-```
-- - -
-
-## Statements
-
-### `for` statement
-
-```js
-for (initialization; expression; post-loop-expression) statement
-```
+    !js
+    var i = 0;
+    while (i < 10) {
+      i += 2;
+    }
 
 - - -
+## `for` statement
 
-## Statements
+    !js
+    for (initialization; expression; post-loop-expression) statement
 
-### `for` statement
+- - -
+## `for` statement
 
 #### `while` using `for`
 
-```js
-var count = 10;
-var i = 0;             //initialization
-for (; i < count; ) {  //expression
-  console.log(i);
-  i++;                 //post-loop-expression
-}
-```
+    !js
+    var count = 10;
+    var i = 0;             //initialization
+    for (; i < count; ) {  //expression
+      console.log(i);
+      i++;                 //post-loop-expression
+    }
 
 - - -
-
-## Statements
-
-### `for` statement
+## `for` statement
 
 #### infinite loop
 
-```js
-for (;;) { //don't try this at home!
-  doSomething();
-}
-```
-- - -
-
-## Statements
-
-### `for in` statement
-
-```js
-for (property in object) statement
-```
+    !js
+    for (;;) { //don't try this at home!
+      doSomething();
+    }
 
 - - -
+## `for in` statement
 
-## Statements
+    !js
+    for (property in object) statement
 
-### `for in` statement
+- - -
+## `for in` statement
 
-#### Example
+    !js
+    var obj = {a: 1, b: 2, c: 3};
+    var s = '';
+    for (var key in obj) {
+       s += key + ' ';
+    }
+    console.log(s); //?;
 
-```js
-var obj = {a: 1, b: 2, c: 3};
-var s = '';
-for (var key in obj) {
-   s += key + ' ';
-}
-console.log(s); //?;
-```

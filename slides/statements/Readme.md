@@ -17,11 +17,11 @@
 
     !js
     if (condition) statement1 else statement2
+    
 
-    !js
     if (condition1) statement1 else if (condition2) statement2 else statement3
-
-    !js
+    
+    
     if (condition1) {
       statement1 
     } else if (condition2) {

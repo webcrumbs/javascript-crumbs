@@ -28,7 +28,7 @@
 
 Experiment by first setting `v` to `100`, `0`, `null`.
 
-### Exmaple:
+### Example:
 
     !js
     var test = true;
@@ -44,7 +44,7 @@ Experiment by first setting `v` to `100`, `0`, `null`.
 
 Experiment by first setting `v` to `100`, `0`, `null`.
 
-### Exmaple:
+### Example:
 
     !js
     var empty = "";

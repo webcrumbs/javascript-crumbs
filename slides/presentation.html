@@ -161,7 +161,7 @@
 </pre></div>
 
 <p>Experiment by first setting <code>v</code> to <code>100</code>, <code>0</code>, <code>null</code>.</p>
-<h3>Exmaple:</h3>
+<h3>Example:</h3>
 <div class="highlight"><pre><span class="kd">var</span> <span class="nx">test</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
 <span class="nx">test</span> <span class="o">&amp;&amp;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;test is true!&#39;</span><span class="p">);</span>
 </pre></div>
@@ -200,7 +200,7 @@
 </pre></div>
 
 <p>Experiment by first setting <code>v</code> to <code>100</code>, <code>0</code>, <code>null</code>.</p>
-<h3>Exmaple:</h3>
+<h3>Example:</h3>
 <div class="highlight"><pre><span class="kd">var</span> <span class="nx">empty</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">myString</span> <span class="o">=</span> <span class="nx">empty</span> <span class="o">||</span> <span class="s2">&quot;Hello Web :)&quot;</span><span class="p">;</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myString</span><span class="p">);</span>
@@ -331,10 +331,8 @@
             
             <section><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="nx">condition</span><span class="p">)</span> <span class="nx">statement1</span> <span class="k">else</span> <span class="nx">statement2</span>
 
-<span class="o">!</span><span class="nx">js</span>
 <span class="k">if</span> <span class="p">(</span><span class="nx">condition1</span><span class="p">)</span> <span class="nx">statement1</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">condition2</span><span class="p">)</span> <span class="nx">statement2</span> <span class="k">else</span> <span class="nx">statement3</span>
 
-<span class="o">!</span><span class="nx">js</span>
 <span class="k">if</span> <span class="p">(</span><span class="nx">condition1</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">statement1</span> 
 <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">condition2</span><span class="p">)</span> <span class="p">{</span>
@@ -1261,7 +1259,7 @@ you can refer to the unnamed values using the <code>arguments</code> object of t
             <section><div class="highlight"><pre><span class="kd">function</span> <span class="nx">max</span> <span class="p">()</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">max</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">.</span><span class="nx">NEGATIVE_INFINITY</span><span class="p">;</span>
   <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">max</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>     <span class="nx">max</span> <span class="o">?</span> <span class="nx">arguments</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">:</span> <span class="nx">max</span><span class="p">;</span>
+    <span class="nx">max</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="nx">max</span> <span class="o">?</span> <span class="nx">arguments</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">:</span> <span class="nx">max</span><span class="p">;</span>
   <span class="p">}</span>
   <span class="k">return</span> <span class="nx">max</span><span class="p">;</span>
 <span class="p">}</span>
@@ -1577,7 +1575,6 @@ you can refer to the unnamed values using the <code>arguments</code> object of t
             <section><p>JavaScript functions can be called right after they were defined.</p>
 <div class="highlight"><pre><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;boo&#39;</span><span class="p">);</span> <span class="p">}());</span>
 
-<span class="o">!</span><span class="nx">js</span>
 <span class="kd">var</span> <span class="nx">message</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="s1">&#39;Hello &#39;</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="s1">&#39;!&#39;</span><span class="p">;</span> <span class="p">}(</span><span class="s1">&#39;dude&#39;</span><span class="p">));</span>
 <span class="nx">message</span><span class="p">;</span> <span class="c1">//&quot;Hello dude!&quot;</span>
 </pre></div>
@@ -1694,12 +1691,10 @@ Since <code>f2</code> is local, it's not accessible outside <code>f1</code>, so 
   <span class="p">};</span>
 <span class="p">}</span>
 
-<span class="o">!</span><span class="nx">js</span> 
 <span class="nx">greets</span><span class="p">()();</span>
 <span class="c1">//&quot;Hello!&quot;</span>
 <span class="c1">//&quot;Bye!&quot;</span>
 
-<span class="o">!</span><span class="nx">js</span>
 <span class="nx">greets</span><span class="p">()()();</span>
 <span class="c1">//&quot;Hello!&quot;</span>
 <span class="c1">//&quot;Bye!&quot;</span>

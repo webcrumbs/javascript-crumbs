@@ -93,7 +93,7 @@ you can refer to the unnamed values using the `arguments` object of the function
     function max () {
       var max = Number.NEGATIVE_INFINITY;
       for (var i = 0; i < arguments.length; i++) {
-        max = arguments[i]     max ? arguments[i] : max;
+        max = arguments[i] > max ? arguments[i] : max;
       }
       return max;
     }
@@ -193,7 +193,7 @@ JavaScript functions can be returned by functions.
     //"Hello!"
     //"Bye!"
     
-    
+
     greets()()();
     //"Hello!"
     //"Bye!"
@@ -206,8 +206,8 @@ JavaScript functions can be called right after they were defined.
 
     !js
     (function () { alert('boo'); }());
+    
 
-    !js
     var message = (function (name) { return 'Hello ' + name + '!'; }('dude'));
     message; //"Hello dude!"
 
@@ -249,13 +249,13 @@ JavaScript functions can actually rewrite themselves from the inside.
         console.log('Bye!');
       };
     }
+    
 
-    !js 
     greets()();
     //"Hello!"
     //"Bye!"
-
-    !js
+    
+    
     greets()()();
     //"Hello!"
     //"Bye!"

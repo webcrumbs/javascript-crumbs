@@ -5,6 +5,13 @@ Functions allow you group together some code, give this code a name, and reuse i
 
 ## Defining functions
 
+```js
+function function_name (comma_separated_parameters) {
+  // code block
+  return returned_value;
+}
+```
+
 Function definition is composed by:
 
 * the `function` statement
@@ -13,41 +20,50 @@ Function definition is composed by:
 * a code block, the body of the function
 * the `return` statement
 
-```js
-function sum (a, b) {
-  var result = a + b;
-  return result;
-}
-```
+> #### Example
+> 
+> ```js
+> function sum (a, b) {
+>   var result = a + b;
+>   return result;
+> }
+> ```
+> 
+> ```js
+> var square = function (x) {
+>   return x * x;
+> };
+> ```
 
 > #### Note
 > A function always returns a value.  
 > If it doesn't return value explicitly, it implicitly returns the value `undefined`.
 > 
+> ```js
+> function greets (name) {
+>   console.log('Hello ' + name + '!');
+> } // implicitly return undefined
+> ```
+> 
+> #### Note
 > A function can only return a single value.  
 > If you need to return more values, then simply return an object.
 
-```js
-function distance (x1, y1, x2, y2) {
-  var dx = x2 - x1;
-  var dy = y2 - y1;
-  return Math.sqrt(dx*dx + dy*dy);
-}
-
-var square = function (x) {
-  return x*x;
-};
-```
-
 ## Invoking functions
 
-In order to make use of a function, you need to call it (invoke it).
+In order to make use of a function, you need to call it (invoke it).  
 You call a function simply by using its name followed by parameters list in parentheses.
 
 ```js
-var result = sum(1, 2);
-result; // 3
+function_name(comma_separated_arguments);
 ```
+
+> #### Example
+> ```js
+> function sum (a, b) { return a + b; }
+> 
+> sum(3, 2); // 5
+> ```
 
 ## Function arguments and parameters
 
@@ -60,373 +76,399 @@ Function invocations do not even check the number of arguments being passed.
 When a function is invoked with fewer arguments than declared parameters,  
 the additional parameters are set to `undefined`.
 
-```js
-var result = sum(1);
-result; // NaN
-```
+> #### Example
+> ```js
+> function sum (a, b) { return a + b; }
+> 
+> sum(3);       // NaN
+> sum('Hello '); // "Hello undefined"
+> ```
 
 ### Arguments list
 
 When a function is invoked with more argument values than declared parameters,  
 there is no way to directly refer to the unnamed values.
 
-The `arguments` object, within the body of a function, is an array-like object  
-that allows the argument values passed to the function to be retrieved by number, rather than by name.
+The `arguments` object, defined within the body of a function, is an array-like object  
+that allows the argument values passed to the function to be retrieved by number:  
+the first argument value is in `arguments[0]`, the second in `arguments[1]`, ...
 
-```js
-function sum (a, b) {
-  return a + b;
-}
-
-var result = sum(1, 2, 3, 4, 5); 
-result; //3
-```
-
-```js
-function sumAll () {
-  var result = 0;
-  for (var i = 0; i < arguments.length; i++) {
-    result += arguments[i];
-  }
-  return result;
-}
-
-var result = sum_all(1, 2, 3, 4, 5);
-result; //15
-```
-
-```js
-function max () {
-  var max = Number.NEGATIVE_INFINITY;
-  for (var i = 0; i < arguments.length; i++) {
-    max = arguments[i] > max ? arguments[i] : max;
-  }
-  return max;
-}
-
-maximum = max(1, 10, 100, 42, 3.14, 1.4142135);
-maximum; //100
-```
+> #### Example
+> ```js
+> function args () {
+>   return arguments;
+> }
+> 
+> args(1, 'hello', Math.PI); //[1, "hello", 3.141592653589793]
+> ```
+> 
+> #### Example
+> ```js
+> function sumAll () {
+>   var result = 0;
+>   for (var i = 0; i < arguments.length; i++) {
+>     result += arguments[i];
+>   }
+>   return result;
+> }
+> 
+> sum_all(1, 2, 3, 4, 5); //15
+> ```
+> 
+> #### Example
+> 
+> ```js
+> function max () {
+>   var max = Number.NEGATIVE_INFINITY;
+>   for (var i = 0; i < arguments.length; i++) {
+>     max = arguments[i] > max ? arguments[i] : max;
+>   }
+>   return max;
+> }
+> 
+> max(1, 10, 100, 42, Math.PI, 1.4142135); //100
+> ```
 
 ## Function as values
 
-In JavaScript, functions are objects:  
-
-* they can be assigned to variables  
-* they can be passed to other functions  
-* they have properties
-
-but a special kind of object with two important features:
+JavaScript functions are a special kind of object with two important features:
 
 * they contain code  
 * they are executable (can be invoked)  
 
+Because they are objects:
+
+* they can be assigned to variables or object properties
+* they can be passed to functions  
+* they can have properties
+* they can be returned by functions
+
 > #### Note
-> although functions are considered objects and don’t represent another data type
-> they do have some special properties, which differentiate them from other objects:
-> operator typeof applied to a function returns "function" not "object"
+> although functions are considered objects and don’t represent another data type  
+> they do have some special properties, which differentiate them from other objects:  
+> operator `typeof` applied to a function returns `"function"` not `"object"`
 > 
 > ```js
 > typeof function () {}; //"function"
 > ```
 
-JavaScript function can be assigned to variable or object properties.
+JavaScript function can be assigned to variables or object properties.
 
-```js
-var greetings = function () { return 'hello'; };
-var person = { say: greetings };
-```
+> #### Example
+> ```js
+> var greets = function () { return 'Hello!'; };
+> var person = { say: greets };
+> ```
 
-JavaScript functions can be copied to a different variable.
+JavaScript functions can be copied to different variables.
 
-```js
-var sum = function (a, b) { return a + b; }
-var add = sum;
-var result = add(1, 2);
-result; //3
-```
+> #### Example
+> ```js
+> var sum = function (a, b) { return a + b; }
+> var add = sum;
+> var result = add(1, 2);
+> result; //3
+> ```
+
+JavaScript functions can be passed to other function.
+
+> #### Example
+> ```js
+> function add (x,y) { return x + y; }
+> function sub (x,y) { return x - y; }
+> function mul (x,y) { return x * y; }
+> function div (x,y) { return x / y; }
+> 
+> function calc (operator, x, y) {
+>   return operator(x, y);
+> }
+> 
+> // Calculate ((2+3) + (4*5))
+> calc(add, calc(add, 2, 3), calc(mul, 4, 5));
+> ```
 
 JavaScript functions can have properties.
 
-```js
-function add (x,y) { return x + y; }
-function sub (x,y) { return x - y; }
-function mul (x,y) { return x * y; }
-function div (x,y) { return x / y; }
+> #### Example
+> ```js
+> guid.counter = 0;
+>
+> // This function returns a different integer each time it is called.
+> // It uses a property of itself to remember the next value to be returned.
+> function guid() {
+>   return guid.counter++; // Increment and return counter property 
+> }
+> ```
 
-function calc (operator, x, y) {
-  return operator(x, y);
-}
+> ```js
+> // Compute factorials and cache results as properties of the function itself.
+> function factorial (n) {
+>   if (!(n in factorial)) {
+>     factorial[n] = n * factorial(n-1); 
+>   }
+>   return factorial[n];
+> }
+> factorial[1] = 1; // Initialize the cache to hold this base case.
+> ```
 
-// Calculate ((2+3) + (4*5))
-calc(add, calc(add, 2, 3), calc(mul, 4, 5));
-```
+JavaScript functions can be returned by functions.
 
-```js
-var operators = {
-    add: function (x,y) { return x + y; }
-  , sub: function (x,y) { return x - y; }
-  , mul: function (x,y) { return x * y; }
-  , div: function (x,y) { return x / y; }
-  , pow: Math.pow
-};
-
-function calc (operation, x, y) {
-  if (typeof operators[operation] === 'function') {
-    return operators[operation](x, y);
-  } else {
-    throw "unknown operator";
-  }
-}
-
-calc('add', 'hello ', 'world'); //"hello world"
-calc('pow', 10, 2); //100
-```
+> #### Example
+> ```js
+> function greets () {
+>   console.log('Hello!');
+>   return function () {
+>     console.log('Bye!');
+>   };
+> }
+> ```
+>
+> ```js
+> var f = greets(); //"Hello!"
+> f(); //"Bye!"
+> f(); //"Bye!"
+> //...
+> ```
+>
+> ```js 
+> greets()();
+> //"Hello!"
+> //"Bye!"
+> ```
+>
+> ```js
+> greets()()();
+> //"Hello!"
+> //"Bye!"
+> // TypeError: object is not a function
+> ```
 
 ## Self-invoking functions
 
-JavaScript functions can be called right after it was defined.
+JavaScript functions can be called right after they were defined.
 
-```js
-(function () { alert('boo'); }());
-var message = function (name) { return 'hello ' + name + '!'; }('dude');
-message; //"hello dude!"
-```
+> #### Example
+> ```js
+> (function () { alert('boo'); }());
+> ```
 
-> #### Note 
-> You cannot execute the same anonimous function twice (unless you put it inside a loop or another function).
+> #### Example
+> ```js
+> var message = (function (name) { return 'Hello ' + name + '!'; }('dude'));
+> message; //"Hello dude!"
+> ```
 
 > #### Tip
-> Use self-invoking anonymous functions to have some work done without creating global variables,  
-> for one-off or initialization tasks.
+> Use self-invoking anonymous functions to have some work done,  
+> without creating global variables, for initialization tasks.
 
 ## Inner (private) functions
 
 JavaScript functions can be defined inside another function.
 
-```js
-function a (param) {
-  function b (input) {
-    return input * 2;
-  }
-  return b(param);
-};
-var result = a(2); 
-result; //4
-```
-
-```js
-var a = function (param) {
-  var b = function (input) {
-    return input * 2;
-  };
-  return b(param);
-};
-var result = a(2); 
-result; //4
-```
-
-> ####Note
-> When you call the global function `a`, it will internally call the local function `b`.  
-> Since `b` is local, it's not accessible outside `a`, so we can say it's a private function.
+> #### Example
+> ```js
+> function f1 (a) {
+>   function f2 (b) {
+>     return b * 2;
+>   }
+>   return f2(a);
+> };
+> var result = f1(2); 
+> result; //4
+> ```
+> 
+> #### Note
+> When you call the global function `f1`, it will internally call the local function `f2`.  
+> Since `f2` is local, it's not accessible outside `f1`, so we can say it's a private function.
 > 
 > ```js
-> a(2);
-> b(2); //ReferenceError: b is not defined
+> f1(2);
+> f2(2); //ReferenceError: f2 is not defined
 > ```
 
 The benefit of using private functions are as follows:
+
 * you keep the global namespace clean (smaller chance of naming collisions)
 * you expose only the functions you decide to the "outside world"
 
-## Functions that return functions
-
-A function can return only one value and this value could just as easily be another function.
-
-```js
-function a () {
-  console.log('A!');
-  return function () {
-    console.log('B!');
-  };
-}
-
-var f = a(); //"A!"
-f(); //"B!"
-f(); //"B!"
-
-a()();
-//"A!"
-//"B!"
-```
-
-Because a function can return a function, you can use the new function to replace the old one.  
-The function can actually rewrite itself from the inside.
-
-```js
-function a () {
-  console.log('A!');
-  a = function () {
-    console.log('B!');
-  };
-}
-
-a(); //"A!"
-a(); //"B!"
-a(); //"B!"
-```
+> #### Note
+> JavaScript functions can actually rewrite themselves from the inside.
+> 
+> ```js
+> function greets () {
+>   console.log('Hello!');
+>   greets = function () {
+>     console.log('Bye!');
+>   };
+> }
+> ```
+>
+> ```js 
+> greets()();
+> //"Hello!"
+> //"Bye!"
+> ```
+>
+> ```js
+> greets()()();
+> //"Hello!"
+> //"Bye!"
+> //"Bye!"
+> ```
 
 ## Lexical scope
 
-In JavaScript, functions have **lexical scope**:
-functions create their environment (scope) when they are defined, not when they are executed.
+JavaScript functions have **lexical scope**:  
+they create their environment (scope) when they are defined, not when they are executed.
 
-```js
-function f1 () { 
-  var a = 1; 
-  f2(); 
-}
-    
-function f2 () { 
-  return a; 
-}
-    
-f1(); //a is not defined
-```
+> #### Example
+> ```js
+> function f1 () { 
+>   var a = 1; 
+>   f2(); 
+> }
+> 
+> function f2 () { 
+>   return a; 
+> }
+> 
+> f1(); //a is not defined
+> ```
 
-## Closure
-
-### Variable Scope
+## Function Scope
 
 JavaScript uses **function scope**:
 variables are visible within the function in which they are defined  
-and within any functions that are nested within that function;  
-a variable declared within a function has a local scope, it is defined only within the body of the function;
-a variable not declared within a function has a global scope, it is defined everywhere in the code.
+and within any functions that are nested within that function.
 
-A local variable, declared within a function, takes precedence over a global variable with the same name.
+### Local and global scope
+A variable declared within a function has a **local scope**,  
+it is defined only within the body of the function.  
 
-```js
-var scope = 'global';
+A variable not declared within a function has a **global scope**,  
+it is defined everywhere in the code.
 
-function checkscope () {
-  var scope = 'local';
-  return scope;
-}
+A local variable, a variable declared within a function,  
+takes precedence over a global variable with the same name.
 
-checkscope(); //"local"
-scope;        //"global"
-```
+> #### Example
+> ```js
+> var scope = 'global';
+> 
+> function checkScope () {
+>   var scope = 'local';
+>   return scope;
+> }
+> 
+> checkScope(); //"local"
+> scope;        //"global"
+> ```
+
+> #### Attention!
+> You must always use `var` to declare local variables.
+>
+> ```js
+> var scope = 'global';
+> 
+> function checkScope () {
+>   scope = 'local';        // if var is omitted, it refers to global variable
+>   return scope;
+> }
+> 
+> checkScope(); //"local"
+> scope;        //"local"
+> ```
 
 Function parameters count as local variables and are defined only within the body of the function.
 
-```js
-function checkParamScope (a) {
-  a += 1;
-  console.log(a);
-}
-console.log(a); //"undefined"
-checkParamScope(1); //2
-```
-
-Although you can get away with not using the var statement when you write code in the global scope,  
-you must always use var to declare local variables.
-
-```js
-var scope = 'global';
-
-function checkscope () {
-  scope = 'local';
-  return scope;
-}
-
-checkscope(); //"local"
-scope;        //"local"
-```
+> #### Example
+> ```js
+> function checkParamScope (a) {
+>   a += 1;
+>   console.log(a);
+> }
+> 
+> console.log(a);     //"undefined"
+> checkParamScope(1); //2
+> ```
 
 Each function has its own local scope.  
 Since functions can be nested, it is possible to have several nested layers of local scope.
 
-```js
-var scope = 'global';
-
-function checkscope () {
-  var scope = 'local';
-
-  function nested () {
-    var scope = 'nested';
-    return scope;
-  }
-
-  return nested();
-}
-
-checkscope(); //"nested"
-scope;        //"global"
-```
+> #### Example
+> ```js
+> var scope = 'global';
+> 
+> function localScope () {
+>   var scope = 'local';
+> 
+>   function nestedScope () {
+>     var scope = 'nested';
+>     return scope;
+>   }
+> 
+>   return nestedScope();
+> }
+>
+> localScope(); //"nested"
+> scope;        //"global"
+> ```
 
 ### Variable hoisting
 
 Since variables are visible within the function in which they are defined  
-variables are even visible before they are declared;  
-JavaScript code behaves as if all variable declarations in a function (but not any associated assignments)  
+variables are even visible before they are declared.  
+All variable declarations in a function (but not any associated assignments)  
 are "hoisted" to the top of the function.
 
-```js
-function test (o) {
-  var i = 0;                      //i is defined throughout function
-  if (typeof o == 'object') {
-    var j = 0;                    //j is defined everywhere, not just block
-    for (var k=0; k < 10; k++) {  //k is defined everywhere, not just loop
-      console.log(k);             //print numbers 0 through 9
-    }
-    console.log(k);               //k is still defined: prints 10
-  }
-  console.log(j);                 //j is defined, but may not be initialized
-}
-```
-
+> #### Example
+> ```js
+> function test (o) {
+>   var i = 0;                      //i is defined throughout function
+>   if (typeof o == 'object') {
+>     var j = 0;                    //j is defined everywhere, not just block
+>     for (var k=0; k < 10; k++) {  //k is defined everywhere, not just loop
+>       console.log(k);             //print numbers 0 through 9
+>     }
+>     console.log(k);               //k is still defined: prints 10
+>   }
+>   console.log(j);                 //j is defined, but may not be initialized
+> }
+> ```
+> 
 > #### Note
 > The variables `i`, `j`, and `k` are declared in different spots,  
 > but all have the same scope, all three are defined throughout the body of the function.
+> 
 
-```js
-var scope = 'global';
-
-function f () {
-  console.log(scope);  //prints "undefined", not "local" nor "global"
-  var scope = 'local'; //variable scope initialized here, but defined everywhere in f
-  console.log(scope);  //prints "local"
-}
-```
-
+> #### Example
+> ```js
+> var scope = 'global';
+> 
+> function f () {
+>   console.log(scope);  //prints "undefined", not "local" nor "global"
+>   var scope = 'local'; //variable scope initialized here, but defined everywhere in f
+>   console.log(scope);  //prints "local"
+> }
+> ```
+> 
 > #### Note
-> You might think that the first line of the function would print “global”,  
-> because the var statement declaring the local variable has not yet been executed.  
-> Because of the rules of function scope, however, this is not what happens.  
-> The local variable is defined throughout the body of the function,  
-> which means the global variable by the same name is hidden throughout the function.  
-> Although the local variable is defined throughout,  
-> it is not actually initialized until the var statement is executed.
-
-The function above is equivalent to the following,  
-in which the variable declaration is “hoisted” to the top  
-and the variable initialization is left where it is:
-
-```js
-function f () {
-  var scope;          // local variable is declared at the top of the function
-  console.log(scope); // local variable exists here, but still has "undefined" value
-  scope = 'local';    // local variable is initialized
-  console.log(scope); // local variable has the value we expect
-}
-```
-
+> The function above is equivalent to the following,  
+> in which the variable declaration is “hoisted” to the top  
+> and the variable initialization is left where it is:
+> 
+> ```js
+> function f () {
+>   var scope;          // local variable is declared at the top of the function
+>   console.log(scope); // local variable exists here, but still has "undefined" value
+>   scope = 'local';    // local variable is initialized
+>   console.log(scope); // local variable has the value we expect
+> }
+> ```
+> 
 > ### Tip
-> In programming languages with block scope,
-> it is generally good programming practice to declare variables
-> as close as possible to where they are used and with the narrowest possible scope.
-> Since JavaScript does not have block scope,
-> some programmers make a point of declaring all their variables at the top of the function,
-> rather than trying to declare them closer to the point at which they are used.
-> This technique makes their source code accurately reflect the true scope of the variables.
+> Declare all the variables defined within a function at the top of the function,  
+> rather than trying to declare them closer to the point at which they are used,  
+> to make the source code accurately reflect the true scope of the variables,  
+> and to avoid inaspectated results.

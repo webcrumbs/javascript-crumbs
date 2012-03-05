@@ -8,10 +8,10 @@ In this case, you say that this property is a *method*.
 
     !js
     var dog = {
-     name: 'Benji',
-     talk: function(){
-       alert('Woof, woof!');
-     }
+      name: 'Benji',
+      talk: function(){
+        alert('Woof, woof!');
+      }
     };
 
 - - -
@@ -19,12 +19,12 @@ In this case, you say that this property is a *method*.
 
     !js
     var hero = {
-     breed: 'Turtle',
-     occupation: 'Ninja',
-     say: function() {
-       return 'I am ' + hero.occupation;
-     }
-    }
+      breed: 'Turtle',
+      occupation: 'Ninja',
+      say: function() {
+        return 'I am ' + hero.occupation;
+      }
+    };
 
     hero.say();    // "I am Ninja"
     hero['say'](); // "I am Ninja"
@@ -37,10 +37,10 @@ by using the special value `this`.
 
     !js
     var hero = {
-     name: 'Rafaelo',
-     sayName: function() {
-       return this.name;
-     }
-    }
+      name: 'Rafaelo',
+      sayName: function () {
+        return this.name;
+      }
+    };
 
     hero.sayName();   // "Rafaelo"

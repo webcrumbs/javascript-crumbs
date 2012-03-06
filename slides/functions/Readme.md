@@ -119,8 +119,9 @@ you can refer to the unnamed values using the `arguments` object of the function
 >   }
 >   return result;
 > }
-> 
-> sum_all(1, 2, 3, 4, 5); //15
+> ```
+> ```js
+> sumAll(1, 2, 3, 4, 5); //15
 > ```
 
 - - - 
@@ -141,7 +142,8 @@ you can refer to the unnamed values using the `arguments` object of the function
 >   }
 >   return max;
 > }
-> 
+> ```
+> ```js
 > max(1, 10, 100, 42, Math.PI, 1.4142135); //100
 > ```
 
@@ -175,7 +177,8 @@ JavaScript function can be assigned to variables or object properties.
 
 > #### Example
 > ```js
-> var greets = function () { return 'Hello!'; };
+> function f () { return 'Hello!'; };
+> var greets = f;
 > var person = { say: greets };
 > ```
 
@@ -193,6 +196,8 @@ JavaScript functions can be copied to different variables.
 > ```js
 > var sum = function (a, b) { return a + b; }
 > var add = sum;
+> ```
+> ```js
 > var result = add(1, 2);
 > result; //3
 > ```
@@ -217,7 +222,8 @@ JavaScript functions can be passed to other function.
 > function calc (operator, x, y) {
 >   return operator(x, y);
 > }
-> 
+> ```
+> ```js
 > // Calculate ((2+3) + (4*5))
 > calc(add, calc(add, 2, 3), calc(mul, 4, 5));
 > ```
@@ -239,7 +245,11 @@ JavaScript functions can be passed to other function.
 >   }
 >   return factorial[n];
 > }
+> 
 > factorial[1] = 1; // Initialize the cache to hold this base case.
+> ```
+> ```js
+> factorial(5); //120
 > ```
 
 - - -
@@ -319,18 +329,18 @@ JavaScript functions can be defined inside another function.
 >   }
 >   return f2(a);
 > };
-> var result = f1(2); 
-> result; //4
+> ```
+> ```js
+> f1(2); //4
+> ```
+> ```js
+> f2(2); //ReferenceError: f2 is not defined
 > ```
 > 
 > #### Note
 > When you call the global function `f1`, it will internally call the local function `f2`.  
 > Since `f2` is local, it's not accessible outside `f1`, so we can say it's a private function.
 > 
-> ```js
-> f1(2);
-> f2(2); //ReferenceError: f2 is not defined
-> ```
 
 - - -
 
@@ -348,7 +358,9 @@ JavaScript functions can actually rewrite themselves from the inside.
 >   console.log('Hello!');
 >   greets = function () {
 >     console.log('Bye!');
+>     return greets;
 >   };
+>   return greets;
 > }
 > ```
 >
@@ -364,6 +376,3 @@ JavaScript functions can actually rewrite themselves from the inside.
 > //"Bye!"
 > //"Bye!"
 > ```
-
-
->>>>>>> 0f0cfa98220bae417c8647a44a917aa3388377fe

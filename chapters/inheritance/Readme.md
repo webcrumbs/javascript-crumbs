@@ -3,33 +3,38 @@
 # Prototype chaining example
 Prototype chaining is the default way to implement inheritance.
 
-```js
-function Shape(){
-  this.name = 'shape';
-  this.toString = function() { return this.name; };
-}
-
-function TwoDShape(){
-  this.name = '2D shape';
-}
-
-function Triangle(side, height) {
-  this.name = 'Triangle';
-  this.side = side;
-  this.height = height;
-    this.getArea = function() { return this.side * this.height / 2; };
-}
-
-/* Here is the inheritance magic code */
-TwoDShape.prototype = new Shape();
-TwoDShape.prototype.constructor = TwoDShape;
-
-Triangle.prototype = new TwoDShape();
-Triangle.prototype.constructor = Triangle;
-
-var tri = new Triangle(5, 10);
-tri.getArea(); // 25
-```
+> ### Example
+>
+>```js
+>function Shape(){
+>  this.name = 'shape';
+>  this.toString = function() { return this.name; };
+>}
+>
+>function TwoDShape(){
+>  this.name = '2D shape';
+>}
+>
+>function Triangle(side, height) {
+>  this.name = 'Triangle';
+>  this.side = side;
+>  this.height = height;
+>    this.getArea = function() { return this.side * this.height / 2; };
+>}
+>```
+>
+> here is the inheritance magic code:
+>
+>```js
+>TwoDShape.prototype = new Shape();
+>TwoDShape.prototype.constructor = TwoDShape;
+>
+>Triangle.prototype = new TwoDShape();
+>Triangle.prototype.constructor = Triangle;
+>
+>var tri = new Triangle(5, 10);
+>tri.getArea(); // 25
+>```
 
 
 Instead of augmenting the object in the `prototype` property of `TwoDShape` with individual properties,  
@@ -46,10 +51,12 @@ This is because inheritance works on one instance: the instance to inherit from.
 
 Although the `tri` object doesn't have its own `toString()` method, it inherited one and can call it.  
 
-```js
-tri.toString()   // "Triangle"
-```
-
+> #### Example
+>
+>```js
+>tri.toString()   // "Triangle"
+>```
+>
 > #### Note 
 > the inherited method `toString()` binds the `this` object to `tri`.  
 
@@ -61,33 +68,37 @@ Here is what the JavaScript engine does when you call `my.toString()`:
 4. the instance of `new Shape()` is examined and `toString()` is finally found;
 5. this method is invoked in the context of `tri`, meaning that `this` points to `tri`.
 
-```js
-tri.constructor; // Triangle(side, height)
-```
-
-```js
-tri instanceof Shape     // true
-tri instanceof TwoDShape // true
-tri instanceof Triangle  // true
-tri instanceof Array     // false
-```
-
-```js
-Shape.prototype.isPrototypeOf(tri)     // true
-TwoDShape.prototype.isPrototypeOf(tri) // true
-Triangle.prototype.isPrototypeOf(tri)  // true
-String.prototype.isPrototypeOf(tri)    // false
-```
+> #### Note
+>
+>```js
+>tri.constructor; // Triangle(side, height)
+>```
+>
+>```js
+>tri instanceof Shape     // true
+>tri instanceof TwoDShape // true
+>tri instanceof Triangle  // true
+>tri instanceof Array     // false
+>```
+>
+>```js
+>Shape.prototype.isPrototypeOf(tri)     // true
+>TwoDShape.prototype.isPrototypeOf(tri) // true
+>Triangle.prototype.isPrototypeOf(tri)  // true
+>String.prototype.isPrototypeOf(tri)    // false
+>```
 
 Of course, it's possible to create objects using the other two constructors.
 
-```js
-var td = new TwoDShape();
-td.constructor; // TwoDShape()
-td.toString()
-var s = new Shape();
-s.constructor; // Shape()
-```
+> #### Example
+>
+>```js
+>var td = new TwoDShape();
+>td.constructor; // TwoDShape()
+>td.toString()
+>var s = new Shape();
+>s.constructor; // Shape()
+>```
 
 ## Moving shared properties to the prototype
 When creating objects using a constructor function, own properties are added using `this`.  
@@ -120,8 +131,9 @@ function Shape() {}
 // augment prototype
 Shape.prototype.name = 'shape';
 Shape.prototype.toString = function() { return this.name; };
+```
 
-
+```js
 function TwoDShape() {}
 
 // take care of inheritance first before augmenting the prototype,
@@ -224,7 +236,7 @@ var s = new Shape();
 s.name // "Triangle"
 ```
 
-## A temporary constructor new F()
+## A temporary constructor `new F()`
 A solution to the problem outlined above, is to use an intermediary to break the chain.  
 The intermediary is in the form of a temporary constructor function.  
 Creating an empty function `F()` and setting its prototype to the prototype of the parent constructor, allows to call `new F()` and create objects that have no properties of their own, but inherit everything from the parent's prototype.  
@@ -284,57 +296,8 @@ At the same time, this approach supports the idea that:
 
 The rationale behind this is are that own properties are likely to be too specific to be reusable.
 
-## Uber - access to the parent from a child object
-In JavaScript, there is no special syntax that gives you access to the parent class.  
-But it's easy to achieve the same functionality.
-
-```js
-function Shape() {}
-
-// augment prototype
-Shape.prototype.name = 'shape';
-Shape.prototype.toString = function() {
-  var result = [];
-  if (this.constructor.uber) {
-      result[result.length] = this.constructor.uber.toString();
-  }
-  result[result.length] = this.name;
-  return result.join(', ');
-};
-
-
-function TwoDShape() {}
-
-// take care of inheritance
-var F = function() {};
-F.prototype = Shape.prototype;
-TwoDShape.prototype = new F();
-TwoDShape.prototype.constructor = TwoDShape;
-TwoDShape.uber = Shape.prototype;
-
-// augment prototype
-TwoDShape.prototype.name = '2D shape';
-
-
-function Triangle(side, height) {
-  this.side = side;
-  this.height = height;
-}
-
-// take care of inheritance
-var F = function(){};
-F.prototype = TwoDShape.prototype;
-Triangle.prototype = new F();
-Triangle.prototype.constructor = Triangle;
-Triangle.uber = TwoDShape.prototype; // the uber property is set to point to the parent's prototype
-
-// augment prototype
-Triangle.prototype.name = 'Triangle';
-Triangle.prototype.getArea = function() { return this.side * this.height / 2; }
-```
-
-## Isolating the inheritance iart into a function
-Let's move the code that takes care of all of the inheritance details into a reusable extend() function:
+## Isolating the inheritance part into a function
+Let's move the code that takes care of all of the inheritance details into a reusable `inherits()` function:
 
 ```js
 function extend(Child, Parent) {
@@ -342,16 +305,14 @@ function extend(Child, Parent) {
   F.prototype = Parent.prototype;
   Child.prototype = new F();
   Child.prototype.constructor = Child;
-  Child.uber = Parent.prototype;
 }
 ```
 
 Using this function (or your own custom version of it) will help you keep your code clean with regard to the repetitive inheritance-related tasks.  
 This way you can inherit by simply using:
 
-```js
-extend(TwoDShape, Shape);
-```
-
-## A final example
-...
+> #### Example
+>
+>```js
+>inherits(TwoDShape, Shape);
+>```

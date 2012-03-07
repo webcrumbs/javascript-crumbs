@@ -362,7 +362,7 @@ If an object was created using the object literal notation, its constructor is t
 >```
 
 ## instanceof operator
-Using the instanceof operator, you can test if an object was created with a specific constructor function.
+Using the instanceof operator, it's possible to test if an object was created with a specific constructor function.
 
 > #### Example￼
 >
@@ -376,8 +376,8 @@ Using the instanceof operator, you can test if an object was created with a spec
 >```
 
 ## Passing objects
-When you copy an object or pass it to a function, you only pass a reference to that object.  
-Consequently, if you make a change to the reference, you are actually modifying the original object.
+When copying an object or passing it to a function, actually only pass a reference to that object.  
+Consequently, making a change to the reference, actually modifying the original object.
 
 > #### Example
 >
@@ -401,7 +401,7 @@ The same thing applies when passing objects to functions:
 > ```
 
 ## Comparing objects
-When you compare objects, you'll get `true` only if you compare two references to the same object.  
+When comparing objects, only get `true` if two references to the same object are compared.  
 Comparing two distinct objects that happen to have the exact same methods and properties will return `false`.
 
 > #### Example

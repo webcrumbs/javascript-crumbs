@@ -285,8 +285,8 @@ It returns an array containing the deleted elements.
 >var colors = ['red', 'green', 'blue'];
 >
 >removed = colors.splice(1, 1, 'red', 'purple');   // insert two values, remove one
->colors;    // green,red,purple,orange,blue
->removed;   // yellow - one item array
+>colors;    // red,red,purple,blue
+>removed;   //green - one item array
 >```
 
 ### Location methods: indexOf, lastIndexOf

@@ -211,7 +211,7 @@ It returns a string by making a string of each of the array’s elements, and th
 > #### Example
 >```js
 >var a = ['a', 'b', 'c'];
->var c = a.join(''); // 'abcd';
+>var c = a.join(''); // 'abc';
 >```
 
 > #### Tip

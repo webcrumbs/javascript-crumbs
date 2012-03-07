@@ -72,7 +72,7 @@ All the methods and properties added to the prototype are directly available as 
 
 ### The prototype is "live".  
 Objects are passed by reference in JavaScript, and therefore the prototype is not copied with every new object instance.  
-Modifications of the prototype at any time implies that all objects (even those created before the modification) will inherit the changes.  
+Prototype modifications, no matter when performed, imply that all objects (even those created before the modification) will inherit the changes.  
 
 > #### Example
 >
@@ -120,7 +120,7 @@ Every object, in fact, has a `constructor` property, which is a reference to the
 Every object has a `constructor`.  
 The prototype of a constructor function is an object.  
 So it must have a `constructor` too. Which in turn has a prototype.  
-The built-in `Object` object is the highest-level parent, the and of the so called the **prototype chain**.  
+The built-in `Object` object is the highest-level parent, the end of the so called the **prototype chain**.  
 
 > #### Example
 >

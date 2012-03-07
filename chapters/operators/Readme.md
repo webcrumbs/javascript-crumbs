@@ -99,7 +99,7 @@ decremented the input value by 1 before the statement is evaluated.
 > #### Example
 > ```js
 > var a = 123;
-> var b = ++a;
+> var b = --a;
 > b; //124
 > a; //124
 > ```

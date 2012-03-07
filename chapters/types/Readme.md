@@ -203,11 +203,11 @@ To determine if a value is finite there is the `isFinite()` function.
 
 > #### Example
 > ```js
-> isFinite(Infinite); //false
-> isFinite(-Infinite); //false
+> isFinite(Infinity); //false
+> isFinite(-Infinity); //false
 > isFinite(Number.MAX_VALUE + Number.MAX_VALUE); //false
-> isFinite(Number.POSITIVE_INFINITE); //false
-> isFinite(Number.NEGATIVE_INFINITE); //false
+> isFinite(Number.POSITIVE_INFINITY); //false
+> isFinite(Number.NEGATIVE_INFINITY); //false
 > isFinite(0); //true
 > isFinite(1.7e308); //true
 > isFinite(1.8e308); //false

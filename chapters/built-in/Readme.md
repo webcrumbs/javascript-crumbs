@@ -211,7 +211,7 @@ It returns a string by making a string of each of the array’s elements, and th
 > #### Example
 >```js
 >var a = ['a', 'b', 'c'];
->var c = a.join(''); // 'abcd';
+>var c = a.join(''); // 'abc';
 >```
 
 > #### Tip
@@ -285,8 +285,8 @@ It returns an array containing the deleted elements.
 >var colors = ['red', 'green', 'blue'];
 >
 >removed = colors.splice(1, 1, 'red', 'purple');   // insert two values, remove one
->colors;    // green,red,purple,orange,blue
->removed;   // yellow - one item array
+>colors;    // red,red,purple,blue
+>removed;   //green - one item array
 >```
 
 ### Location methods: indexOf, lastIndexOf

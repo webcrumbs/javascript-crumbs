@@ -311,8 +311,6 @@ function extend(Child, Parent) {
 Using this function (or your own custom version of it) will help you keep your code clean with regard to the repetitive inheritance-related tasks.  
 This way you can inherit by simply using:
 
-> #### Example
->
->```js
->inherits(TwoDShape, Shape);
->```
+```js
+inherits(TwoDShape, Shape);
+```

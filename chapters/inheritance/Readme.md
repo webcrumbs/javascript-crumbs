@@ -281,10 +281,13 @@ Triangle.prototype.getArea = function() { return this.side * this.height / 2; };
 var my = new Triangle(5, 10);
 my.getArea();  // 25
 my.toString(); // "Triangle"
+```
 
-/* Using this approach, we keep the prototype chain in place
- * and the parents' properties are not overwritten by the children */
+Using this approach, we keep the prototype chain in place  
+and the parents' properties are not overwritten by the children.  
+In fact:
 
+```js
 var s = new Shape();
 s.name; // "shape"
 ```
@@ -300,7 +303,7 @@ The rationale behind this is are that own properties are likely to be too specif
 Let's move the code that takes care of all of the inheritance details into a reusable `inherits()` function:
 
 ```js
-function extend(Child, Parent) {
+function inherits(Child, Parent) {
   var F = function() {};
   F.prototype = Parent.prototype;
   Child.prototype = new F();
@@ -312,5 +315,43 @@ Using this function (or your own custom version of it) will help you keep your c
 This way you can inherit by simply using:
 
 ```js
-inherits(TwoDShape, Shape);
+inherits(Child, Parent);
 ```
+
+So in our shapes examples, inheritance works as follow:
+
+> #### Example
+>
+>```js
+>function Shape() {}
+>
+>// augment prototype
+>Shape.prototype.name = 'shape';
+>Shape.prototype.toString = function() {return this.name;};
+>
+>
+>function TwoDShape() {}
+>
+>// take care of inheritance
+>inherits(TwoDShape, Shape);
+>
+>// augment prototype
+>TwoDShape.prototype.name = '2D shape';
+>
+>
+>function Triangle(side, height) {
+>  this.side = side;
+>  this.height = height;
+>}
+>
+>// take care of inheritance
+>inherits(Triangle, TwoDShape);
+>
+>// augment prototype
+>Triangle.prototype.name = 'Triangle';
+>Triangle.prototype.getArea = function() { return this.side * this.height / 2; };
+>
+>var my = new Triangle(5, 10);
+>my.getArea();  // 25
+>my.toString(); // "Triangle"
+>```

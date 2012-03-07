@@ -2,7 +2,9 @@
 
 - - -
 
-### Definition
+# Functions
+
+## Definition
 
 ```js
 function name (comma_separated_params) {
@@ -12,7 +14,9 @@ function name (comma_separated_params) {
 
 - - -
 
-### Definition
+# Functions
+
+## Definition
 
 ```js
 function sum (a, b) {
@@ -23,7 +27,9 @@ function sum (a, b) {
 
 - - -
 
-### Definition
+# Functions
+
+## Definition
 
 ```js
 function greets (name) {
@@ -40,7 +46,9 @@ var square = function (x) {
 
 - - -
 
-### Invoking functions
+# Functions
+
+## Invocation
 
 ```js
 var result = square(3);
@@ -49,14 +57,16 @@ result; // ?
 
 - - -
 
-## Function arguments and parameters
+# Functions
 
-- - -
+## Invocation
 
-### Optional parameters
+### Arguments and parameters
 
-When a function is invoked with fewer arguments than declared parameters,  
-the additional parameters are set to `undefined`.
+#### Optional parameters
+
+If arguments are fewer than declared parameters  
+the additional parameters are set to `undefined`
 
 ```js
 function sum (a, b) { return a + b; }
@@ -67,10 +77,16 @@ sum('Hello '); // "Hello undefined"
 
 - - -
 
-### Arguments list
+# Functions
 
-When a function is invoked with more argument values than declared parameters,  
-you can refer to the unnamed values using the `arguments` object of the function.
+## Invocation
+
+### Arguments and parameters
+
+#### Arguments list
+
+If arguments are more than declared parameters  
+you can access them by the `arguments` object
 
 ```js
 function args () {
@@ -81,6 +97,10 @@ args(1, 'hello', Math.PI); //[1, "hello", 3.141592653589793]
 ```
 
 - - -
+
+# Functions
+
+## Invocation
 
 ### Arguments list
 
@@ -99,6 +119,10 @@ sumAll(1, 2, 3, 4, 5); //15
 
 - - - 
 
+# Functions
+
+## Invocation
+
 ### Arguments list
 
 ```js
@@ -116,9 +140,9 @@ max(1, 10, 100, 42, Math.PI, 1.4142135); //100
 
 - - - 
 
-## Function as values
+# Functions
 
-- - -
+## Function as values
 
 ### Functions are objects
 
@@ -127,7 +151,7 @@ JavaScript functions are a special kind of object with two important features:
 * they contain code  
 * they are executable (can be invoked)  
 
-Because they are objects:
+and because they are objects:
 
 * they can be assigned to variables or object properties
 * they can be passed to functions  
@@ -135,6 +159,10 @@ Because they are objects:
 * they can be returned by functions
 
 - - - 
+
+# Functions
+
+## Function as values
 
 ### Assign function to variables
 
@@ -147,6 +175,10 @@ var person = { say: greets };
 ```
 
 - - -
+
+# Functions
+
+## Function as values
 
 ### Copy function to variables
 
@@ -162,6 +194,10 @@ result; //3
 ```
 
 - - -
+
+# Functions
+
+## Function as values
 
 ### Pass function to functions
 
@@ -184,6 +220,10 @@ calc(add, calc(add, 2, 3), calc(mul, 4, 5));
 
 - - -
 
+# Functions
+
+## Function as values
+
 ### Assign properties to functions
 
 ```js
@@ -202,6 +242,10 @@ factorial(5); //120
 ```
 
 - - -
+
+# Functions
+
+## Function as values
 
 ### Return function
 
@@ -223,6 +267,25 @@ f(); //"Bye!"
 //...
 ```
 
+- - -
+
+# Functions
+
+## Function as values
+
+### Return function
+
+JavaScript functions can be returned by functions.
+
+```js
+function greets () {
+  console.log('Hello!');
+  return function () {
+    console.log('Bye!');
+  };
+}
+```
+
 ```js 
 greets()();
 //"Hello!"
@@ -238,11 +301,9 @@ greets()()();
 
 - - -
 
+# Functions
+
 ## Self-invoking functions
-
-- - -
-
-### Self-invoking functions
 
 JavaScript functions can be called right after they were defined.
 
@@ -257,9 +318,9 @@ message; //"Hello dude!"
 
 - - -
 
-## Inner (private) functions
+# Function
 
-- - -
+## Inner (private) functions
 
 ### Define functions inside functions
 
@@ -281,14 +342,13 @@ f2(2); //ReferenceError: f2 is not defined
 ```
 
 #### Note
-When you call the global function `f1`, it will internally call the local function `f2`.  
-Since `f2` is local, it's not accessible outside `f1`, so we can say it's a private function.
+`f2` is defined inside `f1` and it is not visible outside `f1`;
+`f1` internally call the local function `f2`.
 
 - - -
 
-### Rewrite functions from inside
-
-JavaScript functions can actually rewrite themselves from the inside.
+# Function
+## Inner (private) functions
 
 ```js
 function greets () {
@@ -316,11 +376,9 @@ greets()()();
 
 - - -
 
+# Function
+
 ## Function Scope
-
-- - - 
-
-### Function Scope
 
 JavaScript uses **function scope**:  
 variables are visible within the function in which they are defined  
@@ -330,6 +388,8 @@ A variable defined in a function is not visible outside the function,
 but a variable defined in a code block is visible outside the block.
 
 - - - 
+
+# Function
 
 ### Function Scope
 
@@ -351,6 +411,10 @@ b; //b is not defined
 
 - - - 
 
+# Function
+
+## Function Scope
+
 ### Local and Global Scope
 
 A variable declared within a function has a **local scope**,  
@@ -363,6 +427,10 @@ A local variable, a variable declared within a function,
 takes precedence over a global variable with the same name.
 
 - - -
+
+# Function
+
+## Function Scope
 
 ### Local and Global Scope
 
@@ -379,6 +447,10 @@ scope;        //"global"
 ```
 
 - - - 
+
+# Function
+
+## Function Scope
 
 ### Local and Global Scope
 
@@ -399,6 +471,10 @@ scope;        //"local"
 
 - - - 
 
+# Function
+
+## Function Scope
+
 ### Local variables
 
 Function parameters count as local variables  
@@ -416,9 +492,9 @@ checkParamScope(1); //2
 
 - - - 
 
-## Scope Chain
+# Function
 
-- - - 
+## Function Scope
 
 ### Scope Chain
 
@@ -442,6 +518,10 @@ function f (){
 
 - - -
 
+# Function
+
+## Function Scope
+
 ### Scope Chain
 
 ```js
@@ -464,6 +544,10 @@ scope;        //"global"
 ```
 
 - - - 
+
+# Function
+
+## Function Scope
 
 ### Variable hoisting
 
@@ -495,6 +579,10 @@ but all have the same scope, all three are defined throughout the body of the fu
 
 - - -
 
+# Function
+
+## Function Scope
+
 ### Variable hoisting
 
 ```js
@@ -520,6 +608,10 @@ function f () {
 
 - - -
 
+# Function
+
+## Function Scope
+
 ### Variable hoisting
 
 #### Tip
@@ -527,35 +619,41 @@ Declare all the variables defined within a function at the top of the function.
 
 - - - 
 
+# Function
+
 ## Closures
 
-- - -
-
-### Closure
+### Example \#0
 
 ```js
 function f () {
   var b = 'b';
 }
 ```
+
 ```js
 b; //b is not defined
 ```
 
 - - -
 
-### Closure
+# Function
 
-#### Example \#1
+## Closure
+
+### Example \#1
+
 ```js
 function f () {
   var b = 'b';
   return b;
 }
 ```
+
 ```js
 b; //b is not defined
 ```
+
 ```js
 b = f();
 b; //"b"
@@ -563,9 +661,12 @@ b; //"b"
 
 - - -
 
-### Closure
+# Function
 
-#### Example \#2
+## Closure
+
+### Example \#2
+
 ```js
 function f () {
   var b = 'b';
@@ -574,6 +675,7 @@ function f () {
   };
 }
 ```
+
 ```js
 getB = f();
 b = getB();
@@ -582,9 +684,12 @@ b; //"b"
 
 - - -
 
-### Closure
+# Function
 
-#### Example \#3
+## Closure
+
+### Example \#3
+
 ```js
 var getB;
 function f () {
@@ -594,6 +699,7 @@ function f () {
   };
 }
 ```
+
 ```js
 b = getB();
 b; //"b"
@@ -601,9 +707,12 @@ b; //"b"
 
 - - -
 
-### Closure
+# Function
 
-#### Example \#4
+## Closure
+
+### Example \#4
+
 ```js
 function f (arg) {
   return function () {
@@ -611,6 +720,7 @@ function f (arg) {
   };
 }
 ```
+
 ```js
 var getArg = f('Hello');
 getArg(); //"Hello"
@@ -618,9 +728,12 @@ getArg(); //"Hello"
 
 - - -
 
-### Closure
+# Function
 
-#### Example \#5
+## Closure
+
+### Example \#5
+
 ```js
 function countdown (from) {
   return function () {
@@ -631,6 +744,7 @@ function countdown (from) {
   };
 }
 ```
+
 ```js
 var c = countdown(3);
 c(); //3
@@ -642,17 +756,22 @@ c(); //"Finish!"
 
 - - -
 
-### Closure
+# Function
 
-#### Example \#6
+## Closure
+
+### Example \#6
+
 Let's loop three times, each time creating a new function that returns the loop sequence number.  
 The new functions will be added to an array and we'll return the array at the end. 
 
 - - -
 
-### Closure
+# Function
 
-#### Example \#6
+## Closure
+
+### Example \#6
 
 ```js
 function f () {
@@ -668,9 +787,11 @@ function f () {
   return a; 
 }
 ```
+
 ```js
 var a = f();
 ```
+
 ```js
 a[0](); //3
 a[1](); //3
@@ -679,9 +800,11 @@ a[2](); //3
 
 - - -
 
-### Closure
+# Function
 
-#### Example \#6 (that works!)
+## Closure
+
+### Example \#6 (that works!)
 
 ```js
 function f () {
@@ -704,9 +827,11 @@ function f () {
 
 - - - 
 
-### Closure
+# Function
 
-#### Example \#7
+## Closure
+
+### Example \#7
 
 ```js
 var getValue, setValue;
@@ -720,9 +845,11 @@ var getValue, setValue;
   }; 
 })();
 ```
+
 ```js
 getValue();    //0
 ```
+
 ```js
 setValue(123);
 getValue();    //123

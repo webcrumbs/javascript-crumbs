@@ -237,7 +237,7 @@ by using the special value `this`.
 > when you say `this`, you are actually saying "this object" or "the current object".
 
 ## Constructor functions
-There is another way to create objects: by using **constructor functions***.  
+There is another way to create objects: by using **constructor functions**.  
 In order to create an object using this kind of function, use the `new` operator.
 
 > #### Exmaple
@@ -313,6 +313,7 @@ Declaring a constructor function and calling it without `new`, returns `"undefin
 >var h = Hero('Leonardo');
 >typeof h   // "undefined"
 >typeof h.name   // TypeError: Cannot read property 'name' of undefined
+>```
 >
 > `this` is binded to global object
 > 
@@ -336,18 +337,18 @@ It contains a reference to the constructor function used to create this object.
 > #### Exmaple
 >```js
 >function Hero(name) { this.name = name; }
->var h = Hero('Leonardo');
+>var h = new Hero('Leonardo');
 >
->h2.constructor // Hero(name)
+>h.constructor // Hero(name)
 >```
 >
 > following code means:
-> "I don't care how object h2 was created,
+> "I don't care how object `h` was created,
 > but I want another one just like it"
 >
 > ```js
-> var h2 = new h2.constructor('Rafaello');
-> h3.name; // "Rafaello"
+> var h2 = new h.constructor('Rafaello');
+> h2.name; // "Rafaello"
 > ```
 
 If an object was created using the object literal notation, its constructor is the built-in `Object()` constructor function.
@@ -364,6 +365,7 @@ If an object was created using the object literal notation, its constructor is t
 Using the instanceof operator, you can test if an object was created with a specific constructor function.
 
 > #### Example￼
+>
 >```js￼
 >function Hero() {}
 >var h = new Hero();
@@ -378,6 +380,7 @@ When you copy an object or pass it to a function, you only pass a reference to t
 Consequently, if you make a change to the reference, you are actually modifying the original object.
 
 > #### Example
+>
 >```js
 >var original = { howmany: 1 };
 >var copy = original;
@@ -389,6 +392,7 @@ Consequently, if you make a change to the reference, you are actually modifying 
 The same thing applies when passing objects to functions:
 
 > #### Example
+>
 > ```js
 > var original = { howmany: 100 };
 > var nullify = function(o) { o.howmany = 0; }
@@ -401,6 +405,7 @@ When you compare objects, you'll get `true` only if you compare two references t
 Comparing two distinct objects that happen to have the exact same methods and properties will return `false`.
 
 > #### Example
+>
 > ```js
 > var fido  = {breed: 'dog'};
 > var benji = {breed: 'dog'};

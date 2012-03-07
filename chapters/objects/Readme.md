@@ -237,7 +237,7 @@ by using the special value `this`.
 > when you say `this`, you are actually saying "this object" or "the current object".
 
 ## Constructor functions
-There is another way to create objects: by using **constructor functions***.  
+There is another way to create objects: by using **constructor functions**.  
 In order to create an object using this kind of function, use the `new` operator.
 
 > #### Exmaple
@@ -313,6 +313,7 @@ Declaring a constructor function and calling it without `new`, returns `"undefin
 >var h = Hero('Leonardo');
 >typeof h   // "undefined"
 >typeof h.name   // TypeError: Cannot read property 'name' of undefined
+>```
 >
 > `this` is binded to global object
 > 

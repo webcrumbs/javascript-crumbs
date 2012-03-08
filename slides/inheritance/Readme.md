@@ -1,9 +1,7 @@
 # Inheritance
 
 - - -
-## Inheritance through prototype chain
 
-- - -
 # Inheritance
 
 ## Inheritance through prototype chain
@@ -528,3 +526,4 @@ var shape = Shape();
 shape.name; //"Shape"
 ```
 
+>>>>>>> 914e37087541f2c8775ae31b4c0828e1084a72d6

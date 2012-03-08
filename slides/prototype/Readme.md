@@ -100,11 +100,11 @@ d.getCircumference(); //31.41592653589793
 
 When you access a property `p` of an object `o` JavaScript:
 
-1. looks for 'p' in the properties of 'o'
-2. if it finds 'p', returns its value
-3. else it looks in the prototype of 'o'
-4. if it finds 'p', it returns its value
-5. else it look in the prototype of the prototype of 'o'
+1. looks for `p` in the properties of `o`
+2. if it finds `p`, returns its value
+3. else it looks in the prototype of `o`
+4. if it finds `p`, it returns its value
+5. else it look in the prototype of the prototype of `o`
 6. ...
 
 - - -

@@ -46,15 +46,6 @@ function Circle (r) {
 }
 ```
 
-- - -
-# Prototype
-
-## Function's `prototype` property
-
-### What am I doing with that?
-
-Methods and properties can be even added to the `prototype` property of the constructor function.
-
 ```js
 Circle.prototype.name = 'circle';
 Circle.prototype.getArea = function () {

@@ -10,26 +10,17 @@
 
 ### What is it?
 
-`prototype` is a property of every `Function` object.   
-Its initial value is an empty object.  
+Every function has a property called `prototype`
+
+`prototype` is an object shared by every object instantiated by the function
+
+`protottype` is initially an empty object
 
 ```js
 function foo(a, b) { return a * b; }
 typeof foo.prototype // "object"
 ```
 
-- - -
-# Prototype
-
-## Function's `prototype` property
-
-### What is it?
-
-Every instance created by such constructor function  
-share a secret link to the function's ptototype.
-
-
-- - -
 # Prototype
 
 ## Function's `prototype` property
@@ -37,7 +28,9 @@ share a secret link to the function's ptototype.
 ### What am I doing with that?
 
 This empty object can be augmented with properties and methods.  
+
 They won't have any effect of the `foo()` function itself.  
+
 They'll only be used when you use `foo()` as a _constructor_.  
 
 ```js

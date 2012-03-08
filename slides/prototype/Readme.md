@@ -8,7 +8,6 @@
 
 ## Function's `prototype` property
 
-### What is it?
 
 Every function has a property called `prototype`
 
@@ -25,13 +24,9 @@ typeof foo.prototype // "object"
 
 ## Function's `prototype` property
 
-### What am I doing with that?
+### Augmenting `prototype`
 
-This empty object can be augmented with properties and methods.  
-
-They won't have any effect of the `foo()` function itself.  
-
-They'll only be used when you use `foo()` as a _constructor_.  
+`prototype` object can be augmented with properties and methods  
 
 ```js
 function Circle (r) {
@@ -51,9 +46,10 @@ Circle.prototype.getArea = function () {
 
 ## Function's `prototype` property
 
-### Using prototype's stuff
+### 
 
-All the methods and properties added to the prototype are directly available as soon as a new object is created using the constructor.
+Methods and properties added to the `prototype` of the function `f`  
+are available to every object created by function `f`  
 
 ```js
 var c = new Circle(4);
@@ -62,14 +58,22 @@ c.name;       // "circle"
 c.getArea();  //50.26548245743669
 ```
 
+```js
+var d = new Circle(2);
+d.r;          //2
+d.name;       //"circle"
+d.getArea();  //12.566370614359172
+```
+
 - - -
 # Prototype
 
 ## Function's `prototype` property
 
-### The prototype is "live".  
+### The prototype is "live"  
 
-Objects are passed by reference: the prototype is not copied with every new object instance.  
+Objects are passed by reference:  
+the prototype is not copied with every new object instance  
 
 ```js
 Circle.prototype.getCircumference = function () {

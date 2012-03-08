@@ -100,7 +100,7 @@ var greets = function (breed, birth) {
 greets.apply(null, ['Mouse', 1928]);
 //"Hi I'm undefined Mouse, I was born in 1928."
 
-var name = 'Goofy';
+var firstName = 'Goofy';
 greets.apply(null, ['Goof', 1932]);
 //"Hi I'm Goofy Goof, I was born in 1932."
 ```

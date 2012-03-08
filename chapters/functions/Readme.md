@@ -253,7 +253,7 @@ JavaScript functions can be returned by functions.
 > greets()()();
 > //"Hello!"
 > //"Bye!"
-> // TypeError: object is not a function
+> // TypeError: undefined is not a function
 > ```
 
 ## Self-invoking functions

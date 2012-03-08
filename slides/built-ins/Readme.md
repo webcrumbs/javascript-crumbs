@@ -106,8 +106,6 @@ greets.apply(null, ['Goof', 1932]);
 ```
 
 - - -
-
-### `apply(thisArg, arrayArg)`
 ## Array
 
 - - -

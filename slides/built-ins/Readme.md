@@ -512,9 +512,9 @@ var expression = /pattern/flags;
 
 Flags can be:
 
-g — global mode, meaning the pattern will be applied to all of the string instead of stopping after the first match is found
-i — case-insensitive mode, meaning the case of the pattern and the string are ignored when determining matches
-m — multiline mode, meaning the pattern will continue looking for matches after reaching the end of one line of text
+* g — global mode, meaning the pattern will be applied to all of the string instead of stopping after the first match is found
+* i — case-insensitive mode, meaning the case of the pattern and the string are ignored when determining matches
+* m — multiline mode, meaning the pattern will continue looking for matches after reaching the end of one line of text
 
 - - -
 # Built-ins

@@ -371,7 +371,7 @@ Using the instanceof operator, it's possible to test if an object was created wi
 >var h = new Hero();
 >var o = {};
 >h instanceof Hero;   // true
->h instanceof Object; // false
+>h instanceof Object; // true
 >o instanceof Object; // true
 >```
 

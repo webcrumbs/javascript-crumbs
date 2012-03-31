@@ -386,7 +386,7 @@ depending on the sign of the second operand
 and then the other rules are applied
 
 ```js
-25 * 2;              //12.5
+25 / 2;              //12.5
 NaN / 3;             //NaN
 0 / 0;               //NaN
 1 / 0;               //Infinity

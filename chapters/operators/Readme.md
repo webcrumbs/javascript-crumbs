@@ -100,8 +100,8 @@ decremented the input value by 1 before the statement is evaluated.
 > ```js
 > var a = 123;
 > var b = --a;
-> b; //124
-> a; //124
+> b; //122
+> a; //122
 > ```
 
 #### post-decrement 

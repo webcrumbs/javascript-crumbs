@@ -3,7 +3,7 @@
 - - -
 # Objects
 
-## Using this value
+## Using `this` value
 
 Inside a method, there is a special way to access the object this method belongs to:  
 by using the special value `this`.  
@@ -137,7 +137,7 @@ If your host environment is the web browser, the global object is called `window
 >window.name   // "Leonardo"
 >```
 >
-> using new operator instead
+> using `new` operator instead
 >
 >```js
 >var h2 = new Hero('Michelangelo');
@@ -148,7 +148,7 @@ If your host environment is the web browser, the global object is called `window
 - - -
 #Objects
 
-## constructor property
+## `constructor` property
 
 When an object is created, this special property is assigned to it behind the scenes.  
 It contains a reference to the constructor function used to create this object.  
@@ -173,7 +173,7 @@ It contains a reference to the constructor function used to create this object.
 - - -
 #Objects
 
-## constructor property
+## `constructor` property
 
 If an object was created using the object literal notation,  
 its constructor is the built-in `Object()` constructor function.
@@ -189,7 +189,7 @@ its constructor is the built-in `Object()` constructor function.
 - - -
 # Objects
 
-## instanceof operator
+## `instanceof` operator
 Using the instanceof operator, you can test if an object was created with a specific constructor function.
 
 > #### Example￼
@@ -198,9 +198,10 @@ Using the instanceof operator, you can test if an object was created with a spec
 >function Hero() {}
 >var h = new Hero();
 >var o = {};
->h instanceof Hero;   // true
->h instanceof Object; // false
->o instanceof Object; // true
+>h instanceof Hero;   //true
+>h instanceof Object; //true
+>o instanceof Object; //true
+>o instanceof Hero;   //false
 >```
 
 - - -

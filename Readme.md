@@ -2,36 +2,37 @@
 
 ## for beginners
 
-### [Recipe](https://github.com/cvd-lab/javascript-crumbs/blob/master/chapters/Readme.md)
+### [Recipe](https://github.com/cvdlab/javascript-crumbs/blob/master/chapters/Readme.md)
 
-1. [introduction](https://github.com/cvd-lab/javascript-crumbs/blob/master/chapters/introduction/Readme.md)
-2. [syntax](https://github.com/cvd-lab/javascript-crumbs/blob/master/chapters/syntax/Readme.md)
-3. [types](https://github.com/cvd-lab/javascript-crumbs/blob/master/chapters/types/Readme.md)
-4. [operators](https://github.com/cvd-lab/javascript-crumbs/blob/master/chapters/operators/Readme.md)
-5. [statements](https://github.com/cvd-lab/javascript-crumbs/blob/master/chapters/statements/Readme.md)
-6. [functions](https://github.com/cvd-lab/javascript-crumbs/blob/master/chapters/functions/Readme.md)
-7. [objects](https://github.com/cvd-lab/javascript-crumbs/blob/master/chapters/objects/Readme.md)
-8. [built-in objects](https://github.com/cvd-lab/javascript-crumbs/blob/master/chapters/built-in/Readme.md)
-9. [prototype](https://github.com/cvd-lab/javascript-crumbs/blob/master/chapters/prototype/Readme.md)
-10. [inheritance](https://github.com/cvd-lab/javascript-crumbs/blob/master/chapters/inheritance/Readme.md)
+1. [introduction](https://github.com/cvdlab/javascript-crumbs/blob/master/chapters/introduction/Readme.md)
+2. [syntax](https://github.com/cvdlab/javascript-crumbs/blob/master/chapters/syntax/Readme.md)
+3. [types](https://github.com/cvdlab/javascript-crumbs/blob/master/chapters/types/Readme.md)
+4. [operators](https://github.com/cvdlab/javascript-crumbs/blob/master/chapters/operators/Readme.md)
+5. [statements](https://github.com/cvdlab/javascript-crumbs/blob/master/chapters/statements/Readme.md)
+6. [functions](https://github.com/cvdlab/javascript-crumbs/blob/master/chapters/functions/Readme.md)
+7. [objects](https://github.com/cvdlab/javascript-crumbs/blob/master/chapters/objects/Readme.md)
+8. [built-in objects](https://github.com/cvdlab/javascript-crumbs/blob/master/chapters/built-in/Readme.md)
+9. [prototype](https://github.com/cvdlab/javascript-crumbs/blob/master/chapters/prototype/Readme.md)
+10. [inheritance](https://github.com/cvdlab/javascript-crumbs/blob/master/chapters/inheritance/Readme.md)
 
 ### Bakers
 
-- Enrico Marino / [@onirame](https://twitter.com/#!/onirame)
-- Federico Spini / [@federicospini](https://twitter.com/#!/federicospini)
+- [Enrico Marino](http://onirame.no.de)
+- [Federico Spini](http://spini.no.de)
 
 ### Flour
 
+- JavaScript: The Good Parts - O'Really - Douglas Crockford 
+- Object-Oriented JavaScript - Packt publishing - Stoyan Stefanov
 - JavaScript the definitive guide - 6th edition - O'Really - David Flanagan
 - Professional JavaScript for Web Developers - 3rd edition - Wrox - Nicholas C. Zakas
-- Object-Oriented JavaScript - Packt publishing - Stoyan Stefanov
 - Mozilla Developer Network - Docs - [JavaScript](https://developer.mozilla.org/en/JavaScript)
 
 ## License
 
 (The MIT License)
 
-Copyright (c) 2012 Enrico Marino and Federico Spini for CVDLab (https://github.com/cvd-lab)
+Copyright (c) 2012 Enrico Marino and Federico Spini for CVD Lab ([http://dia.uniroma3.it/~cvdlab](http://dia.uniroma3.it/~cvdlab))
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

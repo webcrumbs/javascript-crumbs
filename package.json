@@ -1,12 +1,12 @@
 {
-  "author": "cvd-lab <cvd-lab@email.com> (https://github.com/cvd-lab/)",
+  "author": "cvdlab <cvdlab@email.com> (https://github.com/cvdlab/)",
   "name": "javascript-crumbs",
   "description": "JavaScript crumbs for beginners",
   "version": "0.0.1",
-  "homepage": "https://github.com/cvd-lab/javascript-crumbs.js",
+  "homepage": "https://github.com/cvdlab/javascript-crumbs.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/cvd-lab/javascript-crumbs.git"
+    "url": "git://github.com/cvdlab/javascript-crumbs.git"
   },
   "main": "",
   "engines": {

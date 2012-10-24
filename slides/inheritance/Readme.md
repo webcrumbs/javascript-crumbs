@@ -81,6 +81,8 @@ function Triangle(side, height) {
     this.getArea = function() { return this.side * this.height / 2; };
 }
 ```
+
+- - -
 # Inheritance
 
 ## Inheritance through prototype chain
@@ -106,6 +108,7 @@ Now test it
 ```js
 var tri = new Triangle(5, 10);
 tri.getArea(); //25
+```
 
 ```js
 tri.toString() //"Triangle"
@@ -187,7 +190,8 @@ function Shape() {
 }
 ```
 
-In this way, every time new object is created using `new Shape()`, a new `name` property will be created and stored somewhere in memory. 
+In this way, every time new object is created using `new Shape()`,  
+a new `name` property will be created and stored somewhere in memory. 
 
 - - -
 # Inheritance
@@ -201,9 +205,12 @@ function Shape() {}
 Shape.prototype.name = 'shape';
 ```
 
-In this way every time an object is created using `new Shape()`, this object will not have its own property `name`, but will use the one added to the prototype.  
+In this way every time an object is created using `new Shape()`,  
+this object will not have its own property `name`,  
+but will use the one added to the prototype.  
 
-This is more efficient, but you should only use it for properties that don't change from one instance to another  
+This is more efficient, but you should only use it for properties  
+that don't change from one instance to another  
 
 Methods are ideal for this type of sharing.  
 
@@ -282,6 +289,7 @@ Triangle.prototype.getArea = function() { return this.side * this.height / 2; };
 
 ### Testing the improved geometric example
 
+```js
 var tri = new Triangle(5, 10);
 tri.getArea();  // 25
 tri.toString(); // "Triangle"
@@ -379,6 +387,8 @@ Shape.prototype.name = 'shape';
 Shape.prototype.toString = function() {
     return this.name;
 };
+```
+
 - - -
 # Inheritance
 
@@ -386,6 +396,7 @@ Shape.prototype.toString = function() {
 
 ### How to do it
 
+```js
 function Triangle(side, height) {
   this.side = side;
   this.height = height;
@@ -497,6 +508,7 @@ Shape.prototype.toString = function() {
 
 ### Applying `inherits(Child, Parent)` function
 
+```js
 function Triangle(side, height) {
     this.side = side;
     this.height = height;
@@ -525,5 +537,3 @@ my.toString(); // "Triangle"
 var shape = Shape();
 shape.name; //"Shape"
 ```
-
->>>>>>> 914e37087541f2c8775ae31b4c0828e1084a72d6

@@ -20,6 +20,10 @@
 - [Enrico Marino](http://onirame.com)
 - [Federico Spini](http://federicospini.com)
 
+### Backery
+
+[Computational Visual Design Lab](http://dia.uniroma3.it/~cvdla)
+
 ### Flour
 
 - JavaScript: The Good Parts - O'Really - Douglas Crockford 

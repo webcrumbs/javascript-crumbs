@@ -1,5 +1,7 @@
 # Syntax
 
+## Syntax
+
 ### C-like syntax
 
 JavaScript syntax borrows heavily from *C* 
@@ -10,7 +12,7 @@ and other C-like languages such as *Java* and *Perl*.
 In JavaScript, everything is case-sensitive:  
 *variables*, *function names*, and *operators* are all case-sensitive.
 
-### Identifiers
+## Identifiers
 
 An **identifier** is the name of a *variable*, *function*, *property*, or *argument*.
 
@@ -32,17 +34,17 @@ var Åmstrong; // OK
 var 1name;    // SyntaxError: Unexpected token ILLEGAL
 ```
 
-### Comments
+## Comments
 
 JavaScript has both single-line and block comments.
 
-#### single-line comment
+### single-line comment
 
 ```js
 // this is a single line comment
 ```
 
-#### block comment
+### block comment
 
 ```js
 /*
@@ -60,13 +62,11 @@ Statements are terminated by a semicolon `;`
 var diff = a - b; //OK
 var sum = a + b   //OK but don't forget semicolon!
 ```
-#### tips
-Even though a semicolon is not required at the end of statements, it is recommended to always include one.
-
-Including semicolons helps prevent errors of omission, and improves performance in certain situations,  
-because parsers try to correct syntax errors by inserting semicolons where they appear to belong.
-
-### Multiple statements
+> #### tips
+> Even though a semicolon is not required at the end of statements, it is recommended to always include one.
+> 
+> Including semicolons helps prevent errors of omission, and improves performance in certain situations,  
+> because parsers try to correct syntax errors by inserting semicolons where they appear to belong.
 
 Multiple statements can be combined into a code block between curly braces `{` and `}`
 

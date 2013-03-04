@@ -307,8 +307,8 @@ The keys are strings, the values can be of any type (even Object).
 > 
 > ```js
 > var obj = {
->     "s": 'string value'
->   , 'key': 'another value'
+>   "s": "string value",
+>   'key': "another value"
 > };
 > 
 

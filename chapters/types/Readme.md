@@ -294,12 +294,10 @@ The keys are strings, the values can be of any type (even Object).
 
 ```js
 {
-    s: 'string value'
-  , n: 123
-  , b: true
-  , o: {
-      k: 2
-    }
+  s: 'string value',
+  n: 123,
+  b: true,
+  o: { k: 2 }
 }
 ```
 

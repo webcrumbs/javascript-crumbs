@@ -1,6 +1,6 @@
 # javascript-crumbs
 
-## [Recipe](Readme.md)
+### [Recipe](Readme.md)
 
 1. [introduction](introduction/Readme.md)
 2. [syntax](syntax/Readme.md)

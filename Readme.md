@@ -1,7 +1,5 @@
 # javascript-crumbs
 
-## for beginners
-
 ### [Recipe](Readme.md)
 
 1. [introduction](chapters/introduction/Readme.md)
